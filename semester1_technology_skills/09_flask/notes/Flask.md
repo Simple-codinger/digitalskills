@@ -1,3 +1,6 @@
+> Alle Codebeispiele für diese Challenge sind auf replit.com abrufbar:
+> https://replit.com/@mheckner/Digital-Skills09Flask
+
 # Webentwicklung
 
 In dieser Woche werden die bisherigen Technologien (d.h. Python und Datenbanken) dazu verwendet um Applikationen für das Web zu entwickeln.

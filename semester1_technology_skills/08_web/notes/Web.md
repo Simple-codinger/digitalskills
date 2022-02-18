@@ -1,3 +1,6 @@
+> Alle Codebeispiele für diese Challenge sind auf replit.com abrufbar:
+> https://replit.com/@mheckner/Digital-Skills08Web
+
 # Das Internet
 
 In dieser Challenge geht es um Webentwicklung. Es werden neue Sprachen und Technologien vorgestellt, mit deren Hilfe sich **serverseitige** Anwendungen, d.h. Anwendungen die auf einem Server oder einem Cloudservice laufen und  *clientseitige* Anwendungen entwickeln lassen, die im Browser der Nutzer laufen.

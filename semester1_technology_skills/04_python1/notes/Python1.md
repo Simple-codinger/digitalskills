@@ -3,7 +3,7 @@
 
 # Python
 
-In dieser Challenge wird eine neue Programmiersprache (**Python**) vorgestellt. Python verfügt über alle Features von Sratch (und mehr) ist aber etwas weniger nutzerfreundlich, da der gesamte Code als Text geschrieben wird. Ziel dieses Semesters ist nicht, dass sie eine spezifische Programmiersprache beherrschen, sondern lernen, *wie* man programmiert. Am Ende ist nicht die Programmiersprache entscheidend sondern das grundlegende Verständnis wie man Programme schreibt. Die Syntax eine Programmiersprache mag am Anfang verwirrend erscheinen und man versteht, besonders zu Beginn, nicht   welche Bedeutung alle Elemente des Programmcodes haben. Aber je mehr Übung man beim Programmieren hat, desto leichter fällt das Verständnis und das Schreiben von eigenem Code.
+In dieser Challenge wird eine neue Programmiersprache (**Python**) vorgestellt. Python verfügt über alle Features von Scratch (und mehr) ist aber etwas weniger nutzerfreundlich, da der gesamte Code als Text geschrieben wird. Ziel dieses Semesters ist nicht, dass sie eine spezifische Programmiersprache beherrschen, sondern lernen, *wie* man programmiert. Am Ende ist nicht die Programmiersprache entscheidend sondern das grundlegende Verständnis wie man Programme schreibt. Die Syntax eine Programmiersprache mag am Anfang verwirrend erscheinen und man versteht, besonders zu Beginn, nicht   welche Bedeutung alle Elemente des Programmcodes haben. Aber je mehr Übung man beim Programmieren hat, desto leichter fällt das Verständnis und das Schreiben von eigenem Code.
 
 In Scratch wurden u.a. die folgenden Elemente einer Programmiersprache vorgestellt:
 

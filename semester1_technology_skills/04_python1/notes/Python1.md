@@ -175,7 +175,7 @@ Auch beim Klick auf die öffnende Klammer in Zeile 3 gibt replit einen Hinweis d
 
 Die Funktion ```get_string``` und der Block "ask" in Scratch liefern einen Rückgabewert als Ergebnis:
 
-![04_funktionen_rückgabe](./img/04_funktionen_rückgabe.png) 
+![04_funktionen_rückgabe](./img/04_funktionen_rueckgabe.png) 
 
 Weiterhin ähnelt ```print(f"Hello {answer}")``` der Kombination der folgenden Blöcke in Scratch:
 

@@ -178,7 +178,7 @@ Das Formular wird an die Route ```greet``` gesendet und verfügt über eine Eing
 
 Nach Neustart des Servers und Klick auf den Button enthält die URL zwar die Daten aus dem Formular (```/greet?name=Skywalker```), aber die Webseite zeigt einen Fehler:
 
-![09_not_found](/Users/markus/Dropbox/_additional shares/_be_disc/Semester 1 - Technologische Skills/09_Flask/img/09_not_found.png)
+![09_not_found](./img/09_not_found.png)
 
 ```app.py``` muss um eine Funktion, analog zur ```index```-Funktion ergänzt werden, um die Anfrage an die Route ```/greet``` verarbeiten zu können:
 
@@ -201,7 +201,7 @@ Die ```index()``` Funktion gibt jetzt nur noch das Formular an den Client zurüc
 
 Wenn das Formular jetzt abgeschickt wird erhält der Nutzer den folgenden Fehler:
 
-![09_template_not_found](/Users/markus/Dropbox/_additional shares/_be_disc/Semester 1 - Technologische Skills/09_Flask/img/09_template_not_found.png)
+![09_template_not_found](./img/09_template_not_found.png)
 
 Auch die Shell in replit zeigt eine Fehlermeldung:
 
@@ -330,7 +330,7 @@ Die obige Form verwendet die http-Methode ```GET```, um die Anfrage an den Serve
 
 Schickt man jetzt das Formular ab, erscheint die folgende Fehlermeldung:
 
-![09_method_not_allowed](/Users/markus/Dropbox/_additional shares/_be_disc/Semester 1 - Technologische Skills/09_Flask/img/09_method_not_allowed.png)
+![09_method_not_allowed](./img/09_method_not_allowed.png)
 
 Die Route in Flask muss ebenfalls angepasst werden, über Anfragen über die Methode ```POST``` verarbeiten zu können:
 
@@ -357,7 +357,7 @@ https://www.google.com/search?q=google+current+time
 
 Das Framework Flask implementiert mit **Model-View-Controller** ein bestimmtes *Entwurfsmuster*, bzw. eine bestimmte Programmierphilosophie:
 
-![09_mvc](/Users/markus/Dropbox/_additional shares/_be_disc/Semester 1 - Technologische Skills/09_Flask/img/09_mvc.png)
+![09_mvc](./img/09_mvc.png)
 
 Der **Controller** enthält die *Business-Logik*, d.h. den Code der den Input der User entgegennimmt und die Applikation steuert. Dieser Code steht in Flask in der Datei ```app.py```. Der **View** enthält die Templates und die  Darstellung des User Interfaces, d.h. den HTML- und CSS-Code. Das **Model** beinhaltet die Daten der Applikation, z.B. in Form einer SQL-Datenbank oder eines CSV-Files (die Beispiele bisher haben noch kein Model).
 
@@ -470,7 +470,7 @@ Testet man jetzt (nach einem Start des Flask Servers) die Seite im Browser, wird
 
 Wenn man in Chrome die Developer-Tools öffnet und das Formular erneut abschickt, fällt auf, dass unter *Form-Data* nur der Name (```name: Markus```) aus dem Formular, nicht aber die Sportart übermittelt wird:
 
-![09_missing_sport](/Users/markus/Dropbox/_additional shares/_be_disc/Semester 1 - Technologische Skills/09_Flask/img/09_missing_sport.png)
+![09_missing_sport](./img/09_missing_sport.png)
 
 Um die Sportart ebenfalls an den Server zu senden, benötigt das ```<select>``` Eingabefeld aus dem Formular ein Attribut ```name```:
 
@@ -861,7 +861,7 @@ Die Werte für die Variablen ```MAIL_PASSWORD``` etc. sind teils sensitive Daten
 
 Replit bietet die Möglichkeit diese Umgebungsvariablen anzulegen (**key** entspricht den Namen der Variable (z.B. ```MAIL_PASSWORD```), value dem konkreten Wert (z.B. ```mySuperSecret```)). Vgl. dazu den folgenden Screenshot:
 
-![09_env_vars](/Users/markus/Dropbox/_additional shares/_be_disc/Semester 1 - Technologische Skills/09_Flask/img/09_env_vars.png)
+![09_env_vars](./img/09_env_vars.png)
 
 Der Versand der Mail erfolgt in der Route ```/register```, mithilfe der Funktion ```mail.send()``` aus der Bibliothek ```flask_mail```:
 
@@ -964,7 +964,7 @@ pip install flask_session
 
 ```flask_session``` verwendet http-Cookies und speichert für jeden Besucher des Webservers eine eigene Session, die flask im Ordner ```flask_session``` abspeichert:
 
-![09_flask_session](/Users/markus/Dropbox/_additional shares/_be_disc/Semester 1 - Technologische Skills/09_Flask/img/09_flask_session.png)
+![09_flask_session](./img/09_flask_session.png)
 
 Zuerst wird die ```session```-Bibliothek so konfiguriert, dass die Sessions im Dateisystem des Webservers gespeichert werden werden und beispielsweise nicht in einer separaten Datenbank. Die Variable ```session``` wird als Dictionary verwendet, um den Nutzernamen jedes Besuchers abzuspeichern. Die Bibliothek ```flask_session``` kümmert sich darum, das die Variable ```session``` für alle Besucher des Webservers die korrekten Daten enthält. In unserem Fall soll die Variable den Namen von eingeloggten Nutzern enthalten und keinen Namen, falls die Nutzer nicht eingeloggt sind.
 

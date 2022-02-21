@@ -64,11 +64,11 @@ Mithilfe der Chrome Developer Tools, einem Werkzeug für Webentwickler, lässt s
 
 Im Tab Network lässt sich erkennen, dass der Aufruf der URL zu insgesamt 46 requests an den Webserver geführt hat. Der Webserver hat dem Browser als response mitgeteilt, dass er weitere Bilder, Texte und andere Daten vom Server anfragen muss, um die Seite korrekt darzustellen:
 
-![08_requests](/Users/markus/Dropbox/_additional shares/_be_disc/semester1_technology_skills/08_web/notes/img/08_requests.png)
+![08_requests](./img/08_requests.png)
 
 Scrollt man in der Liste der requests ganz nach oben, kann man sich die Header des ersten Requests an ```http://www.oth-regensburg.de/```ansehen:
 
-![08_request_response_headers](/Users/markus/Dropbox/_additional shares/_be_disc/semester1_technology_skills/08_web/notes/img/08_request_response_headers.png)
+![08_request_response_headers](./img/08_request_response_headers.png)
 
 Der Server schickt den Statuscode ```301 Moved Permanently``` an den Browser zurück, und leitet den Browser somit an eine neue Seite weiter. Der Header ```Location: https://www.oth-regensburg.de/```zeigt dem Browser die neue Seite mit, die er anschließend in einem neuen request aufruft. Durch den redirect können die Nutzer die Webseite mit http aufrufen, jede weitere Kommunikation mit dem Webserver kann dann aber über eine verschlüsselte Kommunikation über https erfolgen.
 
@@ -162,7 +162,7 @@ Die Bestandteile der HTML-Seite im Detail:
 
 Die Webseite wird im Speicher des Browsers als baumartige Datenstruktur angelegt:
 
-![08_html_structure](/Users/markus/Dropbox/_additional shares/_be_disc/semester1_technology_skills/08_web/notes/img/08_html_structure.png)
+![08_html_structure](./img/08_html_structure.png)
 
 Die Elemente sind dabei in einer Hierarchie verschachtelt. Rechteckige Knoten repräsentieren Tags, ovale Knoten sind Texte.
 
@@ -356,7 +356,7 @@ Sucht man man mit Google nach einem Begriff, ändert sich die URL im Browser wie
 
 Diese Variablen sind Teil des GET requests und lassen sich im Network-Tab der Chrome Developer Tools anzeigen:
 
-![08_get_params](/Users/markus/Dropbox/_additional shares/_be_disc/semester1_technology_skills/08_web/notes/img/08_get_params.png)
+![08_get_params](./img/08_get_params.png)
 
 Alle vom Browser aufgerufenen URLs werden in der History des Browsers gespeichert, d.h. sensitive Daten sollten nicht per GET übergeben werden.
 
@@ -847,13 +847,13 @@ Bisher haben wir HTML, CSS und Bootstrap kennengelernt. Zusammen helfen Sie die 
 
 Die Syntax ähnelt der Syntax von Python und für alle Scratch Elemente gibt es Entsprechungen in JavaScript:
 
-![08_scratch_set](/Users/markus/Dropbox/_additional shares/_be_disc/semester1_technology_skills/08_web/notes/img/08_scratch_set.png)
+![08_scratch_set](./img/08_scratch_set.png)
 
 ~~~javascript
 let counter = 0;
 ~~~
 
-![08_scratch_increment](/Users/markus/Dropbox/_additional shares/_be_disc/semester1_technology_skills/08_web/notes/img/08_scratch_increment.png)
+![08_scratch_increment](./img/08_scratch_increment.png)
 
 ~~~javascript
 counter = counter + 1;
@@ -861,7 +861,7 @@ counter += 1;
 counter++;
 ~~~
 
-![08_scratch_if_else](/Users/markus/Dropbox/_additional shares/_be_disc/semester1_technology_skills/08_web/notes/img/08_scratch_if.png)
+![08_scratch_if_else](./img/08_scratch_if.png)
 
 ~~~javascript
 if (x < y) {
@@ -869,7 +869,7 @@ if (x < y) {
 }
 ~~~
 
-![08_scratch_if_else](/Users/markus/Dropbox/_additional shares/_be_disc/semester1_technology_skills/08_web/notes/img/08_scratch_if_else.png)
+![08_scratch_if_else](./img/08_scratch_if_else.png)
 
 ~~~javascript
 if (x < y) {
@@ -879,7 +879,7 @@ if (x < y) {
 }
 ~~~
 
-![08_scratch_if_else_else](/Users/markus/Dropbox/_additional shares/_be_disc/semester1_technology_skills/08_web/notes/img/08_scratch_if_else_else.png)
+![08_scratch_if_else_else](./img/08_scratch_if_else_else.png)
 
 ~~~javascript
 if (x < y) {
@@ -891,7 +891,7 @@ if (x < y) {
 }
 ~~~
 
-![08_scratch_while](/Users/markus/Dropbox/_additional shares/_be_disc/semester1_technology_skills/08_web/notes/img/08_scratch_while.png)
+![08_scratch_while](./img/08_scratch_while.png)
 
 ~~~javascript
 while (true) {
@@ -899,7 +899,7 @@ while (true) {
 }
 ~~~
 
-![08_scratch_for](/Users/markus/Dropbox/_additional shares/_be_disc/semester1_technology_skills/08_web/notes/img/08_scratch_for.png)
+![08_scratch_for](./img/08_scratch_for.png)
 
 ~~~javascript
 for (let i = 0; i < 3; i++) {

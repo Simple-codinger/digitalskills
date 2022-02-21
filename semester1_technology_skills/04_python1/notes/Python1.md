@@ -38,13 +38,13 @@ Das obige Programm ist für den Menschen lesbar, aber nicht direkt für den Comp
 
 In diesem Kurs verwenden wir die IDE replit.com, die u.a. einen Dateiexplorer und einen Texteditor bietet, in dem sich der Code ausführen lässt.
 
-![04_replit_editor](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_replit_editor.png)
+![04_replit_editor](./img/04_replit_editor.png)
 
 Auf der linken Seite befindet sich ein Dateiexplorer in dem sich (wie unter Windows) neue Ordner und Dateien anlegen lassen und Dateien kopieren lassen. Aktuell ist die Datei ```hello.py``` ausgewählt und im Texteditor rechts daneben geöffnet. Dort kann die Datei bearbeitet, erweitert und gespeichert werden. Der Code im Texteditor kann von Menschen gelesen werden, wird aber nicht direkt vom Computer verstanden und muss erst in die Sprache des Computers übersetzt werden, bevor er ausgeführt werden kann. Diese Übersetzung und anschließende Ausführung erfolgt in Python mit einem einzigen Befehl.
 
 Dieser und andere Befehle lassen sich in replit (und auch auf allen anderen Computern) durch Eintippen in eine Shell auführen. Die folgende Abbildung zeigt die Shell in replit:
 
-![04_shell](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_shell.png)
+![04_shell](./img/04_shell.png)
 
 Sowohl IDE als auch eine Shell sind im Prinzip auf jedem Computer installierbar (IDE) bzw. bereits verfügbar (Shell). Um dieses Setup nicht selbst durchführen zu müssen, bündelt replit beide Komponenten in einer jederzeit verfügbaren (sofern natürlich eine Internetverbindung besteht) browserbasierten Anwendung, die immer unabhängig vom eigenen Rechner funktioniert. Replit bietet also einen **virtuellen Rechner in der Cloud** und alle Kommandos, die in den Browser getippt werden, werden an diesen Rechner geschickt und dort ausgeführt.
 
@@ -58,13 +58,13 @@ Die folgende Zeile bedeutet, dass der aktuelle Ordner in der Kommandozeile "geö
 
 Auch wenn der Dateiexplorer dies nicht anzeigt, ist dies der selbe Ordner, in dem auch die Datei ```hello.py``` liegt. Um die Datei ```hello.py``` in Maschinencode zu übersetzen, muss man auf der Kommandozeile den Befehl ```python3 hello.py``` eingeben:
 
-![04_python3_hello](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_python3_hello.png)
+![04_python3_hello](./img/04_python3_hello.png)
 
 Der obige Befehl übersetzt also das Programm ```hello.py``` führt es aus und gibt die Kommandozeile danach wieder frei (symbolisiert durch den Ordnernamen in blau und das weiße Rechteck am Ende der Zeile).
 
 Mithilfe der Kommandozeile lässt sich mit dem Befehl ```ls``` anzeigen, welche Dateien sich im aktuellen Ordner befinden:
 
-![04_ls](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_ls.png)
+![04_ls](./img/04_ls.png)
 
 Um Dateien in replit zu löschen klickt man im Dateiexplorer auf die drei vertikalen Punkte (oder klickt mit der rechten Maustaste und wählt dort Delete). Alternativ lässt sich eine Datei aber auch auf der Shell mit dem Befehl ```rm``` löschen:
 
@@ -80,7 +80,7 @@ In der letzten Challenge zu Scratch wurden Funktionen und Parameter (= Eingaben)
 
 Beispielsweise ist der Block "say" konzeptuell sehr nahe an ```print``` in Python:
 
-![04_scratch_say](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_scratch_say.png)
+![04_scratch_say](./img/04_scratch_say.png)
 
 ```python
 print("Hello world!")
@@ -92,19 +92,19 @@ Die Klammern ```()``` kennzeichnen ```print``` als Funktion und ermöglichen es 
 
 Die Funktion ```print``` erzeugt eine sichtbare **Ausgabe** auf der Shell:
 
-![04_funktionen_ausgabe](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_funktionen_ausgabe.png)
+![04_funktionen_ausgabe](./img/04_funktionen_ausgabe.png)
 
 Mögliche Ausgaben sind (wie hier) die Ausgabe von Text auf der Shell oder das Abspielen einer Sounddatei).
 
 Auch in Scratch gibt es Ausgaben, wie z.B. die des Blocks "say":
 
-![04_funktionen_scratch_ausgabe](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_funktionen_scratch_ausgabe.png)
+![04_funktionen_scratch_ausgabe](./img/04_funktionen_scratch_ausgabe.png)
 
 Neben Ausgaben, gibt es in Scratch auch Blöcke mit **Rückgabewerten**, die in Programmen weiterverwendet werden können (im Gegensatz zu einer Ausgabe, die einmal erscheint und dann "verschwindet"). Die Rückgabewerte können in **Variablen** gespeichert werden. 
 
 Beispielsweise speichert der Block "ask" in Scratch ein Ergebnis im Block "answer":
 
-![04_funktionen_scratch_return](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_funktionen_scratch_return.png)
+![04_funktionen_scratch_return](./img/04_funktionen_scratch_return.png)
 
 Das Äquivalent in Python sieht wie folgt aus:
 
@@ -169,17 +169,17 @@ Der Parameter ```"What's your name?"``` lässt sich in ```What's your name? " ``
 
 Replit (und viele andere IDEs) unterstützen Entwickler dabei Strukturen im Code zu erkennen. Beispielsweise wird ```answer```, wenn es von ```{}``` umgeben wird in weißer Farbe (d.h. als Variable) gekennzeichnet:
 
-![04_replit_highlighting](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_replit_highlighting.png)
+![04_replit_highlighting](./img/04_replit_highlighting.png)
 
 Auch beim Klick auf die öffnende Klammer in Zeile 3 gibt replit einen Hinweis durch das automatische markieren der schließenden Klammer in der selben Zeile.
 
 Die Funktion ```get_string``` und der Block "ask" in Scratch liefern einen Rückgabewert als Ergebnis:
 
-![04_funktionen_rückgabe](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_funktionen_rückgabe.png) 
+![04_funktionen_rückgabe](./img/04_funktionen_rückgabe.png) 
 
 Weiterhin ähnelt ```print(f"Hello {answer}")``` der Kombination der folgenden Blöcke in Scratch:
 
-![04_scratch_format_string](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_scratch_format_string.png)
+![04_scratch_format_string](./img/04_scratch_format_string.png)
 
 In beiden Fällen wird eine Variable in einen String eingefügt und direkt angezeigt.
 
@@ -187,7 +187,7 @@ In beiden Fällen wird eine Variable in einen String eingefügt und direkt angez
 
 Die bisherigen Python-Codebeispiele integrieren Variablen und Funktionen direkt in das Python-Programm.  Häufig soll aber ein definierter Startpunkt beim Ausführen eines Python-Programms definiert werden. In Scratch ist der definierte Startpunkt eines Programms durch den Block "when green flag clicked" gekennzeichnet:
 
-![04_scratch_green_flag](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_scratch_green_flag.png)
+![04_scratch_green_flag](./img/04_scratch_green_flag.png)
 
 Das Äquivalent von "when green flag clicked" sieht in Python wie folgt aus:
 
@@ -231,7 +231,7 @@ Linux bietet weitere Befehle, die auf der Shell ausgeführt werden können:
 
 Neue Dateien und Ordner lassen sich in replit über den Dateiexplorer anlegen (+-Symbole):
 
-![04_replit_file_folder](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_replit_file_folder.png)
+![04_replit_file_folder](./img/04_replit_file_folder.png)
 
 Alternativ geht dies auch über die Shell:
 
@@ -272,7 +272,7 @@ touch mario.py
 
 Die angelegten Ordner und die Datei ```mario.py``` erscheinen in replit auch im Datei-Explorer:
 
-![04_replit_files_touch](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_replit_files_touch.png)
+![04_replit_files_touch](./img/04_replit_files_touch.png)
 
 Mit zweimaliger Eingabe des Befehls ```cd ..``` gelangt man wieder zum Ausgangsordner:
 
@@ -340,7 +340,7 @@ In Python lassen sich unterschiedliche mathematische Operatoren verwenden:
 
 In Scratch lässt sich eine Variable ```counter``` anlegen und deren Wert auf ```0``` wie folgt setzen:
 
-![04_scratch_define_var](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_scratch_define_var.png)
+![04_scratch_define_var](./img/04_scratch_define_var.png)
 
 Der Code in Python sieht dazu wie folgt aus:
 
@@ -350,7 +350,7 @@ counter = 0
 
 Der Wert von ```counter``` lässt sich wie folgt um 1 erhöhen:
 
-![04_scratch_change_var](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_scratch_change_var.png)
+![04_scratch_change_var](./img/04_scratch_change_var.png)
 
 In Python geht dies wie folgt:
 
@@ -438,7 +438,7 @@ Code und Kommentare sollten immer auf englisch geschrieben werden, um Programme 
 
 In Scratch kann ein Block zwei Variablen vergleichen:
 
-![04_scratch_if](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_scratch_if.png)
+![04_scratch_if](./img/04_scratch_if.png)
 
 In Python sieht der dazugehörige Code wie folgt aus:
 
@@ -451,7 +451,7 @@ Achtung: Die Zeile ```print``` mus eingerückt sein, um nur dann ausgeführt zu 
 
 If und else in Scratch...
 
-![04_scratch_if_else](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_scratch_if_else.png)
+![04_scratch_if_else](./img/04_scratch_if_else.png)
 
 ... können in Python wie folgt umgesetzt werden:
 
@@ -464,7 +464,7 @@ else:
 
 Ein "else if" lässt sich wie folgt in Scratch...
 
-![04_scratch_if_else](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_scratch_if_else.png)
+![04_scratch_if_else](./img/04_scratch_if_else.png)
 
 ... und in Python umsetzen:
 
@@ -605,7 +605,7 @@ if __name__ == "__main__":
 
 Das Programm ist korrekt, aber das Design des Programms lässt sich mit einer Schleife verbessern. In Scratch lässt sich eine Endlosschleife mit dem Block "forever" darstellen...
 
-![04_scratch_forever](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_scratch_forever.png)
+![04_scratch_forever](./img/04_scratch_forever.png)
 
 ... und in Python mit dem folgenden Code:
 
@@ -618,7 +618,7 @@ Die while-Schleife wiederholt sich solange, wie die Bedingung in der ersten Zeil
 
 Der Block "repeat" lässt sich in Scratch wie folgt darstellen...
 
-![04_scratch_repeat](/Users/markus/Repos/digitalskills/semester1_technology_skills/04_python1/notes/img/04_scratch_repeat.png)
+![04_scratch_repeat](./img/04_scratch_repeat.png)
 
 .. und in Python mit dem folgenden Code:
 

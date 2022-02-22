@@ -194,10 +194,233 @@ main()
 
 # Strings
 
-Länge?
+String sind in Python Sequenzen aus einzelnen Buchstaben. Das folgende Programm ermittelt die Länge eines Strings (```string0.py```):
+
+~~~python
+from cs50 import get_string
+
+def main():
+  name = get_string("Name eingeben: ")
+  length = len(name)
+  print(f"Länge: {length}")
+
+main()
+~~~
+
+Der folgende Code geht einen String Zeichen für Zeichen durch und gibt jeden Buchstaben als Großbuchstaben aus (```string1.py```):
+
+~~~python
+from cs50 import get_string
+
+def main():
+  before = get_string("Before:  ")
+  print("After:  ", end="")
+  for c in before:
+      print(c.upper(), end="")
+  print()
+
+main()
+~~~
+
+Zuerst wird ein String in der Variable ```before``` eingelesen. Anschließend wird am Beginn einer neuen Zeile *After:* ausgegeben, jedoch ohne eine neue Zeile zu beginnen (vgl. ```print("After:  ", end="")```).
+
+Die Schleife ```for c in before:``` geht jedes Zeichen des Strings einzeln durch, d.h. der Wert von ```c``` nimmt in innerhalb der Schleife jeweils einen anderen Buchstaben des Strings an. Die Funktion ```upper()``` wird durch das Objekt String in Python bereitgestellt und gibt den Buchstaben als Großbuchstabe zurück.
+
+Achtung: ```upper()``` wandelt die Zeichen des Strings nicht um, da Strings in Python **immutable**, d.h. unveränderlich sind. Die Ausgabe des Strings ist demnach im folgenden Beispiel unverändert (```string2.py```): 
+
+~~~python
+from cs50 import get_string
+
+def main():
+  before = get_string("Before:  ")
+  print("After:  ", end="")
+  for c in before:
+      print(c.upper(), end="")
+  print()
+  print(f"String: {before}")
+
+main()
+~~~
+
+Ausgabe:
+
+~~~shell
+$ python3 string2.py 
+Before:  hallo
+After:  HALLO
+String: hallo
+~~~
+
+Der folgende Code wandelt einen String in Großbuchstaben um (```string3.py```):
+
+~~~python
+from cs50 import get_string
+
+def main():
+  before = get_string("Before:  ")
+  print(f"Before:  {before}")
+  after = before.upper()
+  print(f"After:  {after}")
+
+main()
+~~~
+
+Der ursprüngliche String ```before``` bleibt aber unverändert (Strings sind immutable): Python erzeugt einen neuen String ```after``` und kopiert dort die Zeichen als Großbuchstaben.
+
+Ausgabe:
+
+~~~shell
+$ python3 string3.py 
+Before:  hallo
+Before:  hallo
+After:  HALLO
+~~~
+
+Eine häufige Aufgabe ist es Strings in einzelne Wörter zu zerlegen (```string4.py```):
+
+~~~python
+from cs50 import get_string
+
+def main():
+  sentence = get_string("Sentence to split:  ")
+  words = sentence.split()
+
+  for word in words:
+    print(f"Word: {word}")
+
+main()
+~~~
+
+Die Ausgabe des Programms ist wie folgt:
+
+~~~shell
+$ python3 string4.py 
+Sentence to split:  Hello, it's me
+Word: Hello,
+Word: it's
+Word: me
+~~~
 
 # Parameter von der Shell
 
+Python-Programmen lassen sich auch Variablen direkt von der Shell übergeben. Dazu wird in Python die Bibliothek ```sys```benötigt.
 
+Der folgende Code überprüft, ob beim Aufruf des Programms ein Parameter von der Shell übergeben wurde (```argv0.py```):
+
+~~~python
+# Prints a command-line argument
+
+from sys import argv
+
+def main():
+  if len(argv) == 2:
+      print(f"hello, {argv[1]}")
+  else:
+      print("hello, world")
+
+main()
+~~~
+
+Zuerst wird die Liste ```argv``` aus der Bibliothek ```sys``` importiert. Diese Liste enthält die Parameter die von der Kommandozeile an den Python Interpreter übergeben wurden. Der folgenden Aufruf...
+
+~~~shell
+$ python3 argv0.py Markus
+~~~
+
+führt zu folgenden Werten in ```argv```: ```argv[0]```entspricht dem Python-Skript (hier: ```argv.py```) und ```argv[1]``` dem ersten durch Leerzeichen abgetrennten String nach dem Skriptnamen (hier: ```Markus```).
+
+Die Ausgabe des Programms mit obigen Aufruf ist demnach wie folgt:
+
+~~~shell
+$ python3 argv0.py Markus
+hello, Markus
+~~~
+
+Programme lassen sich beenden, wenn eine bestimmte Bedingung eintrifft (```argv1.py```):
+
+~~~python
+# Prints a command-line argument
+
+from sys import argv, exit
+
+def main():
+  if len(argv) != 2:
+    print("Missing command-line argument")
+    exit(1)
+
+  print(f"hello, {argv[1]}")
+  exit(0)
+
+main()
+~~~
+
+Wird das Programm ohne Parameter auf der Shell ausgeführt, erhält man die folgende Fehlermeldung:
+
+~~~shell
+$ python3 argv1.py 
+Missing command-line argument
+~~~
+
+Erst mit einem Parameter gibt das Programm den Parameter aus:
+
+~~~shell
+$ python3 argv1.py hello
+hello, hello
+~~~
+
+Die Parameter der Funktion exit signalisieren dabei einen Fehler (```1```) oder ein normales Ende des Programms (```0```).
+
+Das obige Programm lässt sich umschreiben, um klarer zu kennzeichnen aus welcher Bibliothek ```argv``` und ```exit()``` stammen (```argv2.py```):
+
+~~~python
+# Prints a command-line argument
+
+import sys
+
+def main():
+  if len(sys.argv) != 2:
+    print("Missing command-line argument")
+    sys.exit(1)
+
+  print(f"hello, {sys.argv[1]}")
+  sys.exit(0)
+
+main()
+~~~
+
+Das Voranstellen von ```sys.``` vor ```argv``` bzw. ```exit()``` kennzeichnen diese als zur Bibliothek ```sys``` zugehörig. 
+
+# Algorithmen
+
+Suche in einer Liste
+
+~~~python
+from cs50 import get_string
+
+s = get_string("Do you agree? ")
+
+s = s.lower()
+
+if s in ["y", "yes"]:
+    print("Agreed.")
+elif s in ["n", "no"]:
+    print("Not agreed.")
+~~~
+
+~~~python
+x = txt.split()
+~~~
+
+~~~shell
+count = words.count("hello")
+~~~
+
+~~~python
+round
+~~~
+
+# Dokumentation
+
+Die offizielle Python-Dokumentation (https://docs.python.org/3/) eräutert die in Python bereits vorhandenen Funktionen. Beispielsweise findet man dort alle Methoden zur Stringbearbeitung:  https://docs.python.org/3/library/stdtypes.html#string-methods. Auf dieser Dokumentation findet sich auch eine Beschreibung, wie man Fließkommazahlen runden kann: https://docs.python.org/3/library/functions.html?highlight=round#round
 
 Quelle: Angepasst und ergänzt von CS50, Harvard University, 2022 - https://cs50.harvard.edu/x/2022/

@@ -4,10 +4,10 @@
 
 ## Was es zu tun gibt
 
-1. Replit konfigurieren (einmalig für alle Challenges)
+1. **Replit konfigurieren** (einmalig für alle Challenges)
 1. Programmieren Sie **Hello**
 1. Progammieren Sie **Mario**
-1. Programmieren Sie **Cash**
+1. Programmieren Sie **Cash** (optional)
 
 ## Replit konfigurieren
 
@@ -175,6 +175,8 @@ Hinweis: Sie können den obigen Befehl so oft ausführen wie Sie wollen. Bewerte
 ## Mario
 
 ### Vorbereitung
+
+TODO - Anpassen von Hello
 
 ### Specs
 
@@ -367,6 +369,72 @@ Testen Sie Ihren Code manuell mit den folgenden Eingaben. Funktioniert das Progr
 Passen Sie Ihr Programm am Ende so an, dass anstelle der Punkte Leerzeichen ausgegeben werden.
 
 #### Automatisierte Tests
+
+Wenn alle manuellen Tests erfolgreich waren, können Sie Ihr Programm auch wie folgt automatisch auf der Console testen:
+
+~~~shell 
+test EXERCISE_NAME
+~~~
+
+Tipp: Der ```EXERCISE_NAME``` beginnt mit ```01-intro-``` und endet mit Ihrem GitHub Usernamen.
+
+TODO: Wie kann man das besser erklären?!
+
+### Abgabe
+
+Geben Sie Ihr Programm mit dem folgenden Befehl auf der Console ab:
+
+~~~shell
+submit EXERCISE_NAME
+~~~
+
+Hinweis: Sie können den obigen Befehl so oft ausführen wie Sie wollen. Bewertet wird immer der mit dem letzten Befehl hochgeladene Code.
+
+# Cash (optional)
+
+Diese Aufgabe ist optional und bietet Ihnen noch mehr Übungsmöglichkeiten.
+
+### Vorbereitung
+
+TODO - Anpassen von Hello
+
+### Specs
+
+Wenn Sie Wechselgeld an einen Käufer ausgeben, versuchen Sie so wenige Münzen wie möglich zurückzugeben, damit Ihnen die Münzen nicht ausgehen, und um die Kunden nicht zu verärgern. Praktischerweise gibt es in der Informatik einen Ansatz, um dieses Problem zu lösen.
+
+#### Greedy-Algorithmus
+
+Laut Wikipedia (https://de.wikipedia.org/wiki/Greedy-Algorithmus) "zeichnen sich [Greedy-Algorithmen] dadurch aus, dass sie schrittweise den Folgezustand auswählen, der zum Zeitpunkt der Wahl den größten Gewinn bzw. das beste Ergebnis [...] verspricht". 
+
+![04_lab_coins](img/04_lab_coins.jpeg)
+
+Was bedeutet das für das oben geschilderte Problem? Angenommen eine Kassiererin möchte Kunden Wechselgeld geben und in der Schublade der Kassiererin befinden sich alle Euro Münzen: € 2, € 1, 50 Cent, 20 Cent, 10 Cent, 5 Cent, 2 Cent und 1 Cent. Das zu lösende Problem ist, welche Münzen und wie viele von jeder Münze als Wechselgeld ausgehändigt werden muss.
+
+Eine "greedy"-Kassierin will das Problem mit jedem Griff in die Wechselgeldschublade möglichst stark verkleinern. Wenn ein Kunde 76 Cent bekommt, dann wird die Kassiererin erst ein 50 Cent-Stück nehmen, da dies das Problem bei einem Rückgabebetrag von 0 anzukommen maximal verkleinert. Das Problem hat sich dadurch von 76 Cent auf 26 Cent verkleinert, da 76 - 50 = 26. Dieses kleinere Problem kann jetzt auf die selbe Art gelöst werden. Eine 50 Cent Münze kann jetzt offensichtlich nicht mehr zurückgegeben werden, aber 26 - 25 = 1 funktioniert. Bleibt am Ende eine 1 Cent Münze und das Problem ist gelöst wenn auch diese an die Kunden zurückgegeben wurde. Der Kunde erhält demnach insgesamt 3 Münzen (1 x 50 Cent, 1 x 25 Cent und 1 x 1 Cent).
+
+Dieser Algorithmus bietet eine optimale Lösung für das Problem und liefert immer die minimale Anzahl von Münzen zurück.
+
+Implentieren Sie Ihr Programm in der Datei ```cash.py```. Dieses Programm fragt die Nutzer zuerst wie viel Wechselgeld sie bekommen und gibt danach die dazu notwendige Anzahl von Münzen aus:
+
+~~~
+$ python cash.py 
+Cash: 76
+Minimale Anzahl Münzen: 4
+~~~
+
+* Verwenden Sie ```get_int``` um den Betrag des Wechselgelds von den Nutzern einzulesen. Lesen Sie den Betrag in Cent ein, d.h. ein Wechselgeld von € 4,31 entspricht einer Eingabe von 431.
+* Geben Sie das Ergebnis mit ```print``` aus.
+* Lagern Sie die Berechnung der zurückzugebenden Münzen in eine Funktion ```get_coins``` aus, welche die Anzahl dieser Münzen als Ergebnis zurückgibt. In den Notes finden Sie Beispiele für solche Funktionen.
+* Fordern Sie die Nutzer erneut zu einer Eingabe auf, falls diese eine negative Zahl eingeben.
+
+### Testen
+
+Testen Sie, ob Ihr Code wie erwartet für die folgenden Eingaben funktioniert:
+
+* ```-1``` oder anderen negativen Eingaben
+* ```0```?
+* ```1``` oder anderen positiven Eingaben
+* keine Eingabe, wenn die Nutzer direkt Enter drücken
 
 Wenn alle manuellen Tests erfolgreich waren, können Sie Ihr Programm auch wie folgt automatisch auf der Console testen:
 

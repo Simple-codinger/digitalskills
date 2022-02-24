@@ -192,6 +192,25 @@ main()
 
 ```sum()``` berechnet die Summe aller Elemente der Liste, und ```len()``` zählt die Elemente der Liste. Das Design des Programms ist jetzt besser, da lediglich der Wert von ```NUM_SCORES``` an einer Stelle geändert werden muss und das Einlesen der Werte und die Berechnung passen sich automatisch an.
 
+Suchen in einer Liste. Das folgende Beispiel erstellt eine Liste von Wörtern, fragt die Nutzer nach dem Wort und gibt anschließend aus, ob das Wort in der Liste enthalten ist oder nicht (```dictionary.py```):
+
+~~~shell
+from cs50 import get_string
+
+DICTIONARY = ["Alex", "Bruce", "Charles"]
+
+def main():
+  name = get_string("Enter name: ")
+  if name in DICTIONARY:
+    print("Korrekter Name!")
+  else:
+    print("Diesen Namen kenne ich nicht!")
+
+main()
+~~~
+
+Der Code ```if name in DICTIONARY``` sucht den Namen im Dictionary und gibt ```True``` zurück, wenn der Name enthalten ist und ```False``` wenn nicht. 
+
 # Dictionaries
 
 In Listen lassen sich Daten abspeichern und anhand der Position abrufen. Manchmal möchte man aber Daten (= **Werte**) nicht anhand einer Position sondern anhand einer bestimmten Zeichenkombination (= **Key**) abfragen. Ein Beispiel dafür ist ein Telefonbuch: Der Key entspricht dem Namen nach dem man sucht und der Wert ist die Telefonnumer. Python bietet dazu eine besondere Liste, das **Dictionary**.
@@ -356,7 +375,28 @@ Word: it's
 Word: me
 ~~~
 
+Das folgende Programm (```string5.py```) zeigt, wie man das Vorkommen von Zeichen in einem String zählen kann:
 
+~~~python
+from cs50 import get_string
+
+def main():
+  sentence = get_string("Sentence:  ")
+  count = sentence.count("a")
+  print(count)
+
+main()
+~~~
+
+Ruft man das Programm auf, erhält man folgenden Ausgabe:
+
+~~~shell
+python string5.py 
+Sentence:  hallo
+1
+~~~
+
+```a``` kommt einmal im Wort hallo vor, wird hello eingebeben, ist die Ausgabe 0.
 
 # Parameter von der Shell
 
@@ -462,18 +502,6 @@ if s in ["y", "yes"]:
     print("Agreed.")
 elif s in ["n", "no"]:
     print("Not agreed.")
-~~~
-
-~~~python
-x = txt.split()
-~~~
-
-~~~shell
-count = words.count("hello")
-~~~
-
-~~~python
-round
 ~~~
 
 # Dokumentation

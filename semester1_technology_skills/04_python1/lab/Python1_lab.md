@@ -7,7 +7,7 @@
 1. **Replit konfigurieren** (einmalig für alle Challenges)
 1. Programmieren Sie **Hello**
 1. Progammieren Sie **Mario**
-1. Programmieren Sie **Cash** (optional)
+1. Programmieren Sie **Cash**
 
 ## Replit konfigurieren
 
@@ -278,7 +278,7 @@ Es gibt viele Varianten den Pseudocode zu schreiben, die ist nur eine Variante:
 ~~~
 1 User nach Höhe fragen
 2 Wenn Höhe weniger als 1 oder mehr als 8 (oder garkeine Ganzzahl ist) wieder bei 1 anfangen
-3 Iteriere von 1 bis 8 und
+3 Iteriere von 1 bis i und
 	Gebe in Iteration i, i-#-Zeichen aus und anschließend eine neue Zeile
 ~~~
 
@@ -300,7 +300,7 @@ Gespeichert: 4
 
 Tipps:
 
-* Sie können einen formatierten String mit ```print(f"Höhe: {height}")``` ausgeben, wobei ```height```eine Variable ist.
+* Sie können einen formatierten String mit ```print(f"Gespeichert: {height}")``` ausgeben, wobei ```height```eine Variable ist.
 * Ganzzahlen lassen sich von den Nutzern mit der Funktion ```get_int``` einlesen. Dazu müssen Sie die Funktion aus der Bibliothek ```cs50``` importieren.
 * Eine ```while``` Schleife führt Code wiederholt aus
 
@@ -331,7 +331,7 @@ Tipps:
 
   ~~~shell
   for i in range(n):
-    for i in range(n):
+    for j in range(n):
         print("#", end="")
     print()
   ~~~
@@ -390,7 +390,7 @@ submit EXERCISE_NAME
 
 Hinweis: Sie können den obigen Befehl so oft ausführen wie Sie wollen. Bewertet wird immer der mit dem letzten Befehl hochgeladene Code.
 
-# Cash (optional)
+# Cash
 
 Diese Aufgabe ist optional und bietet Ihnen noch mehr Übungsmöglichkeiten.
 

@@ -192,6 +192,61 @@ main()
 
 ```sum()``` berechnet die Summe aller Elemente der Liste, und ```len()``` zählt die Elemente der Liste. Das Design des Programms ist jetzt besser, da lediglich der Wert von ```NUM_SCORES``` an einer Stelle geändert werden muss und das Einlesen der Werte und die Berechnung passen sich automatisch an.
 
+# Dictionaries
+
+In Listen lassen sich Daten abspeichern und anhand der Position abrufen. Manchmal möchte man aber Daten (= **Werte**) nicht anhand einer Position sondern anhand einer bestimmten Zeichenkombination (= **Key**) abfragen. Ein Beispiel dafür ist ein Telefonbuch: Der Key entspricht dem Namen nach dem man sucht und der Wert ist die Telefonnumer. Python bietet dazu eine besondere Liste, das **Dictionary**.
+
+Das folgende Beispiel zeigt eine Implementierung eines Telefonbuchs mithilfe eines Dictionaries in Python (```phonebook0.py```):
+
+~~~python
+# Implements a phone book
+
+from cs50 import get_string
+
+phonebook = {
+    "Polizei": 110,
+    "Feuerwehr": 112
+}
+
+def main():
+  # Search for name
+  name = get_string("Name: ")
+  if name in phonebook:
+      print(f"Number: {phonebook[name]}")
+    
+main()
+~~~
+
+Werte lassen sich über die Keys auch direkt aus dem Dictionary mit ```phonebook.get("Polizei")``` abfragen. Als Ergebnis erhält man den unter dem Key gespeicherten Wert (hier: ```110```).
+
+Fragt man Werte für Keys aus dem Dictionary an, die dort nicht existieren, gibt die Funktion ```get``` den Wert ```None```zurück (```phonebook1.py```):
+
+~~~python
+from cs50 import get_string
+
+phonebook = {
+    "Polizei": 110,
+    "Feuerwehr": 112
+}
+
+def main():
+  police_number = phonebook.get("Polizei")
+  print(f"Polizei: {police_number}")
+
+  invalild_key = phonebook.get("Notruf")
+  print(f"Invaild Key: {invalild_key}")
+    
+main()
+~~~
+
+Die Ausgabe des Programms ist wie folgt:
+
+~~~shell
+$ python phonebook1.py 
+Polizei: 110
+Invaild Key: None
+~~~
+
 # Strings
 
 String sind in Python Sequenzen aus einzelnen Buchstaben. Das folgende Programm ermittelt die Länge eines Strings (```string0.py```):
@@ -300,6 +355,8 @@ Word: Hello,
 Word: it's
 Word: me
 ~~~
+
+
 
 # Parameter von der Shell
 

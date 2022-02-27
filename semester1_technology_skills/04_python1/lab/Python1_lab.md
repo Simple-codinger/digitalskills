@@ -108,6 +108,7 @@ Glückwunsch! Sie haben replit erfolgreich eingerichtet und ihr erstes Python-Pr
 
 Klicken Sie auf den folgenden Link, um die Aufgabe zu beginnen:
 
+> TODO: neuer Link
 https://classroom.github.com/assignment-invitations/3393be936636f2d6916b7a643a2dc599/status
 
 Auf der Seite erscheint ein Link unter dem Text "Your assignment repository has been created" wie der Folgende:
@@ -118,7 +119,7 @@ https://github.com/ndhbr-classroom/01-intro-mheckner
 
 Kopieren Sie den Teil nach ```-classroom``` (hier: ```01-intro-mheckner``` mit Rechtsklick und Kopieren Sie diesen mit Rechtsklick mit der Maus und Wählen von Kopieren aus dem Kontextmenü (alternativ ```Strg+C``` unter Windows und ```Cmd+C``` unter Mac OS). Dieser Teil ist der Name Ihrer Aufgabe (```EXERCISE_NAME```)
 
-Laden Sie sich den Startecode für die Aufgabe mit dem folgenden Befehl auf der Console in replit herunter:
+Laden Sie sich den Startercode für die Aufgabe mit dem folgenden Befehl auf der Console in replit herunter:
 
 ~~~shell
 get EXERCISE_NAME
@@ -155,12 +156,13 @@ Testen Sie Ihr Programm mit den folgenden Eingaben, bevor Sie es abgeben.
 Wenn alle manuellen Tests erfolgreich waren, können Sie Ihr Programm auch wie folgt automatisch auf der Console testen:
 
 ~~~shell 
-test EXERCISE_NAME
+check EXERCISE_NAME
 ~~~
 
-Tipp: Der ```EXERCISE_NAME``` beginnt mit ```01-intro-``` und endet mit Ihrem GitHub Usernamen.
+Tipp: Der ```EXERCISE_NAME``` beginnt mit ```01-intro-``` und endet mit Ihrem GitHub Usernamen. Der Name des aktuellen Ordners, in dem sich die Aufgabe befindet, ist gleichzeitig der ```ÈXERCISE_NAME```. Den Namen des aktuellen Ordners können Sie außerdem direkt vor Ihrem Befehl in der Konsole entnehmen.
 
 TODO: Wie kann man das besser erklären?!
+> Reicht das?
 
 ### Abgabe
 
@@ -176,7 +178,20 @@ Hinweis: Sie können den obigen Befehl so oft ausführen wie Sie wollen. Bewerte
 
 ### Vorbereitung
 
-TODO - Anpassen von Hello
+Klicken Sie auf den folgenden Link, um die Aufgabe zu beginnen:
+
+> TODO: Neuer Link
+https://classroom.github.com/assignment-invitations/3393be936636f2d6916b7a643a2dc599/status
+
+Auf der Seite erscheint erneut ein Link unter dem Text "Your assignment repository has been created" wie der Folgende:
+
+~~~shell
+https://github.com/ndhbr-classroom/02-mario-mheckner
+~~~
+
+Kopieren Sie wieder den Teil nach ```-classroom``` (hier: ```02-mario-mheckner``` mit Rechtsklick und Kopieren Sie diesen mit Rechtsklick mit der Maus und Wählen von Kopieren aus dem Kontextmenü (alternativ ```Strg+C``` unter Windows und ```Cmd+C``` unter Mac OS). Dieser Teil ist der Name Ihrer Aufgabe (```EXERCISE_NAME```)
+
+Laden Sie sich den Startercode für die Aufgabe mit dem ```get EXERCISE_NAME``` Befehl in replit herunter. Begeben Sie sich danach, in der OTH-Console, mit dem vorher erklärten Befehl ```cd``` in den neuen Ordner der Mario-Aufgabe.
 
 ### Specs
 
@@ -373,10 +388,10 @@ Passen Sie Ihr Programm am Ende so an, dass anstelle der Punkte Leerzeichen ausg
 Wenn alle manuellen Tests erfolgreich waren, können Sie Ihr Programm auch wie folgt automatisch auf der Console testen:
 
 ~~~shell 
-test EXERCISE_NAME
+check EXERCISE_NAME
 ~~~
 
-Tipp: Der ```EXERCISE_NAME``` beginnt mit ```01-intro-``` und endet mit Ihrem GitHub Usernamen.
+Tipp: Der ```EXERCISE_NAME``` beginnt mit ```01-intro-``` und endet mit Ihrem GitHub Usernamen. Der Name des aktuellen Ordners, in dem sich die Aufgabe befindet, ist gleichzeitig der ```ÈXERCISE_NAME```. Den Namen des aktuellen Ordners können Sie außerdem direkt vor Ihrem Befehl in der Konsole entnehmen.
 
 TODO: Wie kann man das besser erklären?!
 
@@ -396,7 +411,12 @@ Diese Aufgabe ist optional und bietet Ihnen noch mehr Übungsmöglichkeiten.
 
 ### Vorbereitung
 
-TODO - Anpassen von Hello
+Klicken Sie auf den folgenden Link, um die Aufgabe zu beginnen:
+
+> TODO: Neuer Link
+https://classroom.github.com/assignment-invitations/3393be936636f2d6916b7a643a2dc599/status
+
+Laden Sie sich den Startercode für die Aufgabe mit dem ```get EXERCISE_NAME``` Befehl in replit herunter. Begeben Sie sich danach, in der OTH-Console, mit dem vorher erklärten Befehl ```cd``` in den neuen Ordner der Cash-Aufgabe.
 
 ### Specs
 
@@ -439,10 +459,10 @@ Testen Sie, ob Ihr Code wie erwartet für die folgenden Eingaben funktioniert:
 Wenn alle manuellen Tests erfolgreich waren, können Sie Ihr Programm auch wie folgt automatisch auf der Console testen:
 
 ~~~shell 
-test EXERCISE_NAME
+check EXERCISE_NAME
 ~~~
 
-Tipp: Der ```EXERCISE_NAME``` beginnt mit ```01-intro-``` und endet mit Ihrem GitHub Usernamen.
+Tipp: Der ```EXERCISE_NAME``` beginnt mit ```01-intro-``` und endet mit Ihrem GitHub Usernamen. Der Name des aktuellen Ordners, in dem sich die Aufgabe befindet, ist gleichzeitig der ```ÈXERCISE_NAME```. Den Namen des aktuellen Ordners können Sie außerdem direkt vor Ihrem Befehl in der Konsole entnehmen.
 
 TODO: Wie kann man das besser erklären?!
 

@@ -17,11 +17,11 @@ Führen Sie die folgenden Schritte einmalig durch, um die browserbasierte IDE re
 2. Registrieren Sie sich Ihrer studentischen E-Mail-Adresse bei https://github.com/
 3. Öffnen Sie https://replit.com/ und klicken Sie auf das **+**-Symbol oben rechts auf der Webseite
 4. Klicken Sie in dem Fenster, das jetzt erschienen ist auf "Import from Github" 
-5. Kopieren Sie den folgenden Link in das Eingabefeld unter "GitHub URL": https://github.com/ndhbr-classroom/replit-template
-6. Klicken Sie auf den Schieberegler neben dem Text "Repli is public", um ihr repl vor unbefugtem Zugriff zu schützen
+5. Kopieren Sie den folgenden Link in das Eingabefeld unter "GitHub URL": https://github.com/OTH-Digital-Skills/replit_project
+6. Klicken Sie auf den Schieberegler neben dem Text "Repl is public", um ihr Repl vor unbefugtem Zugriff zu schützen
 7. Klicken Sie auf "+ Import from Github"
-8. Klicken Sie den Button "Run", um ihr replit zu konfigurieren
-9. Um die Labs herunterzuladen, müssen Sie Ihr repl mit GitHub authentifizieren: Klicken Sie auf den Tab "Console" und tippen dort den Befehl ```github```, gefolgt von der Taste Enter ein.
+8. Klicken Sie den Button "Run", um ihr Replit zu konfigurieren
+9. Um die Labs herunterzuladen, müssen Sie Ihr Repl mit GitHub authentifizieren: Klicken Sie auf den Tab "Console" und tippen dort den Befehl ```github```, gefolgt von der Taste Enter ein.
 10. Kopieren Sie die Ausgabe des Programms nach dem Doppelpunkt, d.h. ab ```sss-rsa ...``` bis zum Ende der Zeichenkette durch Markieren, Rechtsklick mit der Maus und Wählen von Kopieren aus dem Kontextmenü (alternativ ```Strg+C``` unter Windows und ```Cmd+C``` unter Mac OS)
 11. Klicken Sie auf den Link https://github.com/settings/keys und auf der dortigen Seite auf "New SSH Key"
 12. Fügen Sie den zuvor kopierten Text in das Feld "Key" ein und vergeben einen "Title" z.B. replit, Klicken Sie anschließend auf "Add SSH key"
@@ -282,7 +282,7 @@ Erstellen Sie sich zuerst mit dem folgenden Befehl eine Datei ```pseudocode.txt`
 touch pseudocode.txt
 ~~~
 
-Öffnen Sie diese Datei im Texteditor von replit. Schreiben Sie in diese Datei einen Pseudocode, d.h. eine Abfolge von Schritten, die das Programm durchführen muss, auch wenn Sie noch nicht genau wissen, wie der exakte Python Code dafür lauten soll. Ein paar knappe Sätze reichen. In den Slides zur ersten Python-Sitzung finden Sie ein Beispiel für Pseudocode. Ihr Pseucode wird wahrscheinlich Funktionen, Schleifen und Verzweigungen enthalten.
+Öffnen Sie diese Datei im Texteditor von Replit. Schreiben Sie in diese Datei einen Pseudocode, d.h. eine Abfolge von Schritten, die das Programm durchführen muss, auch wenn Sie noch nicht genau wissen, wie der exakte Python Code dafür lauten soll. Ein paar knappe Sätze reichen. In den Slides zur ersten Python-Sitzung finden Sie ein Beispiel für Pseudocode. Ihr Pseucode wird wahrscheinlich Funktionen, Schleifen und Verzweigungen enthalten.
 
 Spoiler - Lesen Sie nicht weiter, wenn Sie den Pseudocode selbst schreiben wollen!
 
@@ -297,7 +297,7 @@ Es gibt viele Varianten den Pseudocode zu schreiben, die ist nur eine Variante:
 
 #### User nach Input fragen
 
-Beginnen Sie damit (egal, wie Ihr Pseudocode aussieht) den Code zu schreiben, der die Nutzer (wiederholt) dazu auffordert eine Höhe einzugeben. Öffnen Sie dazu die Datei ```mario.py``` in replit. 
+Beginnen Sie damit (egal, wie Ihr Pseudocode aussieht) den Code zu schreiben, der die Nutzer (wiederholt) dazu auffordert eine Höhe einzugeben. Öffnen Sie dazu die Datei ```mario.py``` in Replit. 
 
 Passen Sie ```mario.py``` jetzt so an, dass das Programm die Benutzer immer wieder auffordert eine zulässige Zahl zwischen 1 und 8 einzugeben und speichern Sie dieses Ergebnis in einer Variable ab. Geben Sie dann die gespeicherte Höhe wie folgt aus:
 

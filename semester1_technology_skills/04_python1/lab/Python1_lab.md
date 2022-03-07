@@ -158,7 +158,7 @@ Wenn alle manuellen Tests erfolgreich waren, können Sie Ihr Programm auch wie f
 check EXERCISE_NAME
 ~~~
 
-Tipp: Der ```EXERCISE_NAME``` beginnt mit ```01-intro-``` und endet mit Ihrem GitHub Usernamen. Der Name des aktuellen Ordners, in dem sich die Aufgabe befindet, ist gleichzeitig der ```ÈXERCISE_NAME```. Den Namen des aktuellen Ordners können Sie außerdem direkt vor Ihrem Befehl in der Konsole entnehmen.
+Tipp: Der ```EXERCISE_NAME``` beginnt mit ```lab-4-hello-``` und endet mit Ihrem GitHub Usernamen. Der Name des aktuellen Ordners, in dem sich die Aufgabe befindet, ist gleichzeitig der ```ÈXERCISE_NAME```. Den Namen des aktuellen Ordners können Sie außerdem direkt vor Ihrem Befehl in der Konsole entnehmen.
 
 TODO: Wie kann man das besser erklären?!
 > Reicht das?
@@ -389,7 +389,7 @@ Wenn alle manuellen Tests erfolgreich waren, können Sie Ihr Programm auch wie f
 check EXERCISE_NAME
 ~~~
 
-Tipp: Der ```EXERCISE_NAME``` beginnt mit ```01-intro-``` und endet mit Ihrem GitHub Usernamen. Der Name des aktuellen Ordners, in dem sich die Aufgabe befindet, ist gleichzeitig der ```ÈXERCISE_NAME```. Den Namen des aktuellen Ordners können Sie außerdem direkt vor Ihrem Befehl in der Konsole entnehmen.
+Tipp: Der ```EXERCISE_NAME``` beginnt mit ```lab-4-mario-``` und endet mit Ihrem GitHub Usernamen. Der Name des aktuellen Ordners, in dem sich die Aufgabe befindet, ist gleichzeitig der ```ÈXERCISE_NAME```. Den Namen des aktuellen Ordners können Sie außerdem direkt vor Ihrem Befehl in der Konsole entnehmen.
 
 TODO: Wie kann man das besser erklären?!
 
@@ -459,7 +459,7 @@ Wenn alle manuellen Tests erfolgreich waren, können Sie Ihr Programm auch wie f
 check EXERCISE_NAME
 ~~~
 
-Tipp: Der ```EXERCISE_NAME``` beginnt mit ```01-intro-``` und endet mit Ihrem GitHub Usernamen. Der Name des aktuellen Ordners, in dem sich die Aufgabe befindet, ist gleichzeitig der ```ÈXERCISE_NAME```. Den Namen des aktuellen Ordners können Sie außerdem direkt vor Ihrem Befehl in der Konsole entnehmen.
+Tipp: Der ```EXERCISE_NAME``` beginnt mit ```lab-4-cash-``` und endet mit Ihrem GitHub Usernamen. Der Name des aktuellen Ordners, in dem sich die Aufgabe befindet, ist gleichzeitig der ```ÈXERCISE_NAME```. Den Namen des aktuellen Ordners können Sie außerdem direkt vor Ihrem Befehl in der Konsole entnehmen.
 
 TODO: Wie kann man das besser erklären?!
 

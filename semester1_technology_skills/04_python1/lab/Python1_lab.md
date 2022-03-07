@@ -108,16 +108,15 @@ Glückwunsch! Sie haben replit erfolgreich eingerichtet und ihr erstes Python-Pr
 
 Klicken Sie auf den folgenden Link, um die Aufgabe zu beginnen:
 
-> TODO: neuer Link
-https://classroom.github.com/assignment-invitations/3393be936636f2d6916b7a643a2dc599/status
+https://classroom.github.com/a/9lP7tdyr
 
 Auf der Seite erscheint ein Link unter dem Text "Your assignment repository has been created" wie der Folgende:
 
 ~~~shell
-https://github.com/ndhbr-classroom/01-intro-mheckner
+https://github.com/OTH-Digital-Skills/lab-4-hello-ndhbr
 ~~~
 
-Kopieren Sie den Teil nach ```-classroom``` (hier: ```01-intro-mheckner``` mit Rechtsklick und Kopieren Sie diesen mit Rechtsklick mit der Maus und Wählen von Kopieren aus dem Kontextmenü (alternativ ```Strg+C``` unter Windows und ```Cmd+C``` unter Mac OS). Dieser Teil ist der Name Ihrer Aufgabe (```EXERCISE_NAME```)
+Kopieren Sie den Teil nach ```OTH-Digital-Skills/``` (hier: ```lab-4-hello-ndhbr``` mit Rechtsklick und Kopieren Sie diesen mit Rechtsklick mit der Maus und Wählen von Kopieren aus dem Kontextmenü (alternativ ```Strg+C``` unter Windows und ```Cmd+C``` unter Mac OS). Dieser Teil ist der Name Ihrer Aufgabe (```EXERCISE_NAME```)
 
 Laden Sie sich den Startercode für die Aufgabe mit dem folgenden Befehl auf der Console in replit herunter:
 
@@ -180,16 +179,15 @@ Hinweis: Sie können den obigen Befehl so oft ausführen wie Sie wollen. Bewerte
 
 Klicken Sie auf den folgenden Link, um die Aufgabe zu beginnen:
 
-> TODO: Neuer Link
-https://classroom.github.com/assignment-invitations/3393be936636f2d6916b7a643a2dc599/status
+https://classroom.github.com/a/BNO0EFxJ
 
 Auf der Seite erscheint erneut ein Link unter dem Text "Your assignment repository has been created" wie der Folgende:
 
 ~~~shell
-https://github.com/ndhbr-classroom/02-mario-mheckner
+https://github.com/OTH-Digital-Skills/lab-4-mario-ndhbr
 ~~~
 
-Kopieren Sie wieder den Teil nach ```-classroom``` (hier: ```02-mario-mheckner``` mit Rechtsklick und Kopieren Sie diesen mit Rechtsklick mit der Maus und Wählen von Kopieren aus dem Kontextmenü (alternativ ```Strg+C``` unter Windows und ```Cmd+C``` unter Mac OS). Dieser Teil ist der Name Ihrer Aufgabe (```EXERCISE_NAME```)
+Kopieren Sie wieder den Teil nach ```OTH-Digital-Skills``` (hier: ```lab-4-mario-ndhbr``` mit Rechtsklick und Kopieren Sie diesen mit Rechtsklick mit der Maus und Wählen von Kopieren aus dem Kontextmenü (alternativ ```Strg+C``` unter Windows und ```Cmd+C``` unter Mac OS). Dieser Teil ist der Name Ihrer Aufgabe (```EXERCISE_NAME```)
 
 Laden Sie sich den Startercode für die Aufgabe mit dem ```get EXERCISE_NAME``` Befehl in replit herunter. Begeben Sie sich danach, in der OTH-Console, mit dem vorher erklärten Befehl ```cd``` in den neuen Ordner der Mario-Aufgabe.
 
@@ -202,7 +200,7 @@ Am Ende eines Levels in Super Mario Brothers, muss Mario über einen Pyramide wi
 Ihre Aufgabe ist es diese Pyramide in Python nachzubauen, woebei jedes Element der Pyramide aus einem ```#```-Zeichen besteht. Jedes ```#```-Zeichen ist etwas höher als breit, daher ist die daraus bestehende Pyramide auch etwas höher als breit:
 
 ~~~
-  		 #
+       #
       ##
      ###
     ####
@@ -413,8 +411,7 @@ Diese Aufgabe ist optional und bietet Ihnen noch mehr Übungsmöglichkeiten.
 
 Klicken Sie auf den folgenden Link, um die Aufgabe zu beginnen:
 
-> TODO: Neuer Link
-https://classroom.github.com/assignment-invitations/3393be936636f2d6916b7a643a2dc599/status
+https://classroom.github.com/a/zdcoP4JX
 
 Laden Sie sich den Startercode für die Aufgabe mit dem ```get EXERCISE_NAME``` Befehl in replit herunter. Begeben Sie sich danach, in der OTH-Console, mit dem vorher erklärten Befehl ```cd``` in den neuen Ordner der Cash-Aufgabe.
 

@@ -123,7 +123,7 @@ So oder so ähnlich soll euer Dashboard mal aussehen.
 
 Dazu geht ihr auf https://create.arduino.cc/iot/dashboards und klickt auf "Build Dashboard".
 
-![10_lab_addDashboard](img/10_lab_addDashboard.png)
+![10_lab_addDashboard](img/10_lab_addWidget.png)
 
 Nun fügen wir ein sogenanntes "Gauge"-Widget auf unser Dashboard hinzu. Im Fenster das sich öffnet könnt ihr dem Ganzen noch einen Namen "Raumtemperatur" geben und einen Wertebereich festlegen in dem sich die Temperaturdarstellung bewegen soll. Beispielsweise für die Raumtemperatur passen sind Werte zwischen 15 und 35 Grad Celsius. 
 Sehr wichtig hier verknüpfen wir jetzt auch über "Link Variable", das Widget mit der vorher definierten Variable. Damit wäre die Seite vom Dashboard erledigt, jetzt muss nur noch die Variable mithilfe des Arduinos mit Werten befüllt werden.

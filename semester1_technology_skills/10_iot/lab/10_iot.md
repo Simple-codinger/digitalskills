@@ -5,7 +5,15 @@
 ## Was es zu tun gibt
 
 1. Arduino einrichten
-1. Programmieren Sie **Wetterstation**
+2. Programmieren eigene **Temperaturanzeige**
+  - Arduino aufbauen
+  - Thing erstellen
+  - Variablen konfigurieren
+  - Sketch verstehen
+  - Dashboard erstellen
+  - Programm erstellen
+  - Auf den Arduino hoch laden
+3. Temperaturanzeige zur internationalen Wetteranwendung umbauen
 
 ## Arduino einrichten
 
@@ -15,6 +23,7 @@ Führen Sie die folgenden Schritte durch, um auf dem Arudino programmieren zu k�
 2. Nutzen Sie den Code "JkqKcqUT" um den Aruino Klassenraum beizutreten
 3. Registrieren Sie das Arudino IoT Kit 
 
+![10_lab_joinClassroom](img/10_lab_joinClassroom.png)
 
 Mit der Arduino Cloud lässt sich einfach der Arduino programmieren und Dashboards erstellen auf denen Ihr Daten abrufen oder sie an den Arduino senden könnt.
 Dafür muss zu erst die das Dashboard konfiguriert werden.
@@ -65,7 +74,7 @@ Wir wählen für die Raumtemperatur "Periodically" alle 5sec. Hier anzumerken is
 
 Abschließend bestätigen wir unsere Eingabe mit "Add variable", die Variable sollte nun angezeigt werden. 
 
-### Sketch programmieren
+### Sketch verstehen
 
 Im Sketch findet das eigentliche Programmieren statt. Rechts neben "Sketch" wird jetzt auch gekennzeichnet, das das Programm durch die Erstellung der Variable
 im Programmcode etwas geändert hat. Wenn wir den Code genauer ansehen sehen wir oben im Kommentar
@@ -86,15 +95,93 @@ void onRaumtemperaturChange()  {
 }
 ~~~
 Als Beispiel, hätten wir READ_WRITE gewählt würde zusätzlich dieser Methodenrumpf generiert werden.
-Dieser ist relevant für Änderungen die am Dashboard vorgenommen werden. Hier könnte definiert werden, was passieren soll 
-wenn die Variable verändert wird.
+Dieser ist relevant für Änderungen die am Dashboard vorgenommen werden. Hier könnte definiert werden, was passieren soll wenn die Variable verändert wird.
 
+Weitere Bestandteile des Sketchs die wir kurz genauer betrachten sollten sind:
 
-
+~~~
+void setup() {
  
- 
+}
+~~~
+
+In der Setup Methode werden Dinge beim Start des Arduinos erledigt. Beispielsweise das Herstellen der Verbindung zum WLAN,...
 
 
+Die zweite Methode ist die Loop Methode
+~~~
+void loop() {
+}
+~~~
+In dieser wird überprüft ob Knöpfe gedrückt wurden, können Sensoren ausgelesen werden, usw.
+Später dazu mehr.
 
+### Dashboard 
+
+![10_lab_finalDashboard](img/10_lab_finalDashboard.png)
+So oder so ähnlich soll euer Dashboard mal aussehen. 
+
+Dazu geht ihr auf https://create.arduino.cc/iot/dashboards und klickt auf "Build Dashboard".
+
+![10_lab_addDashboard](img/10_lab_addDashboard.png)
+
+Nun fügen wir ein sogenanntes "Gauge"-Widget auf unser Dashboard hinzu. Im Fenster das sich öffnet könnt ihr dem Ganzen noch einen Namen "Raumtemperatur" geben und einen Wertebereich festlegen in dem sich die Temperaturdarstellung bewegen soll. Beispielsweise für die Raumtemperatur passen sind Werte zwischen 15 und 35 Grad Celsius. 
+Sehr wichtig hier verknüpfen wir jetzt auch über "Link Variable", das Widget mit der vorher definierten Variable. Damit wäre die Seite vom Dashboard erledigt, jetzt muss nur noch die Variable mithilfe des Arduinos mit Werten befüllt werden.
+
+### Variablen Werte setzten
+
+Das Shield auf dem Ihr zuvor den Arduino angebracht habt besitzt neben dem Display, Tasten auch verschiedene Sensoren. Diese wollen wir nun nutzen. 
+Als Erstes müssen wir das Ganze Initalisieren, dies passiert in der Setup Methode.
+Den folgenden Codeauschnitt könnt Ihr einfach in euren Code übernehmen
+~~~
+void setup() {
+  // Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
+  delay(1500);
+  
+  CARRIER_CASE = false;
+  carrier.begin();
+  carrier.display.setRotation(0);
+
+  carrier.display.fillScreen(ST7735_BLACK);
+  carrier.display.setCursor(0, 60);
+  carrier.display.setTextColor(ST77XX_WHITE);
+  carrier.display.setTextSize(2);
+  carrier.display.println("Booting...");
+
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  //Get Cloud Info/errors , 0 (only errors) up to 4
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+
+  //Wait to get cloud connection to init the carrier
+  while (ArduinoCloud.connected() != 1) {
+    ArduinoCloud.update();
+    delay(500);
+  }
+}
+~~~
+
+Als zweiten Schritt werden jetzt kontinuierlich die Werte des Sensors gelesen und in die zuvor definierte Variable geschrieben. Solltet ihr eure Variable zuvor anders genannt haben müsst ihr den folgenden Codeauschnitt natürlich entsprechend anpassen.
+
+~~~
+void loop() {
+  ArduinoCloud.update();
+  delay(100);
+  
+  raumtemperatur = carrier.Env.readTemperature();
+ }
+~~~
+
+Jetzt muss das Programm nur noch auf den Arduino hoch geladen werden und ihr habt erfolgreich eure eigene Online Temperatur Anzeige gebaut. :)
+
+![10_lab_uploadProgramm](img/10_lab_uploadProgramm.png)
+
+## Erweiterung zur internationalen Wetteranwendung umbauen
 
 

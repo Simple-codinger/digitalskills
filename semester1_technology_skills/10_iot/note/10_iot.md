@@ -24,7 +24,7 @@ Im folgenden wird erklärt wie ihr eine einfache Temperaturanzeige selbst progra
   - Dashboard erstellen
   - Programm erstellen
   - Auf den Arduino hoch laden
-3. Temperaturanzeige zur internationalen Wetteranwendung umbauen
+3. Daten von einer Website abfragen
 
 ## Arduino einrichten
 
@@ -33,14 +33,12 @@ Der Arduino ist ein Microcontroller, dieser weiß aktuell aber nicht was er übe
 
 Führt folgenden Schritte durch, um auf dem Arudino programmieren zu können:
 
-1. Registrieren Sie sich mit Ihrer studentischen E-Mail-Adresse bei https://classroom.arduino.cc/ ?????
+1. Registrieren Sie sich mit Ihrer studentischen E-Mail-Adresse bei https://classroom.arduino.cc/ @Prof. Heckner: oder E-Mails erstellen die weiter gegeben werden?
 2. Nutzt den Code "JkqKcqUT" um den Aruino Klassenraum beizutreten
 3. Registriert das Arudino IoT Kit 
 
 ![10_lab_joinClassroom](img/10_lab_joinClassroom.png)
 
-
-## Dashboard einrichten
 ### Arduino aufbauen
 
 Den Arduino und das Shield auspacken und richtig herum zusammenstecken. **Umbedingt auf die Beschriftung der PINS achten!**
@@ -50,6 +48,7 @@ Aufgebaut sollte der Arduino mit dem Shield so aussehen, die Beschriftung der PI
 
 ![10_note_raspberryMitShield.jpg](img/10_note_raspberryMitShield.jpg)
 
+## Dashboard einrichten
 ### Thing erstellen
 
 Ein Thing ist die Repräsentation eines physisches Geräts, in unserem Fall der Arduino. Dieses muss zuerst online definiert werden damit die Website die Daten entsprechend zuordnen kann. (Erinnerung: IOT = Internet of Things)
@@ -61,11 +60,11 @@ Klicke auf der Startseite https://classroom.arduino.cc/ auf "IoT Cloud". Klicke 
 
 ### Variablen konfigurieren
 
-Die Variablen die gelesen bzw. beschrieben werden können nicht einfach im Programmcode definiert werden, da die Plattform nicht automatisch die Verbindung zu unseren definierten Variablen herstellen kann.
-Deshalb müssen alle Variablen die später über das Dashboard ereichbar sein müssen mit "Add Variable" angelegt werden.
+Die Daten die zwischen der Arduino Cloud und dem Arduino ausgetauscht werden, werden über spezielle Variablen getauscht. Diese sind an beiden Enden sichtbar und der zugewiesene Wert ist je nach Einstellung direkt am Anderen Ende abrufbar.
 
-Um die Funktionsweise zu demonstrieren werden wir im folgenden die Variable für die Raumtemperatur konfigurieren. Im Anschluss wird es deine Aufgabe sein 
-die anderen benötigten Variablen für das Projekt selbst zu konfigurieren.
+Diese besonderen Variablen die später über das Dashboard ereichbar sein müssen mit "Add Variable" angelegt werden.
+
+Um die Funktionsweise zu demonstrieren werden wir im folgenden die Variable für die Raumtemperatur konfigurieren.
 
 Wir vergeben einen passenden Namen "Raumtemperatur" und wählen den Datentyp "Floating Point Number".
 
@@ -81,14 +80,14 @@ Bei den Update Policy gibt es die Optionen
   - On Change
   Variablen werden nur geupdated wenn sich der Wert verändert. Dies ist sinnvoll für Dinge die z.B. nur alle paar Sekunden auftreten. 
   Der genaue Zeitabstand hängt von der Anwendungssituation ab. Ist es sehr wichtig immer aktuelle Daten zu haben muss der Zeitabstand geringer sein, als z.B. bei der Raumtemperatur.
-  Der Threshhold gibt an ab welcher Wertschwankung aktualisiert wird. 
+  Der Threshhold gibt an ab welcher Wertschwankung aktualisiert wird. Uns interessiert z.B. nicht wenn sich die Raumtemperatur um 0.001 Grad verändert, in anderen Anwendungssituationen kann dies natürlich enormen Einfluss auf die Anwendung haben.
   - Periodically
   Die Werte werden in einem bestimmten Zeitabstand aktualisiert. Dies ist Beispielsweise sinnvoll wenn man Diagramme die den zeitlichen Verlauf darstellen erstellen möchte.
   Im Feld wird angegeben in welchem Zeitabstand aktualisiert wird.
   
 Wir wählen für die Raumtemperatur "Periodically" alle 5sec. Hier anzumerken ist, das andere Einstellungen ebenso funktionieren würden.
 
-Abschließend bestätigen wir unsere Eingabe mit "Add variable", die Variable sollte nun angezeigt werden. 
+Abschließend bestätigen wir unsere Eingabe mit "Add variable". Die Variable sollte nun angezeigt werden. 
 
 ### Sketch verstehen
 
@@ -129,14 +128,14 @@ Die zweite Methode ist die Loop Methode
 void loop() {
 }
 ~~~
-In dieser wird überprüft ob Knöpfe gedrückt wurden, können Sensoren ausgelesen werden, usw.
+In dieser wird z.B. überprüft ob Knöpfe gedrückt wurden, können Sensoren ausgelesen werden, usw.
 Später dazu mehr.
 
 ### Dashboard 
 
-![10_lab_finalDashboard](img/10_lab_finalDashboard.png)
-So oder so ähnlich soll euer Dashboard mal aussehen. 
+![10_lab_finalDashboard](img/10_note_finalDashboard.png)
 
+So oder so ähnlich soll euer Dashboard mal aussehen. 
 Dazu geht ihr auf https://create.arduino.cc/iot/dashboards und klickt auf "Build Dashboard".
 
 ![10_lab_addDashboard](img/10_lab_addWidget.png)
@@ -198,6 +197,10 @@ Jetzt muss das Programm nur noch auf den Arduino hoch geladen werden und ihr hab
 
 ![10_lab_uploadProgramm](img/10_lab_uploadProgramm.png)
 
-## Erweiterung zur internationalen Wetteranwendung umbauen
 
+## 3. Daten von einer Website abfragen
 
+Da für sehr viele Anwendung nicht nur Daten die selbst im eigenen Netzwerk gesammelt wurden interessant sind müssen häufig Daten über das Internet abgefragt werden. Diese werden über sogenannte APIs ("Application Programming Interface", de: Anwendungs Programmierschnittstellen) zur Verfügung gestellt. Einfach formuliert handelt es sich dabei um Schnittstellen zu anderen Programmen welche bestimmte Daten in einem bestimmten Format zur Verfügung stellen.
+
+Im folgenden wollen wir eine weitere einfache Anwendung erstellen welche Daten von der Chuck Norris API abfrägt: https://api.chucknorris.io/
+...

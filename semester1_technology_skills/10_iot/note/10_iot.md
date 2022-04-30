@@ -1,6 +1,16 @@
-# Lab Challenge 10
+# IOT
+In dieser Challenge soll das IOT ("Internet of Things") vorgestellt werden. IOT ist ein Begriff in dem man im Internet und später auch im Berufsleben immer mal wieder stoßen wird. Aber was genau versteht man darunter und was kann man genau damit machen?
 
-> Arbeiten Sie alleine an den Challenges. Sie können sich mit ihrem Coach oder anderen Studierenden austauschen, aber arbeiten Sie nicht zusammen mit anderen Studierenden an einer Challenge und geben Sie auch nicht denselben Code ab.
+Grundsätzlich geht es dabei darum physikalische Geräte die mit verschiedenen Sensoren ausgestattet sind über das Internet mit einander zu vernetzen. Das Ganze beginnt bei einfachen Geräten wie der Temperaturfühler am Fensterbrett der die aktuelle Temperatur und Luftfeuchtigkeit an euer Handy sendet bis hin zu komplexen Industrieanwendungen wie Fertigungsroboter die mit einander Daten austauschen um komplette Produktionsanlagen zu automatisieren.
+
+### Was braucht man alles dafür?
+Egal welches Gerät, Kernelement eines jeden Geräts das vernetzt werden soll ist ein Microcontroller. Diese kommen in unterschiedlichsten Ausführungen und Austattungen, beginnend bei sehr einfachen wie den ESP8266 Modulen die sehr günstig sind und vereinfacht nur mit einem Prozessor, einem WLAN-Modul und PINS zum Anschließen von Sensoren ausgestattet sind. Bis hin zu umfangreichen wie den Raspberry PI 4, welcher alle Bestandteile eines einfachen Desktop-PCs beinhaltet (inklusive kompletten Betriebssysten und Anschlüssen wie HDMI-, USB-, AUX-, LAN-Anschlüsse...)
+
+![10_note_esp8266](img/10_note_esp8266.jpg)
+![10_note_raspberryPi](img/10_note_raspberryPi4.jpg)
+
+Wir werden in dieser Challenge mit dem Arduino IOT Kit arbeiten. Dieses beinhaltet neben dem Microcontroller -einem Arduino- ein sogenanntes Shield beinhaltet. Dieses Shield erweitert den Arduino und ist mit verschiedensten Sensoren (Temperatur, Luftfeuchtigkeit), Touch-Buttons, sowie einem kleinen Display ausgestattet. 
+
 
 ## Was es zu tun gibt
 

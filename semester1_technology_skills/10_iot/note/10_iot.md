@@ -11,6 +11,7 @@ Egal welches Gerät, Kernelement eines jeden Geräts das vernetzt werden soll is
 
 Wir werden in dieser Challenge mit dem Arduino IOT Kit arbeiten. Dieses beinhaltet neben dem Microcontroller -einem Arduino- ein sogenanntes Shield beinhaltet. Dieses Shield erweitert den Arduino und ist mit verschiedensten Sensoren (Temperatur, Luftfeuchtigkeit), Touch-Buttons, sowie einem kleinen Display ausgestattet. 
 
+Im folgenden wird erklärt wie ihr eine einfache Temperaturanzeige selbst programmieren könnt.
 
 ## Was es zu tun gibt
 
@@ -27,16 +28,17 @@ Wir werden in dieser Challenge mit dem Arduino IOT Kit arbeiten. Dieses beinhalt
 
 ## Arduino einrichten
 
-Führen Sie die folgenden Schritte durch, um auf dem Arudino programmieren zu können:
+Der Arduino ist ein Microcontroller, dieser weiß aktuell aber nicht was er überhaupt machen soll. Um ihn zu programmieren gibt es verschieden Möglichkeiten, wir werden ihn über Arduino Cloud programmieren, da diese uns viele Funktionen zur Verfügung stellt. Für uns insbesondere interessant sind die Dashboards, welche uns ermöglichen Daten von Sensoren übersichtlich darzustellen und Daten an den Arduino zu senden. 
+
+
+Führt folgenden Schritte durch, um auf dem Arudino programmieren zu können:
 
 1. Registrieren Sie sich mit Ihrer studentischen E-Mail-Adresse bei https://classroom.arduino.cc/ ?????
-2. Nutzen Sie den Code "JkqKcqUT" um den Aruino Klassenraum beizutreten
-3. Registrieren Sie das Arudino IoT Kit 
+2. Nutzt den Code "JkqKcqUT" um den Aruino Klassenraum beizutreten
+3. Registriert das Arudino IoT Kit 
 
 ![10_lab_joinClassroom](img/10_lab_joinClassroom.png)
 
-Mit der Arduino Cloud lässt sich einfach der Arduino programmieren und Dashboards erstellen auf denen Ihr Daten abrufen oder sie an den Arduino senden könnt.
-Dafür muss zu erst die das Dashboard konfiguriert werden.
 
 ## Dashboard einrichten
 ### Arduino aufbauen
@@ -44,13 +46,17 @@ Dafür muss zu erst die das Dashboard konfiguriert werden.
 Den Arduino und das Shield auspacken und richtig herum zusammenstecken. **Umbedingt auf die Beschriftung der PINS achten!**
 Anschließend den Arduino mit dem beiliegenden Mikro-USB-Kabel an deinen PC anschließen.
 
+Aufgebaut sollte der Arduino mit dem Shield so aussehen, die Beschriftung der PINS ist gleich (z.B. in weiß der GND Anschluss)
+
+![10_note_raspberryMitShield.jpg](img/10_note_raspberryMitShield.jpg)
+
 ### Thing erstellen
 
-Ein Thing ist die Repräsentation eines physisches Geräts, in unserem Fall der Arduino. Dieses muss zuerst online definiert werden damit die Website die Daten entsprechend zuordnen kann.
+Ein Thing ist die Repräsentation eines physisches Geräts, in unserem Fall der Arduino. Dieses muss zuerst online definiert werden damit die Website die Daten entsprechend zuordnen kann. (Erinnerung: IOT = Internet of Things)
 Klicke auf der Startseite https://classroom.arduino.cc/ auf "IoT Cloud". Klicke dann auf "Create Thing".
 
 1. Im angezeigten Bildschirm vergeben wir zuerst einen passenden Namen, dazu einfach oben auf "Untitled" klicken und einen Namen wie z.B. "Wetterstation" vergeben.
-2. Als nächstes verbinden wir unseren Arduino mit dem Thing. Dazu rechts auf Select Device klicken und den Anweisungen folgen
+2. Als nächstes verbinden wir unseren Arduino mit dem Thing. Dazu rechts auf "Select Device" klicken und den Anweisungen folgen
 3. Verbindung mit dem WLAN herstellen. Rechts unten bei "Network" auf "Configure" gehen und deine WLAN Daten hinterlegen.
 
 ### Variablen konfigurieren

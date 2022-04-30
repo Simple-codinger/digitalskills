@@ -235,5 +235,17 @@ Im folgenden wollen wir eine weitere einfache Anwendung erstellen welche Daten v
 ...
 
 ### JSON Format auslesen
-...
+Das häufigste verwendete Format in dem APIs ihre Daten zurück geben ist im so genannten JSON Format ("JavaScript Object Notation"). Dieses Format hat den Vorteil, dass es sowohl von Menschen als auch den PC einfach lesbar ist und sehr kompakt ist. 
+Für dieses Datei Format gibt es in jeder gängigen Programmiersprache "Parser", diese verarbeiten das JSON und ermöglichen einfachen Zugriff auf die einzelnen Werte ohne selbst viel dafür programmieren zu müssen.
+
+~~~
+JSONVar myObject = JSON.parse(line);
+~~~
+Dieser Befehl wandelt den String "line" in eine JSON Variable um, mit welcher wir nun leicht arbeiten können.
+
+~~~
+cityName = JSON.stringify(myObject["name"]);
+~~~
+Mit dem JSON.stringify können wir die Daten welche am Identifier "name" hinterlegt sind abfragen. Grundvoraussetzung ist natürlich zu wissen wie das JSON aufgebaut ist und an welcher Stelle, welche Daten liegen. Diese Information muss aber entweder vom Anbieter der API bereitgestellt werden, bzw. muss selbst ausgelesen werden. 
+
 

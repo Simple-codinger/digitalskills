@@ -1,5 +1,5 @@
-# IOT
-In dieser Challenge soll das IOT ("Internet of Things") vorgestellt werden. IOT ist ein Begriff in dem man im Internet und später auch im Berufsleben immer mal wieder stoßen wird. Aber was genau versteht man darunter und was kann man genau damit machen?
+# IoT
+In dieser Challenge soll das IoT ("Internet of Things") vorgestellt werden. IOT ist ein Begriff in dem man im Internet und später auch im Berufsleben immer mal wieder stoßen wird. Aber was genau versteht man darunter und was kann man genau damit machen?
 
 Grundsätzlich geht es dabei darum physikalische Geräte die mit verschiedenen Sensoren ausgestattet sind über das Internet mit einander zu vernetzen. Das Ganze beginnt bei einfachen Geräten wie der Temperaturfühler am Fensterbrett der die aktuelle Temperatur und Luftfeuchtigkeit an euer Handy sendet bis hin zu komplexen Industrieanwendungen wie Fertigungsroboter die mit einander Daten austauschen um komplette Produktionsanlagen zu automatisieren.
 
@@ -147,7 +147,7 @@ Sehr wichtig hier verknüpfen wir jetzt auch über "Link Variable", das Widget m
 
 Das Shield auf dem Ihr zuvor den Arduino angebracht habt besitzt neben dem Display, Tasten auch verschiedene Sensoren. Diese wollen wir nun nutzen. 
 Als Erstes müssen wir das Ganze Initalisieren, dies passiert in der Setup Methode.
-Den folgenden Codeauschnitt könnt Ihr einfach in euren Code übernehmen
+Den folgenden Codeauschnitt könnt Ihr einfach in euren Code übernehmen, auf einzelne Bestandteile wird später genauer eingegangen. 
 ~~~
 void setup() {
   // Initialize serial and wait for port to open:
@@ -197,6 +197,35 @@ Jetzt muss das Programm nur noch auf den Arduino hoch geladen werden und ihr hab
 
 ![10_lab_uploadProgramm](img/10_lab_uploadProgramm.png)
 
+### Shield Display nutzen
+
+Um nicht immer die Website aufrufen zu müssen, möchten wir zusätzlich noch das angeschlossene Display nutzen um die Raumtemperatur darzustellen. 
+
+Folgende Befehle sind für das Display wichtig
+
+~~~
+ carrier.display.fillScreen(ST7735_BLACK);
+~~~
+Mit diesem Befehl wird alles auf dem Display durch einen schwarzen Hintergrund ersetzt. Man kann ihn also nutzen um das Display zurück zu setzten. Später wird das nützlich werden wenn wir zwischen verschiedenen Ausgaben umschalten wollen.
+
+~~~
+ carrier.display.setCursor(0, 60);
+~~~
+Mit diesem Befehl kann der Cursor frei im Display platziert werden. Ausgangspunkt der Abstände ist immer die linke obere Ecke. Der Erste Parameter gibt die Verschiebung nach unten an, der Zweite die Verschiebung nach Rechts. In diesem Beispiel (0, 60) würde dies bedeuten das die Nachfolgende Ausgabe ganz oben und leicht nach rechts versetzt erscheint. 
+
+~~~
+  carrier.display.println("Beispiel");
+  carrier.display.print("Beispiel2");
+~~~
+Dies sind die beiden Möglichkeiten um Text am Display auszugeben. Sie unterscheiden sich darin, dass die "println" ("print line")-Variante automatisch die restliche Zeile ausfüllt, heißt die nächste Ausgabe in der nächsten Zeile ausgegeben wird. Bei der "print"-Variante wird der Text bei der nächsten Ausgabe direkt dahinter fort gesetzt. Dies kann besonders bei Variablen nützlich sein.
+
+~~~
+  carrier.display.print("Variablenwert: ");
+  carrier.display.print(x);
+~~~
+Diese Ausgabe würde dazu führen, dass in einer Zeile z.B. "Variablenwert 3" steht. (Angenommen die Variable x hat den Wert 3)
+
+
 
 ## 3. Daten von einer Website abfragen
 
@@ -204,3 +233,7 @@ Da für sehr viele Anwendung nicht nur Daten die selbst im eigenen Netzwerk gesa
 
 Im folgenden wollen wir eine weitere einfache Anwendung erstellen welche Daten von der Chuck Norris API abfrägt: https://api.chucknorris.io/
 ...
+
+### JSON Format auslesen
+...
+

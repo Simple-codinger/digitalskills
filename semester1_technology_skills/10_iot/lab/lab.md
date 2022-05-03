@@ -13,7 +13,7 @@
 Das Ziel dieser Challenge ist Ihre bestehende Wetteranwendung zu einer internationalen Wetterstation umzubauen. Diese Anwendung soll es dann ermöglichen sowohl die Sensordaten anzuzeigen, als auch von anderen Städten weltweit z.B. die aktuelle Temperatur anzuzeigen. Gesteuert wird das Ganze über die Web GUI.
 
 Am Ende soll Ihr Dashboard in etwa so aussehen. 
-![10_lab_finalDashboard](img/10_lab_finalDashboard.jpg)
+![10_lab_finalDashboard](img/10_lab_finalDashboard.png)
 
 ## Umschalten zwischen Ansichten mit den Buttons
 Um verschiedene Werte auf dem Display des Arduinos anzuzeigen soll es im Ersten Schritt ermöglicht werden mit den Buttons zwischen mehreren Texten umzuschalten. 
@@ -41,10 +41,12 @@ Folgender Aufruf gibt Ihnen die aktuelle Luftfeuchtigkeit zurück.
 ~~~
 
 Anschließend sollte Ihr Dashboard in etwa so aussehen:
-![10_lab_dashboardHumidityAdded](img/10_lab_dashboardHumidityAdded.jpg)
+
+![10_lab_dashboardHumidityAdded](img/10_lab_dashboardHumidityAdded.png)
   
 ## Senden von Daten vom der Arduino Cloud an den Arduino
 
+Bisher wurden die Variablen immer nur vom Arduino aus aktualisiert. Jetzt wollen wir Daten auch vom Dashboard aus verändern können. Dies wird es uns ermöglichen 
 
 ## Anfragen und Darstellen der Daten der Wetter API
 

@@ -229,10 +229,103 @@ Diese Ausgabe würde dazu führen, dass in einer Zeile z.B. "Variablenwert 3" st
 
 ## 3. Daten von einer Website abfragen
 
-Da für sehr viele Anwendung nicht nur Daten die selbst im eigenen Netzwerk gesammelt wurden interessant sind müssen häufig Daten über das Internet abgefragt werden. Diese werden über sogenannte APIs ("Application Programming Interface", de: Anwendungs Programmierschnittstellen) zur Verfügung gestellt. Einfach formuliert handelt es sich dabei um Schnittstellen zu anderen Programmen welche bestimmte Daten in einem bestimmten Format zur Verfügung stellen.
+Da für sehr viele Anwendung nicht nur Daten die selbst im eigenen Netzwerk gesammelt wurden interessant sind müssen häufig Daten über das Internet abgefragt werden. Diese werden über sogenannte APIs ("Application Programming Interface", de: Anwendungs Programmierschnittstellen) zur Verfügung gestellt. Einfach formuliert handelt es sich dabei um Schnittstellen zu anderen Programmen welche Daten in einem bestimmten Format zur Verfügung stellen.
 
-Im folgenden wollen wir eine weitere einfache Anwendung erstellen welche Daten von der Chuck Norris API abfrägt: https://api.chucknorris.io/
-...
+Im folgenden wollen wir eine weitere einfache Anwendung erstellen welche Fakten über Katzen abfrägt: catfact.ninja
+
+Die Setup Methode, includes und Variablen enthalten keine besonderen Änderungen und können direkt übernommen werden.
+~~~ 
+#include <Arduino_JSON.h>
+#include <Arduino_MKRIoTCarrier.h>
+#include "thingProperties.h"
+MKRIoTCarrier carrier;
+char server[] = "catfact.ninja";
+
+WiFiClient client;
+
+void setup() {
+  Serial.begin(9600);
+  delay(1500); 
+
+  initProperties();
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+
+  while (ArduinoCloud.connected() != 1) {
+    ArduinoCloud.update();
+    delay(500);
+  }
+  
+  initCarrierAndDisplay();
+  Serial.println("init finished");
+  carrier.display.fillScreen(ST7735_BLACK);
+  carrier.display.setCursor(0, 60);
+  carrier.display.print("Started");
+}
+~~~
+
+Damit nicht laufenden die Daten abgefragt werden reagieren wir in der loop-Methode nur auf den Button-Click der 0-Taste um dann Daten anzufragen.
+~~~
+void loop() {
+  ArduinoCloud.update();
+  carrier.Buttons.update();
+  
+  if (carrier.Buttons.onTouchDown(TOUCH0)) {
+    Serial.println("requesting");
+    getDataFromAPI();
+  }
+}
+~~~
+
+In der getDataFromAPI-Methode wird jetzt eine Verbindung zum Server hergestellt. Besonders zu beachten hierbei ist der connectSSL-Aufruf auf den Port 443. Dies ist notwendig da die Daten nur über das HTTPS Protokoll abgefragt werden könnnen. Sind die Daten über HTTP erreichbar funktioniert dies über einen client.connect-Aufruf auf den Port 80.
+~~~
+void getDataFromAPI(){
+  if (client.connectSSL(server, 443)) {
+    buildHttpRequest();
+  } else {
+    Serial.println("unable to connect");
+  }
+  delay(1000);
+  Serial.println("requested build");
+
+  if (client.connected()) {
+    handleHttpResponse();
+    beepSound();
+  }
+}
+~~~
+
+Die Parameter der Anfrage werden in der buildHttpRequest-Methode gesetzt. Mit dem Abschließenden client.println(); wird die Anfrage abgeschickt.
+
+~~~
+void buildHttpRequest(){
+  client.println("GET /fact HTTP/1.1");
+  client.println("Host: catfact.ninja");
+  client.println("Connection: close");
+  client.println(); 
+}
+~~~
+Um den die eigentliche JSON-Datei aus der Antwort des Servers auszulesen muss einiges übersprungen werden da der Server zusätzliche Daten im Header mitsendet die uns hier nicht interessieren.
+
+In dieser Ersten Hälfte der handleHttpResponse-Methode passiert genau dies. Mithilfe der find-Methode lässt sich nach bestimmten Stellen suchen. Ein für uns praktischer Nebeneffekt ist, dass der Curser bis zu diesem Punkt verschoben wird. Somit können wir Teile bis zu dieser Stelle überspringen.
+
+~~~
+void handleHttpResponse(){
+  
+  char endOfHeader[] = "\r\n\r\n"; // Definieren einer RegExp die das Ende des Headers kennzeichnet
+  if(!client.find(endOfHeader)){  // Überspringen bis zum Ende des Headers
+    Serial.println("Invalid response");
+    return;
+  }
+
+  client.find('\n'); // Zwischen Header-Ende und dem JSON-Wert ist eine Leerzeile, hiermit wird diese übersprungen
+  String line = client.readStringUntil('\n'); // Einlesen des JSON-Werts in die Variable "line"
+  ....
+~~~
+
+Folgende Codeauschnitte müssen am Ende der handleHttpResponse-Methode eingefügt werden. Gerne kann mit den einzlenen Zwischenschritten experimentiert werden um zu sehen wie das Zwischenergebnisse aussehen.
 
 ### JSON Format auslesen
 Das häufigste verwendete Format in dem APIs ihre Daten zurück geben ist im so genannten JSON Format ("JavaScript Object Notation"). Dieses Format hat den Vorteil, dass es sowohl von Menschen als auch den PC einfach lesbar ist und sehr kompakt ist. 
@@ -244,8 +337,9 @@ JSONVar myObject = JSON.parse(line);
 Dieser Befehl wandelt den String "line" in eine JSON Variable um, mit welcher wir nun leicht arbeiten können.
 
 ~~~
-cityName = JSON.stringify(myObject["name"]);
+String catFact = JSON.stringify(myObject["fact"]);
+Serial.println(catFact); 
 ~~~
-Mit dem JSON.stringify können wir die Daten welche am Identifier "name" hinterlegt sind abfragen. Grundvoraussetzung ist natürlich zu wissen wie das JSON aufgebaut ist und an welcher Stelle, welche Daten liegen. Diese Information muss aber entweder vom Anbieter der API bereitgestellt werden, bzw. muss selbst ausgelesen werden. 
+Mit dem JSON.stringify können wir die Daten welche am Identifier "fact" hinterlegt sind abfragen. Grundvoraussetzung ist natürlich zu wissen wie das JSON aufgebaut ist und an welcher Stelle, welche Daten liegen. Diese Information muss aber entweder vom Anbieter der API bereitgestellt werden, bzw. muss selbst ausgelesen werden. 
 
 

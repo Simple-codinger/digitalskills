@@ -133,8 +133,9 @@ Die fertige Anwendung soll folgende Anforderungen erfüllen:
 //Vermutlich muss das noch angepasst werden wo genau der Link hingeschickt werden soll.
 
 Zur Abgabe erstellen Sie einen "Shared Link" Ihres Dashboards (siehe Screenshot), legen ein neues Repository an und fügen Sie den Link in die readMe.md Datei ein.
-In gleichen Repository legen Sie eine Textdatei an in die Sie den kompletten Code aus Ihrem Editor einfügen. Anschließend stellen das Repository dem Betreuer zur Korrektur zur Verfügung. 
 
-![10_lab_shareDashboard](img/10_lab_shareDashboard.png)
+![10_lab_shareDashboard2](img/10_lab_shareDashboard2.png) ![10_lab_shareDashboard](img/10_lab_shareDashboard.png)
 
+In der gleichen Datei fügen Sie den Link zu Ihrem geteilten Code ein (siehe Screenshot). Anschließend stellen das Repository dem Betreuer zur Korrektur zur Verfügung.
 
+![10_lab_shareSketch](img/10_lab_shareSketch.png) ![10_lab_shareSketch2](img/10_lab_shareSketch2.png)

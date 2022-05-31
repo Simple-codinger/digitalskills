@@ -1,7 +1,7 @@
 # IoT
 In dieser Challenge soll das IoT ("Internet of Things") vorgestellt werden. IOT ist ein Begriff in dem man im Internet und später auch im Berufsleben immer mal wieder stoßen wird. Aber was genau versteht man darunter und was kann man genau damit machen?
 
-Grundsätzlich geht es dabei darum physikalische Geräte die mit verschiedenen Sensoren ausgestattet sind über das Internet mit einander zu vernetzen. Das Ganze beginnt bei einfachen Geräten wie der Temperaturfühler am Fensterbrett der die aktuelle Temperatur und Luftfeuchtigkeit an euer Handy sendet bis hin zu komplexen Industrieanwendungen wie Fertigungsroboter die mit einander Daten austauschen um komplette Produktionsanlagen zu automatisieren.
+Grundsätzlich geht es dabei darum physikalische Geräte die mit verschiedenen Sensoren ausgestattet sind über das Internet mit einander zu vernetzen. Das Ganze beginnt bei einfachen Geräten wie der Temperaturfühler am Fensterbrett der die aktuelle Temperatur und Luftfeuchtigkeit an euer Handy sendet, bis hin zu komplexen Industrieanwendungen wie Fertigungsroboter, die miteinander Daten austauschen um komplette Produktionsanlagen zu automatisieren.
 
 ### Was braucht man alles dafür?
 Egal welches Gerät, Kernelement eines jeden Geräts das vernetzt werden soll ist ein Microcontroller. Diese kommen in unterschiedlichsten Ausführungen und Austattungen, beginnend bei sehr einfachen wie den ESP8266 Modulen die sehr günstig sind und vereinfacht nur mit einem Prozessor, einem WLAN-Modul und PINS zum Anschließen von Sensoren ausgestattet sind. Bis hin zu umfangreichen wie den Raspberry PI 4, welcher alle Bestandteile eines einfachen Desktop-PCs beinhaltet (inklusive kompletten Betriebssysten und Anschlüssen wie HDMI-, USB-, AUX-, LAN-Anschlüsse...)
@@ -9,9 +9,9 @@ Egal welches Gerät, Kernelement eines jeden Geräts das vernetzt werden soll is
 ![10_note_esp8266](img/10_note_esp8266.jpg)
 ![10_note_raspberryPi](img/10_note_raspberryPi4.jpg)
 
-Wir werden in dieser Challenge mit dem Arduino IOT Kit arbeiten. Dieses beinhaltet neben dem Microcontroller -einem Arduino- ein sogenanntes Shield beinhaltet. Dieses Shield erweitert den Arduino und ist mit verschiedensten Sensoren (Temperatur, Luftfeuchtigkeit), Touch-Buttons, sowie einem kleinen Display ausgestattet. 
+Wir werden in dieser Challenge mit dem Arduino IOT Kit arbeiten. Dieses beinhaltet neben dem Microcontroller -einem Arduino- ein sogenanntes Shield. Dieses Shield erweitert den Arduino und ist mit verschiedensten Sensoren (Temperatur, Luftfeuchtigkeit), Touch-Buttons, sowie einem kleinen Display ausgestattet. 
 
-Im folgenden wird erklärt wie ihr eine einfache Temperaturanzeige selbst programmieren könnt.
+Im folgenden wird erklärt wie Sie eine einfache Temperaturanzeige selbst programmieren können.
 
 ## Was es zu tun gibt
 
@@ -31,7 +31,7 @@ Im folgenden wird erklärt wie ihr eine einfache Temperaturanzeige selbst progra
 Der Arduino ist ein Microcontroller, dieser weiß aktuell aber nicht was er überhaupt machen soll. Um ihn zu programmieren gibt es verschieden Möglichkeiten, wir werden ihn über Arduino Cloud programmieren, da diese uns viele Funktionen zur Verfügung stellt. Für uns insbesondere interessant sind die Dashboards, welche uns ermöglichen Daten von Sensoren übersichtlich darzustellen und Daten an den Arduino zu senden. 
 
 
-Führt folgenden Schritte durch, um auf dem Arudino programmieren zu können:
+Führen Sie folgendene Schritte durch, um auf dem Arudino programmieren zu können:
 
 1. Registrieren Sie sich mit Ihrer studentischen E-Mail-Adresse bei https://classroom.arduino.cc/ @Prof. Heckner: oder E-Mails erstellen die weiter gegeben werden?
 2. Nutzt den Code "JkqKcqUT" um den Aruino Klassenraum beizutreten
@@ -69,19 +69,18 @@ Um die Funktionsweise zu demonstrieren werden wir im folgenden die Variable für
 Wir vergeben einen passenden Namen "Raumtemperatur" und wählen den Datentyp "Floating Point Number".
 
 Bei den Berechtigungen gibt es die Optionen 
- - Read & Write
+ - Read & Write:
    Wird für Variablen verwendet deren Wert über das Dashboard verändert werden kann. Beispiele wären Lichtschalter, Temperatureinstellungen,... die gesteuert werden sollen.
- - Read Only
+ - Read Only:
    Für Variablen die nur zur Datenübertragung vom Gerät zum Dashboard verwendet werden. Beispiele wären die aktuelle Raumtemperatur, Luftfeuchtigkeit,...
 
 Da die Raumtemperatur nur gelesen werden soll wählen wir hier "Read Only" aus.
 
 Bei den Update Policy gibt es die Optionen
-  - On Change
+  - On Change:
   Variablen werden nur geupdated wenn sich der Wert verändert. Dies ist sinnvoll für Dinge die z.B. nur alle paar Sekunden auftreten. 
-  Der genaue Zeitabstand hängt von der Anwendungssituation ab. Ist es sehr wichtig immer aktuelle Daten zu haben muss der Zeitabstand geringer sein, als z.B. bei der Raumtemperatur.
-  Der Threshhold gibt an ab welcher Wertschwankung aktualisiert wird. Uns interessiert z.B. nicht wenn sich die Raumtemperatur um 0.001 Grad verändert, in anderen Anwendungssituationen kann dies natürlich enormen Einfluss auf die Anwendung haben.
-  - Periodically
+  Der genaue Abstand hängt von der Anwendungssituation ab. Der Threshhold gibt an ab welcher Wertschwankung aktualisiert wird. Uns interessiert z.B. nicht wenn sich die Raumtemperatur um 0.001 Grad verändert, in anderen Anwendungssituationen kann dies natürlich enormen Einfluss auf die Anwendung haben.
+  - Periodically:
   Die Werte werden in einem bestimmten Zeitabstand aktualisiert. Dies ist Beispielsweise sinnvoll wenn man Diagramme die den zeitlichen Verlauf darstellen erstellen möchte.
   Im Feld wird angegeben in welchem Zeitabstand aktualisiert wird.
   
@@ -128,15 +127,14 @@ Die zweite Methode ist die Loop Methode
 void loop() {
 }
 ~~~
-In dieser wird z.B. überprüft ob Knöpfe gedrückt wurden, können Sensoren ausgelesen werden, usw.
-Später dazu mehr.
+In dieser wird z.B. überprüft ob Knöpfe gedrückt wurden, können Sensoren ausgelesen werden, usw. später dazu mehr.
 
 ### Dashboard 
 
 ![10_lab_finalDashboard](img/10_note_finalDashboard.png)
 
-So oder so ähnlich soll euer Dashboard mal aussehen. 
-Dazu geht ihr auf https://create.arduino.cc/iot/dashboards und klickt auf "Build Dashboard".
+So oder so ähnlich soll das Dashboard später aussehen. 
+Dazu gehen Sie auf https://create.arduino.cc/iot/dashboards und klicken auf "Build Dashboard".
 
 ![10_lab_addDashboard](img/10_lab_addWidget.png)
 
@@ -147,7 +145,7 @@ Sehr wichtig hier verknüpfen wir jetzt auch über "Link Variable", das Widget m
 
 Das Shield auf dem Ihr zuvor den Arduino angebracht habt besitzt neben dem Display, Tasten auch verschiedene Sensoren. Diese wollen wir nun nutzen. 
 Als Erstes müssen wir das Ganze Initalisieren, dies passiert in der Setup Methode.
-Den folgenden Codeauschnitt könnt Ihr einfach in euren Code übernehmen, auf einzelne Bestandteile wird später genauer eingegangen. 
+Den folgenden Codeauschnitt könnt Ihr einfach in euren Code übernehmen, auf einzelne Bestandteile wird später genauer eingegangen. (Die generierte setup-Methode muss gelöscht werden.)
 ~~~
 void setup() {
   // Initialize serial and wait for port to open:
@@ -229,9 +227,13 @@ Diese Ausgabe würde dazu führen, dass in einer Zeile z.B. "Variablenwert 3" st
 
 ## 3. Daten von einer Website abfragen
 
-Da für sehr viele Anwendung nicht nur Daten die selbst im eigenen Netzwerk gesammelt wurden interessant sind müssen häufig Daten über das Internet abgefragt werden. Diese werden über sogenannte APIs ("Application Programming Interface", de: Anwendungs Programmierschnittstellen) zur Verfügung gestellt. Einfach formuliert handelt es sich dabei um Schnittstellen zu anderen Programmen welche Daten in einem bestimmten Format zur Verfügung stellen.
+Da für sehr viele Anwendung nicht nur Daten, die selbst im eigenen Netzwerk gesammelt wurden, interessant sind müssen häufig Daten über das Internet abgefragt werden. Diese werden über sogenannte APIs ("Application Programming Interface", de: Anwendungs Programmierschnittstellen) zur Verfügung gestellt. Einfach formuliert handelt es sich dabei um Schnittstellen zu anderen Programmen welche Daten in einem bestimmten Format zur Verfügung stellen.
 
 Im folgenden wollen wir eine weitere einfache Anwendung erstellen welche Fakten über Katzen abfrägt: catfact.ninja
+
+~~~
+  ACHTUNG! Hier muss zuerst im Web Editor ein neuer Sketch angelegt werden, da dieses Beispiel in keinem Zusammenhang zu der Raumtemperatur-Anwendung steht.
+~~~
 
 Die Setup Methode, includes und Variablen enthalten keine besonderen Änderungen und können direkt übernommen werden.
 ~~~ 

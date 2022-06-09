@@ -311,6 +311,30 @@ void buildHttpRequest(){
 ~~~
 Um den die eigentliche JSON-Datei aus der Antwort des Servers auszulesen muss einiges übersprungen werden da der Server zusätzliche Daten im Header mitsendet die uns hier nicht interessieren.
 
+Antwort des Servers:
+
+~~~
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 09 Jun 2022 12:32:05 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: close
+Vary: Accept-Encoding
+Cache-Control: no-cache, private
+X-Ratelimit-Limit: 100
+X-Ratelimit-Remaining: 99
+Access-Control-Allow-Origin: *
+Set-Cookie: XSRF-TOKEN=eyJpdiI6InlYU1lYUEswUTNJcC9QZ0I1KzFjYnc9PSIsInZhbHVlIjoiTmRQcjlDcmdxT2tYQVBuZ1RUNmcrRTFLOXNrVzF3ckpKOFhrbnh1d0duUWpZNzFaaXdzbWkwKytnQzgrdnpHNmlCREpGS0g1SENEQU16ZHpsRDY3dVZLME5DS0tYNmdNUmlvcEgyTURHY2wxbE9BU1RiakZseXhnSmFnUVdWdm0iLCJtYWMiOiI1MmRlMzcxMzMyYTk4Yjc4YWI5YjgzZDM4NWY2NjhjZjM4YzlhZWRiYjlkZmE4OGMyOTRmZmU0ZThhZTEzODIxIiwidGFnIjoiIn0%3D; expires=Thu, 09-Jun-2022 14:32:05 GMT; path=/; samesite=lax
+Set-Cookie: cat_facts_session=eyJpdiI6IjNIcmxMa0R0M3lON01qcnQ2VGxpdXc9PSIsInZhbHVlIjoic1BIbXR0dVpPenpzcjU1K0dwV2ZDZms4UmZxMGlpS2diMUw5a0J2aE1kNjJmZWIwUzVicGVWL1UvdmxZTG9rRzNvYTZhV1g2QkZpaUZVY2NuWFdOOG0wdG5McE04OHNRNzFIenpCdGNocUxBMlhoczZ2Y1I0YVdlNktxNTlTYzMiLCJtYWMiOiI4OGE3N2MxMzJmYTVhMzBiODg5ZjBlMmYxMmY3ZmY4M2Y0MTZmNjA4MmI3Y2ExNDY3YjVhNDE1YWI1NTFhODMwIiwidGFnIjoiIn0%3D; expires=Thu, 09-Jun-2022 14:32:05 GMT; path=/; httponly; samesite=lax
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+
+b9
+{"fact":"Relative to its body size, the clouded leopard has the biggest canines of all animals\u2019 canines. Its dagger-like teeth can be as long as 1.8 inches (4.5 cm).","length":156}
+~~~
+
 In dieser Ersten Hälfte der handleHttpResponse-Methode passiert genau dies. Mithilfe der find-Methode lässt sich nach bestimmten Stellen suchen. Ein für uns praktischer Nebeneffekt ist, dass der Curser bis zu diesem Punkt verschoben wird. Somit können wir Teile bis zu dieser Stelle überspringen.
 
 ~~~

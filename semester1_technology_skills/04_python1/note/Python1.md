@@ -464,7 +464,7 @@ else:
 
 Ein "else if" lässt sich wie folgt in Scratch...
 
-![04_scratch_if_else](./img/04_scratch_if_else.png)
+![04_scratch_if_else](./img/04_scratch_else_if.png)
 
 ... und in Python umsetzen:
 

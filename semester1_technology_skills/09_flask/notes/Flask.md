@@ -5,7 +5,7 @@
 
 In dieser Woche werden die bisherigen Technologien (d.h. Python und Datenbanken) dazu verwendet um Applikationen für das Web zu entwickeln.
 
-In der letzten Woche wurde in replit ein ```http-server``` verwendet. Dieses Programm lauscht auf eigehende Anfragen (requests) und antwortet mit statischen Inhalten wie HTML-Dateien und Bildern. Aber der ```http-server``` kann keine anderen Anfragen wie beispielsweise Formulareingaben von den Nutzern verarbeiten.
+In der letzten Woche wurde ein in replit integrierter Server verwendet. Dieses Programm lauscht auf eigehende Anfragen (requests) und antwortet mit statischen Inhalten wie HTML-Dateien, Bildern und JavaScript. Aber der dieser Server kann keine anderen Anfragen wie beispielsweise Formulareingaben von den Nutzern verarbeiten. In dieser Challenge geht es um die Entwicklung serverseitiger Webanwendungen.
 
 Eine URL kann wie folgt aussehen:
 

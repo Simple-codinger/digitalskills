@@ -20,7 +20,8 @@ def main():
     print("#")
     i += 1
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Das Programm lässt sich über die Shell ausführen, enthält aber einen logischen Fehler, da es 4 Blöcke ausgibt:
@@ -43,7 +44,8 @@ def main():
     i += 1
     print(f"i is: {i}")
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Die Ausgabe des Programms zeigt jetzt, dass ```i``` mit dem Wert 0 gestartet ist und der Wert erhöht wurde, bis ```i``` den Wert 4 angenommen hat:
@@ -78,11 +80,7 @@ Der Debugger zeigt an, dass ein Breakpoint in ```buggy.py``` angelegt wurde.
 
 Um den Programm mit dem Debugger auszuführen klickt man jetzt auf den blauen *Play-Button* (anstatt das Programm über die Shell zu starten). Das Programm bleibt anschließend am blauen Punkt (= **Breakpoint**) stehen, und erlaubt einen Blick in das Programm zur Laufzeit.
 
-TODO: DEBUGGER IN REPLIT SCHEINT BUGGY - ANFRAGE GESTELLT:
-
-https://replit.canny.io/general-feedback/p/debugger-feedback
-
-TODO: DEBUGGER FERTIG inkl. step into
+**Achtung: ** Der Debugger in replit befindet sich noch im Betastadium, d.h. es ist nicht möglich beliebige Dateien zu debuggen. Um den Debugger nutzen zu können, muss der fehlerhafte Code in eine Datei ```main.py``` kopiert werden!
 
 Eine weitere Möglichkeit, um Fehler in Programmen ist **Rubber-Duck-Debugging**. (https://en.wikipedia.org/wiki/Rubber_duck_debugging), bei dem man sich als Entwickler dazu zwingt den eigenen Code einem Quietscheentchen (oder einem anderen Objekt erklärt). Durch das laute Durchsprechen des eigenen Codes fallen einem häufig Fehler auf.
 
@@ -99,7 +97,8 @@ def main():
   average = (score1 + score2 + score3) / 3
   print(f"Durchschnitt: {average}")
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Das Programm gibt den Durchschnitt korrekt aus, muss aber für jeden Wert der für die Berechnung des Durchschnitts verwendet werden soll eine neue Variable anlegen. Je mehr Werte in die Berechnung einfließen, desto unhandlicher und unübersichtlicher wird das Programm.
@@ -115,12 +114,58 @@ def main():
   average = (scores[0] + scores[1] + scores[2]) / 3
   print(f"Durchschnitt: {average}")
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 ```scores[0]``` bezeichnet dabei das erste Element (Listen fangen bei ```0``` an zu zählen), während ```scores[2]``` sich auf das dritte Element (=```33```) bezieht.
 
-In ```score2.py``` werden die Werte von den Nutzern eingelesen:
+Häufig möchte man die Werte von 2 Variablen vertauschen. Das folgende Codebeispiel definiert zwei Variablen ```a``` und ```b```, und versucht die beiden Werte zu tauschen (```swap_buggy.py```):
+
+```python
+def main():
+  a = 5
+  b = 3
+  a = b
+  b = a
+
+  print(f"Swapped variables a: {a} b: {b}")
+
+if __name__ == "__main__":
+  main()
+```
+
+Das Programm funktioniert nicht wie erwartet, da zwar die Variable ```a```  zunächst den korrekten Wert ```3``` der Variable ```b``` erhält, danach aber die Variable ```b``` nicht den korrekten ursprünglichen Wert ```5``` von ```a``` erhält sondern den neuen Wert ```3``` aus der Variable ```b``` Die Ausgabe des Programms zeigt den Fehler:
+
+```shell
+$ python3 swap_buggy.py 
+Swapped variables a: 3 b: 3
+```
+
+Das folgende Beispiel ```swap.py``` zeigt das korrekte Tauschen von zwei Werten einer Liste. Das Problem des Überschreibens einer der beiden Variablen wird mit einer Hilsvariable ```temp``` gelöst. Diese speichert den Wert zwischen und kann dann später wieder ausgelesen werden.
+
+```python
+def main():
+  scores = [73, 72, 33]
+  
+  temp = scores[0]
+  scores[0] = scores[2]
+  scores[2] = temp
+
+  print(f"Swappeds list elements: {scores}")
+
+if __name__ == "__main__":
+  main()
+```
+
+Die Ausgabe des Programms zeigt die korrekt vertauschten Werte der Liste an den Positionen ```0``` und ```2```:
+
+```shell
+$ python3 swap.py 
+Swappeds list elements: [33, 72, 73]
+```
+
+Das Beispiel ```score2.py``` zeigt wie sich Listen verlängern lassen:
 
 ~~~python
 from cs50 import get_int
@@ -139,12 +184,13 @@ def main():
   average = (scores[0] + scores[1] + scores[2]) / 3
   print(f"Durchschnitt: {average}")
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Das Programm liest zunächst drei Werte ein und speichert diese in den Variablen ```score1```, ```score2```, und ```score3```. 
 
-Die Liste ```scores``` ist in Python ein **Objekte** sind Variablen die einerseits mehr als einen Wert speichern können (die Liste speichert beispielsweise mehrere Werte) die andererseits auch Funktionen bieten, die nur zu diesen Variablen gehören. Eine solche Funktion ist ```append```, die als Parameter ein neues Element erwartet, das der Liste ```scores``` hinzugefügt werden soll. Funktionen die zu Objekten gehören müssen im Code per Punkt getrennt direkt hinter dem Objektnamen stehen (hier: ```scores0.append(score1)```).
+Die Liste ```scores``` ist in Python ein **Objekt**. Objekte sind Variablen die einerseits mehr als einen Wert speichern können (die Liste speichert beispielsweise mehrere Werte) die andererseits auch Funktionen bieten, die nur zu diesen Variablen gehören. Eine solche Funktion ist ```append```, die als Parameter ein neues Element erwartet, das der Liste ```scores``` hinzugefügt werden soll. Funktionen die zu Objekten gehören müssen im Code per Punkt getrennt direkt hinter dem Objektnamen stehen (hier: ```scores0.append(score1)```).
 
 Die Funktion ```append``` fügt der Liste ein neues Element hinzu und verlängert diese um jeweils dieses neue Element.
 
@@ -167,7 +213,7 @@ def main():
 main()
 ~~~
 
-Zu Beginn wird eine Konstante ```NUM_SCORE``` definiert, in der die Anzahl der Werte, die das Programm einlesen und in der Liste speichern soll abgelegt. Anschließend werden die Nutzer mit ```for i in range(NUM_SCORES):``` diesem Wert entsprechend oft (hier: 3) aufgefordert eine neue Zahl einzugeben, und diese Zahl wird der Liste ```scores``` hinzugefügt. Zur Berechnung des Durchschnitts wird ```NUM_SCORES``` dann erneut verwendet.
+Zu Beginn wird eine Konstante ```NUM_SCORE``` definiert, in der die Anzahl der Werte, die das Programm einlesen und in der Liste speichern soll abgelegt wird. Anschließend werden die Nutzer mit ```for i in range(NUM_SCORES):``` diesem Wert entsprechend oft (hier: 3) aufgefordert eine neue Zahl einzugeben, und diese Zahl wird der Liste ```scores``` hinzugefügt. Zur Berechnung des Durchschnitts wird ```NUM_SCORES``` dann erneut verwendet.
 
 Das Design ist bei der Berechnung des Durchschnitts auf jedes Element der Liste einzelnn zugegriffen werden muss. Verändert sich der Wert von ```NUM_SCORES```, dann mus auch die Berechnung des Durchschnitts angepasst werden. 
 
@@ -187,7 +233,8 @@ def main():
   average = sum(scores) / len(scores)
   print(f"Durchschnitt: {average}")
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 ```sum()``` berechnet die Summe aller Elemente der Liste, und ```len()``` zählt die Elemente der Liste. Das Design des Programms ist jetzt besser, da lediglich der Wert von ```NUM_SCORES``` an einer Stelle geändert werden muss und das Einlesen der Werte und die Berechnung passen sich automatisch an.
@@ -206,7 +253,8 @@ def main():
   else:
     print("Diesen Namen kenne ich nicht!")
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Der Code ```if name in DICTIONARY``` sucht den Namen im Dictionary und gibt ```True``` zurück, wenn der Name enthalten ist und ```False``` wenn nicht. 
@@ -233,7 +281,8 @@ def main():
   if name in phonebook:
       print(f"Number: {phonebook[name]}")
     
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Werte lassen sich über die Keys auch direkt aus dem Dictionary mit ```phonebook.get("Polizei")``` abfragen. Als Ergebnis erhält man den unter dem Key gespeicherten Wert (hier: ```110```).
@@ -255,7 +304,8 @@ def main():
   invalild_key = phonebook.get("Notruf")
   print(f"Invaild Key: {invalild_key}")
     
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Die Ausgabe des Programms ist wie folgt:
@@ -293,7 +343,8 @@ def main():
       print(c.upper(), end="")
   print()
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Zuerst wird ein String in der Variable ```before``` eingelesen. Anschließend wird am Beginn einer neuen Zeile *After:* ausgegeben, jedoch ohne eine neue Zeile zu beginnen (vgl. ```print("After:  ", end="")```).
@@ -313,7 +364,8 @@ def main():
   print()
   print(f"String: {before}")
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Ausgabe:
@@ -336,7 +388,8 @@ def main():
   after = before.upper()
   print(f"After:  {after}")
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Der ursprüngliche String ```before``` bleibt aber unverändert (Strings sind immutable): Python erzeugt einen neuen String ```after``` und kopiert dort die Zeichen als Großbuchstaben.
@@ -362,7 +415,8 @@ def main():
   for word in words:
     print(f"Word: {word}")
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Die Ausgabe des Programms ist wie folgt:
@@ -385,7 +439,8 @@ def main():
   count = sentence.count("a")
   print(count)
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Ruft man das Programm auf, erhält man folgenden Ausgabe:
@@ -397,6 +452,29 @@ Sentence:  hallo
 ~~~
 
 ```a``` kommt einmal im Wort hallo vor, wird hello eingebeben, ist die Ausgabe 0.
+
+# Konvertieren von Strings
+
+Eine häufiges Programmierproblem ist die Suche von Elementen in einer Liste. Das folgende Beisopiel liest eine Zeichenkette von der Kommandozeile ein und überprüft, ob diese in einer Liste von Zeichenketten enthalten ist. Um das Programm gegen Fehleingaben der Nutzer robuster zu machen, wird die eingegebene Zeichenkette mit ```s.lower()``` in Kleinbuchstaben umgewandelt. Hat ```s``` beispielsweise zuerst den Wert ```JA```, wird dieser in ```ja``` umgewandelt (```string6.py```).
+
+~~~python
+from cs50 import get_string
+
+def main():
+  s = get_string("Do you agree? ")
+
+  s = s.lower()
+  
+  if s in ["y", "yes"]:
+      print("Agreed.")
+  elif s in ["n", "no"]:
+      print("Not agreed.")
+
+if __name__ == "__main__":
+  main()
+~~~
+
+
 
 # Parameter von der Shell
 
@@ -415,7 +493,8 @@ def main():
   else:
       print("hello, world")
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Zuerst wird die Liste ```argv``` aus der Bibliothek ```sys``` importiert. Diese Liste enthält die Parameter die von der Kommandozeile an den Python Interpreter übergeben wurden. Der folgenden Aufruf...
@@ -448,7 +527,8 @@ def main():
   print(f"hello, {argv[1]}")
   exit(0)
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Wird das Programm ohne Parameter auf der Shell ausgeführt, erhält man die folgende Fehlermeldung:
@@ -482,27 +562,11 @@ def main():
   print(f"hello, {sys.argv[1]}")
   sys.exit(0)
 
-main()
+if __name__ == "__main__":
+  main()
 ~~~
 
 Das Voranstellen von ```sys.``` vor ```argv``` bzw. ```exit()``` kennzeichnen diese als zur Bibliothek ```sys``` zugehörig. 
-
-# Algorithmen
-
-Suche in einer Liste
-
-~~~python
-from cs50 import get_string
-
-s = get_string("Do you agree? ")
-
-s = s.lower()
-
-if s in ["y", "yes"]:
-    print("Agreed.")
-elif s in ["n", "no"]:
-    print("Not agreed.")
-~~~
 
 # Dokumentation
 

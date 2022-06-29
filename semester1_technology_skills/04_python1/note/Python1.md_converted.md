@@ -1,4 +1,3 @@
-<!--- SPEAKER_VIEW=TRUE --->
 
 > Alle Codebeispiele für diese Challenge sind auf replit.com abrufbar:
 > https://replit.com/@mheckner/Digital-Skills04Python
@@ -126,6 +125,15 @@ Anschließend wird mittels ```answer = ``` der Rückgabewert in die Variable ```
 
 Das folgende Programm fragt zuerst nach einem Nutzernamen und versucht diesen anschließend auf der Kommandozeile auszugeben:
 
+## Demo Code begin
+```python
+from cs50 import get_string
+
+answer = get_string("What's your name? ")
+print(f"Hello {answer}")
+```
+## Demo Code end
+
 ~~~python
 answer = get_string("What's your name?")
 print("Hello answer")
@@ -197,7 +205,7 @@ Die bisherigen Python-Codebeispiele integrieren Variablen und Funktionen direkt 
 
 ![04_scratch_green_flag](./img/04_scratch_green_flag.png)
 
-Das Äquivalent von "when green flag clicked" sieht in Python wie folgt aus (```hello2.py```):
+Das Äquivalent von "when green flag clicked" sieht in Python wie folgt aus:
 
 ~~~python
 from cs50 import get_string
@@ -307,7 +315,7 @@ Die Bibliothek ```cs50``` bietet die entsprechenden Funktionen, um diese Werte e
 
 Mithilfe der Funktion ```type()``` lassen sich die Datentypen von Variablen anzeigen:
 
-Die Ausgabe ist wie folgt (```hello3.py```):
+Die Ausgabe ist wie folgt:
 
 ~~~python
 from cs50 import get_string, get_float, get_int
@@ -455,7 +463,7 @@ if x < y:
     print("x ist kleiner als y")
 ~~~
 
-Achtung: Die Zeile ```print``` muss eingerückt sein, um nur dann ausgeführt zu werden, falls die Bedingung ```x<y``` zutrifft. Ist die Zeile nicht eingerückt, wird immer ```"x ist kleiner als y"``` ausgegeben.
+Achtung: Die Zeile ```print``` mus eingerückt sein, um nur dann ausgeführt zu werden, falls die Bedingung ```x<y``` zutrifft. Ist die Zeile nicht eingerückt, wird immer ```"x ist kleiner als y"``` ausgegeben.
 
 If und else in Scratch...
 

@@ -17,7 +17,6 @@ def main():
   y = get_int("y: ")
 
   sum = calculate_sum(x, y)
-  
   print(sum)
 
 def calculate_sum(x, y):

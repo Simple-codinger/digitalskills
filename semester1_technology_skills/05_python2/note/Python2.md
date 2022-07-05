@@ -3,6 +3,52 @@
 
 
 
+# Eigene Funktionen mit Rückgabewerten
+
+Funktionen können nicht nur Ausgaben erzeugen, sondern auch Ergebnisse zurückliefen. Beispielsweise liefert die Funktion ```get_string``` den von der Kommandozeile eingelesenen String als Ergebnis zurück.
+
+Funktionen erzeugen Rückgabewerte durch das Schlüsselwort ```return```. Das folgende Beispiel liest zwei Zahlen von der Kommandozeile ein und berechnet das Produkt der beiden Zahlen in einer eigenen Funktion (```calculator1.py```):
+
+```python
+from cs50 import get_int
+
+def main():
+  x = get_int("x: ")
+  y = get_int("y: ")
+
+  sum = calculate_sum(x, y)
+  
+  print(sum)
+
+def calculate_sum(x, y):
+  sum = x + y
+  return sum
+
+if __name__ == "__main__":
+  main()
+```
+
+Das folgende Programm liest eine positive Zahl von der Kommandozeile ein (```positive.py```):
+
+```python
+from cs50 import get_int
+
+def main():
+  positive_num = get_positive_int()
+  print(positive_num)
+
+def get_positive_int():
+  while True:
+    num = get_int("Enter positive number: ")
+    if num >= 0:
+      return num
+
+if __name__ == "__main__":
+  main()
+```
+
+
+
 # Debugging
 
 **Bugs** sind Fehler in Programmen, die dazu führen, dass das Programm etwas anderes tut als von den Entwicklern vorgesehen. **Debugging** ist der Prozess diese Bugs zu finden und zu beheben.

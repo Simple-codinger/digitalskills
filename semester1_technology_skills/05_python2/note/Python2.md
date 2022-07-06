@@ -191,6 +191,21 @@ Das folgende Beispiel ```swap.py``` zeigt das korrekte Tauschen von zwei Werten 
 
 ```python
 def main():
+  a = 5
+  b = 3
+  temp = a
+  a = b
+  b = temp
+  print(f"Swapped variables a: {a} b: {b}")
+
+if __name__ == "__main__":
+  main()
+```
+
+Auch in einer Liste lassen sich Elemente mit einer Hilfsvariable vertauschen (```swap_list.py```):
+
+```python
+def main():
   scores = [73, 72, 33]
   
   temp = scores[0]
@@ -258,7 +273,7 @@ def main():
 main()
 ~~~
 
-Zu Beginn wird eine Konstante ```NUM_SCORE``` definiert, in der die Anzahl der Werte, die das Programm einlesen und in der Liste speichern soll abgelegt wird. Anschließend werden die Nutzer mit ```for i in range(NUM_SCORES):``` diesem Wert entsprechend oft (hier: 3) aufgefordert eine neue Zahl einzugeben, und diese Zahl wird der Liste ```scores``` hinzugefügt. Zur Berechnung des Durchschnitts wird ```NUM_SCORES``` dann erneut verwendet.
+Zu Beginn wird eine Konstante ```NUM_SCORES``` definiert, in der die Anzahl der Werte, die das Programm einlesen und in der Liste speichern soll abgelegt wird. Anschließend werden die Nutzer mit ```for i in range(NUM_SCORES):``` diesem Wert entsprechend oft (hier: 3) aufgefordert eine neue Zahl einzugeben, und diese Zahl wird der Liste ```scores``` hinzugefügt. Zur Berechnung des Durchschnitts wird ```NUM_SCORES``` dann erneut verwendet.
 
 Das Design ist bei der Berechnung des Durchschnitts auf jedes Element der Liste einzelnn zugegriffen werden muss. Verändert sich der Wert von ```NUM_SCORES```, dann mus auch die Berechnung des Durchschnitts angepasst werden. 
 
@@ -284,16 +299,16 @@ if __name__ == "__main__":
 
 ```sum()``` berechnet die Summe aller Elemente der Liste, und ```len()``` zählt die Elemente der Liste. Das Design des Programms ist jetzt besser, da lediglich der Wert von ```NUM_SCORES``` an einer Stelle geändert werden muss und das Einlesen der Werte und die Berechnung passen sich automatisch an.
 
-Suchen in einer Liste. Das folgende Beispiel erstellt eine Liste von Wörtern, fragt die Nutzer nach dem Wort und gibt anschließend aus, ob das Wort in der Liste enthalten ist oder nicht (```dictionary.py```):
+Suchen in einer Liste. Das folgende Beispiel erstellt eine Liste von Wörtern, fragt die Nutzer nach dem Wort und gibt anschließend aus, ob das Wort in der Liste enthalten ist oder nicht (```names.py```):
 
 ~~~shell
 from cs50 import get_string
 
-DICTIONARY = ["Alex", "Bruce", "Charles"]
+NAMES = ["Alex", "Bruce", "Charles"]
 
 def main():
   name = get_string("Enter name: ")
-  if name in DICTIONARY:
+  if name in NAMES:
     print("Korrekter Name!")
   else:
     print("Diesen Namen kenne ich nicht!")
@@ -302,7 +317,7 @@ if __name__ == "__main__":
   main()
 ~~~
 
-Der Code ```if name in DICTIONARY``` sucht den Namen im Dictionary und gibt ```True``` zurück, wenn der Name enthalten ist und ```False``` wenn nicht. 
+Der Code ```if name in NAMES``` sucht den Namen im Dictionary und gibt ```True``` zurück, wenn der Name enthalten ist und ```False``` wenn nicht. 
 
 # Dictionaries
 
@@ -346,8 +361,8 @@ def main():
   police_number = phonebook.get("Polizei")
   print(f"Polizei: {police_number}")
 
-  invalild_key = phonebook.get("Notruf")
-  print(f"Invaild Key: {invalild_key}")
+  invalid_key = phonebook.get("Notruf")
+  print(f"Invalid Key: {invalid_key}")
     
 if __name__ == "__main__":
   main()
@@ -500,7 +515,7 @@ Sentence:  hallo
 
 # Konvertieren von Strings
 
-Eine häufiges Programmierproblem ist die Suche von Elementen in einer Liste. Das folgende Beisopiel liest eine Zeichenkette von der Kommandozeile ein und überprüft, ob diese in einer Liste von Zeichenketten enthalten ist. Um das Programm gegen Fehleingaben der Nutzer robuster zu machen, wird die eingegebene Zeichenkette mit ```s.lower()``` in Kleinbuchstaben umgewandelt. Hat ```s``` beispielsweise zuerst den Wert ```JA```, wird dieser in ```ja``` umgewandelt (```string6.py```).
+Eine häufiges Programmierproblem ist die Suche von Strings in einer Liste von Strings. Das folgende Beispiel liest eine Zeichenkette von der Kommandozeile ein und überprüft, ob diese in einer Liste von Zeichenketten enthalten ist. Um das Programm gegen Fehleingaben der Nutzer robuster zu machen, wird die eingegebene Zeichenkette mit ```s.lower()``` in Kleinbuchstaben umgewandelt. Hat ```s``` beispielsweise zuerst den Wert ```JA```, wird dieser in ```ja``` umgewandelt (```string6.py```).
 
 ~~~python
 from cs50 import get_string
@@ -583,7 +598,7 @@ $ python3 argv1.py
 Missing command-line argument
 ~~~
 
-Erst mit einem Parameter gibt das Programm den Parameter aus:
+Erst mit einem Parameter beendet sich das Programm nicht und gibt den Parameter aus:
 
 ~~~shell
 $ python3 argv1.py hello

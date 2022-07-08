@@ -3,9 +3,9 @@
 
 # Das Internet
 
-In dieser Challenge geht es um Webentwicklung. Es werden neue Sprachen und Technologien vorgestellt, mit deren Hilfe sich **serverseitige** Anwendungen, d.h. Anwendungen die auf einem Server oder einem Cloudservice laufen und  *clientseitige* Anwendungen entwickeln lassen, die im Browser der Nutzer laufen.
+In den nächsten Challenges geht es um Webentwicklung. Es werden neue Sprachen und Technologien vorgestellt, mit deren Hilfe sich **serverseitige** Anwendungen, d.h. Anwendungen die auf einem Server oder einem Cloudservice laufen und  *clientseitige* Anwendungen entwickeln lassen, die im Browser der Nutzer laufen. Diese Challenge stellt Technologien für *clientseitige* Anwendungen vor.
 
-Das **Internet** ist ein Netzwerk aus Netzwerken Rechnern (bzw. Servern), die miteinenander kommunizieren, indem sie Daten senden und empfangen. Das erste Internet war das ARPANET, dass die Rechner verschiedener amerikanischer Universitäten miteinander verbunden hat (vgl. https://de.wikipedia.org/wiki/Arpanet). Das heutige Internet verbindet alle per Kabel oder WiFi *angeschlossenen* Rechner der Welt miteinander. 
+Das **Internet** ist ein Netzwerk aus Netzwerken Rechnern (bzw. Servern), die miteinenander kommunizieren, indem sie Daten senden und empfangen. Das erste Internet war das Arpanet, dass die Rechner verschiedener amerikanischer Universitäten miteinander verbunden hat (vgl. https://de.wikipedia.org/wiki/Arpanet). Das heutige Internet verbindet alle per Kabel oder WiFi *angeschlossenen* Rechner der Welt miteinander. 
 
 **Router** sind spezielle Rechner (mit CPU und Speicher), die Daten von einem Punkt zu einem anderen Punkt weiterleiten (d.h. von einem an das Internet angeschlossenen Rechner zu einem anderen Rechner). Router erhalten die Daten von einem Rechner und entscheiden selbst, wie sie diese Daten weitergeben. Die Daten, die von einem Rechner zu einem anderen Rechner über das Internet geschickt werden passieren also mehrere Router.
 

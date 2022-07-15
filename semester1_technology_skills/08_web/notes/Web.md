@@ -170,7 +170,7 @@ HTML ermöglicht es die Struktur von Webseiten festzulegen. Im Web lassen zahlre
 
 Mithilfe des W3C Validierers lässt sich überprüfen, ob der HTML-Code valide ist: https://validator.w3.org/#validate_by_input
 
-Die HTML-Datei ```paragraphs_0.html```zeigt, wie sich Textabsätze mit HTML formatieren lassen:
+Die HTML-Datei ```paragraphs_0.html```zeigt, wie sich Textabsätze mit HTML formatieren lassen (Die Texte lassen sich aus eine Website wie https://lipsum.com/ kopieren) :
 
 ~~~html
 <!DOCTYPE html>
@@ -297,7 +297,7 @@ Das Beispiel ```image.html``` zeigt wie sich Bilder in Webseiten einbinden lasse
         <title>image</title>
     </head>
     <body>
-        <!-- https://www.harvard.edu/ -->
+        <!-- https://www.regensburg.de/ -->
         <img alt="Regensburg" src="regensburg.jpg">
     </body>
 </html>
@@ -324,6 +324,8 @@ Auch Videos sind möglich (```video.html```):
 ~~~
 
 Die Attribute des Tags ```<video>``` steuern die Darstellung des Videos, manche Attribute haben keine Werte.
+
+Wie HTML-Elemente zu verwenden sind, lässt sich auf der sehr guten Dokumentation von Mozilla für Webentwickler nachlesen (gilt für alle Browser). Beispielsweise zeigt die Seit https://developer.mozilla.org/de/docs/Web/HTML/Element/video die Verwendung des Elements ```<video>```.
 
 Links auf andere Webseiten lassen sich mithilfe des Elements ```a``` erstellen (```link_1.html```):
 
@@ -397,13 +399,13 @@ Das folgende Beispiel ```home_0.html``` zeigt den Code für eine einfache Homepa
     </head>
     <body>
         <p>
-            John Harvard
+            Donald Duck
         </p>
         <p>
             Welcome to my home page!
         </p>
         <p>
-            Copyright (c) John Harvard
+            Copyright (c) Donald Duck
         </p>
     </body>
 </html>
@@ -420,13 +422,13 @@ Die Seite lässt sich mit dem Element ```div``` in mehrere Bereiche teilen (```h
     </head>
     <body>
         <div>
-            John Harvard
+            Donald Duck
         </div>
         <div>
             Welcome to my home page!
         </div>
         <div>
-            Copyright (c) John Harvard
+            Copyright (c) Donald Duck
         </div>
     </body>
 </html>
@@ -556,7 +558,7 @@ Eine Klasse lässt sich mit CSS durch ergänzen eines ```.``` vor den Selektor. 
 
 Soll ein HTML-Element mit den erstellten Klassen formatiert werden, kann diesem Element das Attribut ```class``` mit den gewünschten Klassen als Werte übergeben werden (Achtung: Klassen durch Leerzeichen, nicht durch Komma trennen).
 
-Im letzten Schritt wird das CSS in eine separate Datei ausgelagert, damit sich das CSS für eine Website mit mehreren Seiten auf jeder Seite einbinden lässt und so mehrfach verwendet werden kann (```home_6,html```:
+Im letzten Schritt wird das CSS in eine separate Datei ausgelagert, damit sich das CSS für eine Website mit mehreren Seiten auf jeder Seite einbinden lässt und so mehrfach verwendet werden kann (```home_6.html```:
 
 ~~~html
 <!DOCTYPE html>
@@ -698,7 +700,7 @@ Das folgende Beispiel zeigt die Funktionsweise von Bootstrap anhand einer Tabell
         <table>
             <thead>
               <th>Titel</th>
-              <th>Erscheinungsjahr
+              <th>Erscheinungsjahr</th>
             </thead>
             <tbody>
               <tr>
@@ -922,7 +924,7 @@ JavaScript kann zusammen mit einem Formular verwendet werden (```hello_js_0.html
     </head>
     <body>
         <form onsubmit="greet(); return false;">
-            <input autocomplete="off" autofocus id="name" placeholder="Name" type="text">
+            <input autofocus id="name" placeholder="Name" type="text">
             <input type="submit">
         </form>
         <script>
@@ -951,7 +953,7 @@ Bis jetzt ist die Begrüßung aber immer die selbe. Um persönlich begrüßt zu 
     </head>
     <body>
         <form onsubmit="greet(); return false;">
-            <input autocomplete="off" autofocus id="name" placeholder="Name" type="text">
+            <input autofocus id="name" placeholder="Name" type="text">
             <input type="submit">
         </form>
     <script>
@@ -983,7 +985,7 @@ Mit anonymen Funktionen (d.h. Funktionen ohne Namen) lassen sich diese Events au
     </head>
     <body>
         <form>
-            <input autocomplete="off" autofocus id="name" placeholder="Name" type="text">
+            <input autofocus id="name" placeholder="Name" type="text">
             <input type="submit">
         </form>
         <script>

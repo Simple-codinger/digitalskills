@@ -77,7 +77,7 @@ def index():
 
 * Zuerst wird ```Flask``` (und ein paar weitere Funktionen) aus der Bibliothek ```flask``` importiert
 * Anschließend wird eine Variable ```app``` erstellt, indem der Funktion ```Flask``` der Name der Python Datei (```__name__``` entspricht ```app.py```) übergeben wird
-* Anschließend erstellen wir eine Funktion ```@app.route```  für die Route ```/```. Das ```@``` Zeichen ist ein **decorator** , der eine Funktion mit zusätzlichen Features austtattet (TODO)
+* Anschließend erstellen wir eine Funktion ```@app.route```  für die Route ```/```. ```@app.route()``` ist ein **decorator**, d.h. eine eine Funktion die eine andere Funktionen mit zusätzlichen Features austattet (mehr müssen wir erstmal nicht wissen)
 * Die Funktion ```index()``` *rendert* (später) das Template ```index.html``` oder schickt direkt (jetzt) eine HTML-Antwort an den Client zurück
 
 Die Datei ```index.html``` befindet sich im Ordner ```templates/``` und sieht wie folgt aus:
@@ -233,7 +233,7 @@ Um den Fehler zu beheben muss ein neues Template ```greet.html```im Ordner ```te
 
 Nach Neustart des Servers wird das Formular auf der Startseite angezeigt und übermittelt den Inhalt des Formulars beim Absenden an den Server, der dann eine zweite Seite mit dem neuen Template generiert.
 
-Die Funktion ```get()``` unterstützt einen default-Wert, falls ```name``` keinen Wert enthält (d.h. falls das Formular beispielsweise leer abgeschickt wurde). Dementsprechend lässt ```greet()```  sich wie folgt umschreiben:
+Die Funktion ```get()``` unterstützt einen default-Wert, falls ```name``` keinen Wert enthält (d.h. falls greet direkt und nicht über das Formular aufgerufen wird). Dementsprechend lässt ```greet()```  sich wie folgt umschreiben:
 
 ~~~python
 @app.route("/greet")
@@ -242,7 +242,7 @@ def greet():
   return render_template("greet.html", name=name)
 ~~~
 
-Wird die Route ```/greet``` jetzt direkt im Browser (d.h. ohne das Formular) aufgerufen, wird die Variable ```name```defaultmäßig auf den Wert ```world``` gesetzt und *hello, world* erscheint im Browser.
+Wird die Route ```/greet``` jetzt direkt im Browser (d.h. ohne den Parameter in der URL) aufgerufen, wird die Variable ```name```defaultmäßig auf den Wert ```world``` gesetzt und *hello, world* erscheint im Browser.
 
 Wenn aber das Formular leer abgeschickt wird, wird die URL ```/greet?name=``` aufgerufen und ```name``` ist ein leerer String. Das Formulareingabefeld kann um das Attribut ```required``` ergänzt werden, um dies zu vermeiden. Da Seiten aber mit den Chrome Developer-Tools clientseitig manipuliert werden können, kann man sich auf dieses Attribut nicht alleine verlassen.
 
@@ -281,7 +281,7 @@ Jetzt kann ```index.html``` so angepasst werden, dass das Gerüst aus ```layout.
 {% endblock %}
 ~~~
 
-Der Block ```{% extends "layout.html" %}``` teilt Flask mit, dass ```index.html```  ein anderes Template (```layout.html```) benötigt und den Code des Platzhalters ```{block body)``` durch das Formular ersetzt.
+Der Block ```{% extends "layout.html" %}``` teilt Flask mit, dass ```index.html```  ein anderes Template (```layout.html```) benötigt und den Code des Platzhalters ```{block body}``` durch das Formular ersetzt.
 
 Somit wurde enthält die Datei ```index.html```  nur noch das Formular und der *duplicate code* aus entfernt und in das Template ausgelagert.
 
@@ -417,7 +417,7 @@ Damit Studierende sich für eine bestimmte Sportart registrieren können wird ``
   <h1>Für Sport registrieren</h1>
     <form action="/register" method="post">
         <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
-        <select name="sport">
+        <select>
             <option disabled selected>Sport</option>
             <option value="Frisbee">Frisbee</option>
             <option value="Fussball">Fussball</option>
@@ -708,7 +708,7 @@ def index():
   ...
 ~~~
 
-In ```other_sports_7``` existiert bereits einen SQLite Datenbank ```othsports.db```, deren Struktur sich mit dem folgenden Befehl in der Replit-Shell anzeigen lässt:
+In ```oth_sports_7``` existiert bereits einen SQLite Datenbank ```othsports.db```, deren Struktur sich mit dem folgenden Befehl in der Replit-Shell anzeigen lässt:
 
 ~~~shell
 ~/Digital-Skills09Flask/oth_sport_7$ sqlite3 othsports.db

@@ -35,7 +35,7 @@ def register():
     name = request.form.get("name")
     sport = request.form.get("sport")
     if not name or sport not in SPORTS:
-        return render_template("errro.html", message="Name oder Sport fehlt")
+        return render_template("error.html", message="Name oder Sport fehlt")
 
     # Remember registrant
     db.execute("INSERT INTO registrants (name, sport) VALUES(?, ?)", name, sport)

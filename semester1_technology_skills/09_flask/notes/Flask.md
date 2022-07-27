@@ -740,7 +740,16 @@ def register():
 
 Zuerst wird überprüft, ob ```name``` und ```sport``` korrekt über das Formular geschickt wurden. Ist dies der Fall, wird die Registrierung mit ```INSERT INTO``` in der Datenbanktabelle ```registrants``` gespeichert. Anschließend wir der Nutzer mit ```redirect``` auf die Route ```/registrants``` weitergeleitet.
 
-Hier werden die Registrierungen mit ```SELECT``` aus der Datenbanktabelle ausgelesen und an ```render_template``` zur Erstellung des Templates übergeben.
+Hier werden die Registrierungen mit ```SELECT``` aus der Datenbanktabelle ausgelesen... 
+
+~~~python
+@app.route("/registrants")
+def registrants():
+    registrants = db.execute("SELECT * FROM registrants")
+    return render_template("registrants.html", registrants=registrants)
+~~~
+
+und an ```render_template``` zur Erstellung des Templates übergeben.
 
 ~~~html
 {% extends "layout.html" %}
@@ -1004,7 +1013,7 @@ Da die Weiterleitung per GET erfolgt, zeigt die Route ```/login``` zunächst das
 {% endblock %}
 ~~~
 
-Wenn sich die Nutzer mit Namen einloggen werden die Daten des Formulars per POST an die selbe Route gesendet, umd der Nutzername aus dem Formular wird unter dem Key ```name``` in der Variable ```session``` für diesen Nutzer gespeichert. Anschließend wird der Nutzer auf die Route ```/``` weitergeleitet. Dort werden diese jetzt mit ihrem Namen als eingeloggte Nutzer begrüßt, weil die Variable ```session``` jetzt den Nutzernamen unter dem Key ```name``` enthält. Lädt man jetzt die Seite neu oder öffnet sie ein einem neuen Tab, wird der Nutzer wieder namentlich begrüßt.
+Wenn sich die Nutzer mit Namen einloggen, werden die Daten des Formulars per POST an die selbe Route gesendet, umd der Nutzername aus dem Formular wird unter dem Key ```name``` in der Variable ```session``` für diesen Nutzer gespeichert. Anschließend wird der Nutzer auf die Route ```/``` weitergeleitet. Dort werden diese jetzt mit ihrem Namen als eingeloggte Nutzer begrüßt, weil die Variable ```session``` jetzt den Nutzernamen unter dem Key ```name``` enthält. Lädt man jetzt die Seite neu oder öffnet sie ein einem neuen Tab, wird der Nutzer wieder namentlich begrüßt.
 
 Die Route ```/logout``` löscht den Wert für ```name``` aus der Variable ```session``` indem sie diese auf ```None``` setzt und den Nutzer wieder auf die Indexseite ```/``` weiterleitet:
 

@@ -4,11 +4,10 @@
 
 ## Was es zu tun gibt
 
-1. Roboter gerade aus fahren lassen / im Kreis drehen
-2. Roboter einer Linie folgen lassen
-3. Roboter den Richtigen Pfad anhand der Farbkarten auswählen lassen
-4. Roboter auf Ball warten lassen
-5. Roboter zum Ziel fahren lassen und Ball ablegen
+1. Roboter einer Linie folgen lassen
+2. Roboter den richtigen Pfad anhand der Farbkarten auswählen lassen
+3. Roboter auf Ball warten lassen
+4. Roboter zum Ziel fahren lassen und Ball ablegen
 Optionale Aufgabe um den schnellsten Roboter zu finden: Zeiten für alle drei Strecken eintragen
 
 ## Ziel Challenge
@@ -17,4 +16,98 @@ Das Ziel dieser Challenge ist es einen (vereinfachten) Logistik-Roboter zu progr
 In folgenden Video können Sie sehen wie der Roboter am Ende funktionieren soll.
 TODO: Add Video
 
-## Roboter gerade aus fahren lassen / im Kreis drehen
+## Roboter einer Linie folgen lassen
+
+Nachdem im Kurs bereits gezeigt wurde wie der Roboter ein Quadrat fahren kann, soll nun als Erste Teilaufgabe der Roboter der schwarzen Linie folgen können. 
+Hier als kleine Hilfestellung ein Codeauschnitt durch den der Roboter sich auf der Stelle drehen kann:
+
+~~~
+motor_pair = MotorPair('A', 'B')
+
+# Dreht den Robotor nach links
+def turn_left(distance):
+    motor_pair.move_tank(distance, 'cm', left_speed=-30, right_speed=30)
+~~~
+
+Gerne können Sie mit der Drehgeschwindigkeit (hier 30) etwas herum experimentieren. Legen Sie annalog zu der Methode eine turn_right - Methode an.
+Damit der Roboter der Linie folgen kann muss er sich darauf ausrichten können sollte er davon abkommen. Die Linie erkennt der Roboter mithilfe eines Farbsensors der auf den Boden ausgerichtet ist. 
+Hier sind alle wichtigen Methoden des Farbsensors zusammengefasst:
+
+~~~
+color_sensor = ColorSensor('E')
+
+# Wartet auf eine Farbänderung
+color = color_sensor.wait_for_new_color()
+
+# Gibt die aktuelle Farbe unter dem Sensor zurück
+color = color_sensor.get_color()
+~~~
+
+Der einfachste Lösungsansatz, den Roboter richtig auszurichten, wäre es ihn in eine vorher definierte Richtung stückchenweise zu drehen und nach jeder Drehung zu überprüfen ob er auf der Linie steht. Sobald er mit dem Farbsensor erkennt das er auf der schwarzen Line steht wird die Methode abgebrochen und der Roboter ist erfolgreich ausgerichtet. Allerdings ist dieser Lösungsansatz sehr langsam, da man vorher nicht weis in welche Richtung die Linie liegt. 
+Ist der Roboter beispielsweise um 5° zu weit nach links gedreht wäre es intuitiv sehr einfach zu erkennen das man den Roboter nur um 5° nach rechts drehen muss um ihn korrekt auszurichten. Der Farbsensor erkennt allerdings nur die Farbe direkt unter dem Roboter, hätte man also eine Linksdrehung als Standard definiert müsste sich der Roboter um 355° drehen um sich korrekt auszurichten.
+
+Um den Roboter die verschiedenen Strecken performanter fahren zu lassen wählen wir einen etwas komplexeren Algorithmus. Die Kernidee dahinter ist den Roboter wie ein (physikalisch fragwürdiges) Pendel immer weiter nach Links und Rechts schwenken zu lassen. Folgende Grafik soll den Algorithmus veranschaulichen. Jeder der Pfeile besteht aus einer definierten Anzahl an stückweise Drehungen. Nach jeder Stückweisen Drehung wird überprüft ob der Roboter korrekt steht. Um zum Ausgangspunkt des nächsten Pfeils zu kommen wird der Roboter in einem Stück gedreht (ohne die stückweise Unterteilung).  
+
+![6_drehung](img/Drehung.png)
+
+Ihre Aufgabe wird sein in folgenden Codeauschnitt die "search_gradually"-Methode fertig zu implementieren, welche schrittweise den Roboter dreht, sowie die "line_found"-Methode. Beginnen Sie am besten mit der "line_found", da Sie diese in der "search_gradually" benötigen werden.
+
+
+> Tipp für die "search_gradually"-Methode: Der Parameter "turn_direction_method" kann entweder den Wert "turn_left" oder "turn_right", enthalten. Also die Methodennamen der vorher implementierten Methoden.
+Verwendung: 
+
+~~~
+# Dreht je nach Wert des Parameters "turn_direction_method" den Roboter um den Wert xy nach Links oder Rechts.
+turn_direction_method(xy)
+~~~
+  
+> Erklärung der Konstanten:
+> TURN_DISTANCE_STEP: Gibt die Entfernung der Stückweisen Drehungen an, sollte sich der Roboter über die Linie drehen muss dieser Wert verkleinert werden, je größer er ist umso schneller findet der Roboter die Linie.
+>  AMPLITUDE_STEP: Gibt die Länge eines "Pfeils" an, heißt wie oft dreht sich der Roboter bevor er in der anderen Richtung sucht.
+
+~~~
+## Konstanten
+# legt die Schrittweite der Drehung beim suchen fest, nuss so festgelegt werden, dass Roboter sich nie beim suchen über die Linie dreht
+TURN_DISTANCE_STEP = 1
+# Faktor legt fest wie oft links/rechts gesucht wird
+AMPLITUDE_STEP = 3 * TURN_DISTANCE_STEP
+
+# Überprüft ob der Roboter auf einer schwarzen Linie steht
+def line_found(color):
+    # TODO: Überprüfen ob die color Variable schwarz ist
+
+
+# Richtet den Roboter wieder zur schwarzen Linie aus
+def find_line():
+    turn_distance = AMPLITUDE_STEP
+    while not line_found(color_sensor.get_color()):
+        detected_line = search_gradually(turn_left)
+        if not detected_line:
+            turn_right(turn_distance)
+            detected_line = search_gradually(turn_right)
+            if not detected_line:
+                turn_distance += AMPLITUDE_STEP
+                turn_left(turn_distance)
+                turn_distance += AMPLITUDE_STEP
+        else:
+            return
+    return
+    
+# Dreht den Robotor Schrittweise in die Richtung der turn_direction_method, bis Linie oder Zielfarbe gefunden wurde
+## turn_direction_method: Funktionsname einer Funktion die als Parameter eine Zahl erwartet, welche die Entfernung angibt
+## returns: True, sobald der Roboter auf der Linie steht, False falls die Linie nicht gefunden wurde
+def search_gradually(turn_direction_method):
+    cur_distance = 0.0
+    # Solange die aktuelle Drehung kleiner, gleich AMPLITUDE_STEP 
+    while cur_distance <= AMPLITUDE_STEP:
+        #Drehe mit der "turn_direction_method"-Methode um TURN_DISTANCE_STEP
+        turn_direction_method(TURN_DISTANCE_STEP)
+        color = color_sensor.get_color()
+        # Überprüfe ob unter Sensor die Linie liegt
+        if line_found(color):
+            return True
+        cur_distance += TURN_DISTANCE_STEP
+    return False
+~~~
+
+

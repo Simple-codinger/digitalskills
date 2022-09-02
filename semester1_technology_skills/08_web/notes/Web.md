@@ -3,9 +3,9 @@
 
 # Das Internet
 
-In den nächsten Challenges geht es um Webentwicklung. Es werden neue Sprachen und Technologien vorgestellt, mit deren Hilfe sich **serverseitige** Anwendungen, d.h. Anwendungen die auf einem Server oder einem Cloudservice laufen und  *clientseitige* Anwendungen entwickeln lassen, die im Browser der Nutzer laufen. Diese Challenge stellt Technologien für *clientseitige* Anwendungen vor.
+In den nächsten Challenges geht es um Webentwicklung. Es werden neue Sprachen und Technologien vorgestellt, mit deren Hilfe sich **serverseitige** Anwendungen, d. h. Anwendungen, die auf einem Server oder einem Cloudservice laufen und  *clientseitige* Anwendungen entwickeln lassen, die im Browser der Nutzer laufen. Diese Challenge stellt Technologien für *clientseitige* Anwendungen vor.
 
-Das **Internet** ist ein Netzwerk aus Netzwerken Rechnern (bzw. Servern), die miteinenander kommunizieren, indem sie Daten senden und empfangen. Das erste Internet war das Arpanet, dass die Rechner verschiedener amerikanischer Universitäten miteinander verbunden hat (vgl. https://de.wikipedia.org/wiki/Arpanet). Das heutige Internet verbindet alle per Kabel oder WiFi *angeschlossenen* Rechner der Welt miteinander. 
+Das **Internet** ist ein Netzwerk aus Rechnern (bzw. Servern), die miteinenander kommunizieren, indem sie Daten senden und empfangen. Das erste Internet war das Arpanet, dass die Rechner verschiedener amerikanischer Universitäten miteinander verbunden hat (vgl. https://de.wikipedia.org/wiki/Arpanet). Das heutige Internet verbindet alle per Kabel oder WiFi *angeschlossenen* Rechner der Welt miteinander. 
 
 **Router** sind spezielle Rechner (mit CPU und Speicher), die Daten von einem Punkt zu einem anderen Punkt weiterleiten (d.h. von einem an das Internet angeschlossenen Rechner zu einem anderen Rechner). Router erhalten die Daten von einem Rechner und entscheiden selbst, wie sie diese Daten weitergeben. Die Daten, die von einem Rechner zu einem anderen Rechner über das Internet geschickt werden passieren also mehrere Router.
 
@@ -13,13 +13,13 @@ Das **Internet** ist ein Netzwerk aus Netzwerken Rechnern (bzw. Servern), die mi
 
 **TCP/IP** sind zwei Protokolle, um Daten zwischen zwei Rechnern auszutauschen. In der realen Welt schreiben wir den Empfänger auf einen Brief und den Sender, damit der Empfänger auf den Brief antworten kann.
 
-**IP** (Internet Protocol) beinhaltet einen standardisierten Weg, wie Computer sich identifizieren können. **IP-Adressen** sind eindeutige Adressen für Rechner, die mit dem Internet verbunden sind. Ein Paket von Daten, das von einem Rechner an einen anderen gesendet wird passiert mehrere Router auf dem Weg zum Ziel. Eine IP-Adresse hat typischerweise das Format ```#.#.#.#```, wobei jedes ```#``` für eine Zahl zwischen 0 und 255 steht. Jede Zahl hat dabei die Größe ein Byte, d.h. eine IP-Adresse besteht aus 4 Bytes oder 32 Bits. Somit kann die aktuelle Version 4 des IP Protokolls nur 256<sup>2</sup>, d.h. ca. 4 Milliarden unterscheiden. Eine neuere Version 6 des IP-Protokolls unterstützt 128 Bits, um deutlich mehr Adressen unterscheiden zu können.
+**IP** (Internet Protocol) beinhaltet einen standardisierten Weg, wie Computer sich identifizieren können. **IP-Adressen** sind eindeutige Adressen für Rechner, die mit dem Internet verbunden sind. Ein Paket von Daten, das von einem Rechner an einen anderen gesendet wird passiert mehrere Router auf dem Weg zum Ziel. Eine IP-Adresse hat typischerweise das Format ```#.#.#.#```, wobei jedes ```#``` für eine Zahl zwischen 0 und 255 steht. Jede Zahl hat dabei die Größe ein Byte, d.h. eine IP-Adresse besteht aus 4 Bytes oder 32 Bits. Somit kann die aktuelle Version 4 des IP Protokolls nur 256<sup>4</sup>, d. h. ca. 4 Milliarden unterscheiden. Eine neuere Version 6 des IP-Protokolls unterstützt 128 Bits, um deutlich mehr Adressen unterscheiden zu können.
 
-**TCP** (Transmission Control Protocol) ist ein Protokoll, um Daten zu senden und zu empfangen. TCP erlaubt es einem einzelnen Rechner unter der selben IP-Adresse mehrere Dienste anzubieten. Dies wird durch einen **Port**, d.h. eine Zahl unterstützt, die mit ```:``` an die IP-Adresse angehängt wird. Beispielsweise werden Anfragen für Webseiten meist an den Port 80 gesendet und verschlüsselte Webseiten am Port 443 angefragt. 
+**TCP** (Transmission Control Protocol) ist ein Protokoll, um Daten zu senden und zu empfangen. TCP erlaubt es einem einzelnen Rechner, unter der selben IP-Adresse mehrere Dienste anzubieten. Dies wird durch einen **Port**, d.h. eine Zahl unterstützt, die mit ```:``` an die IP-Adresse angehängt wird. Beispielsweise werden Anfragen für Webseiten meist an den Port 80 gesendet und verschlüsselte Webseiten am Port 443 angefragt. 
 
 TCP ermöglicht es große Dateien (wie z.B. Bilder) in kleineren Teilstücken zu senden. Jedes dieser Teilstücke kann mit einer Nummer versehen werden (z.B. "Teil 1 von 4" oder "Teil 2 von 4"). Somit kann der Empfänger ein Teilstück erneut anfragen, falls dieses nicht angekommen sein sollte. Protokolle wie UDP erlauben den Versand von Daten, garantieren die Lieferung aber nicht. Dies kann beispielsweise für Videokonferenzen sinnvoll sein, bei denen die Nutzer nicht warten wollen, bis alle Daten angekommen sind, weil sie ansonsten nicht mehr synchron mit den anderen Teilnehmern der Videokonferenz kommunizieren können.
 
-**DNS** (Domain Name System) übersetzt für Menschen lesbare Domain-Namen (wie z.B. www.oth-regensburg.de) in IP-Adressen. DNS-Server verfügen über große Tabellen, um zwischen lesbaren Domain-Namen und IP-Adressen übersetzen zu können.
+**DNS** (Domain Name System) übersetzt für Menschen lesbare Domain-Namen (wie z. B. www.oth-regensburg.de) in IP-Adressen. DNS-Server verfügen über große Tabellen, um zwischen lesbaren Domain-Namen und IP-Adressen übersetzen zu können.
 
 # Das Web
 
@@ -35,7 +35,7 @@ Eine URL ist eine Adresse die beispielsweise in die Adresszeile des Browsers ein
 * ```www``` ist der Hostname (oder Subdomain), der sich auf einen oder mehrere Server des Domain-Names bezieht. Ein Domain-Name kann einen Webserver (```www```) oder einen Mailserver (```mail```) anbieten, d.h. mithilfe der Subdomain lassen sich diese Server gezielt adressieren.
 * ```www.example.com``` ist ein *fully qualified domainname*, um einen Server eindeutig zu identifizieren.
 
-HTTP unterstützt die beiden Methoden **GET** und **POST**. GET ermöglicht es einem Browser eine Datei von einem Webserver als Teil der URL abzufragen und POST erlaubt es dem Browser zusätzliche Informationen zu senden, die aber nicht Teil der URL sind. Besonders sensitive Daten wie Passwörter oder Kreditkarteninformationen sollten niemals per GET als Teil der URL übermittelt werden. Beide Methoden erzeugen immer einen **request** an einen Webserver, der vom Server immer mit einer **response** beantwortet wird.
+HTTP unterstützt unter anderem die beiden Methoden **GET** und **POST**. GET ermöglicht es einem Browser eine Datei von einem Webserver als Teil der URL abzufragen und POST erlaubt es dem Browser zusätzliche Informationen zu senden, die aber nicht Teil der URL sind. Besonders sensitive Daten wie Passwörter oder Kreditkarteninformationen sollten niemals per GET als Teil der URL übermittelt werden. Beide Methoden erzeugen immer einen **request** an einen Webserver, der vom Server immer mit einer **response** beantwortet wird.
 
 Ein GET-request beginnt wie folgt:
 
@@ -60,7 +60,7 @@ Die Schlüssel und Wertpaare (```Host: www.example.com``` und ```Content-Type: t
 
 Tippt man ```http://www.oth-regensburg.de/``` in die Adresszeile des Browsers und klickt dann, nachdem die Website geladen wurde erneut in die Adresszeile, hat sich die URL in ```https://www.oth-regensburg.de/``` verändert.
 
-Mithilfe der Chrome Developer Tools, einem Werkzeug für Webentwickler, lässt sich nachvollziehen, was passiert ist. Dazu öffnet man ein neues Incognito-Browserfenster, um die bisherige History an Webseitenaufrufen auszublenden. Die Developer Tools lassen sich durch Rechtsklick auf eine beliebige Stelle auf der Webseite aufrufen (Rechtsklick => Inspect).
+Mithilfe der Chrome Developer Tools, einem Werkzeug für Webentwickler, lässt sich nachvollziehen, was passiert ist. Dazu öffnet man ein neues Incognito-Browserfenster, um die bisherige History an Webseitenaufrufen auszublenden. Die Developer Tools lassen sich durch Rechtsklick auf eine beliebige Stelle auf der Webseite aufrufen (Rechtsklick => Inspect / Untersuchen), oder durch Drücken der F12-Taste auf der Tastatur. 
 
 Im Tab Network lässt sich erkennen, dass der Aufruf der URL zu insgesamt 46 requests an den Webserver geführt hat. Der Webserver hat dem Browser als response mitgeteilt, dass er weitere Bilder, Texte und andere Daten vom Server anfragen muss, um die Seite korrekt darzustellen:
 
@@ -132,7 +132,7 @@ Die folgende Liste enthält beispielhafte **HTTP status Codes**:
 
 # HTML
 
-Das Internet und HTTP erlauben es Nachrichten zwischen Browser und Server auszutauschen spezifizieren aber nicht den Inhalt dieser Nachrichten (nur die Header). Der Inhalt von Webseiten wird in der Sprache **HTML** (Hypertext Markup Language) geschrieben und kann vom Browser interpretiert und dargestellt werden. HTML ist keine Programmiersprache, sondern wird dazu verwendet Texte so zu strukturieren, damit sie korrekt auf einer Webseite dargestellt werden.
+Das Internet und HTTP erlauben es, Nachrichten zwischen Browser und Server auszutauschen, spezifizieren aber nicht den Inhalt dieser Nachrichten (nur die Header). Der Inhalt von Webseiten wird in der Sprache **HTML** (Hypertext Markup Language) geschrieben und kann vom Browser interpretiert und dargestellt werden. HTML ist keine Programmiersprache, sondern wird dazu verwendet, Texte so zu strukturieren, damit sie korrekt auf einer Webseite dargestellt werden.
 
 Eine einfache HTML-Seite (```hello_0.html```) sieht wie folgt aus:
 
@@ -151,13 +151,13 @@ Eine einfache HTML-Seite (```hello_0.html```) sieht wie folgt aus:
 </html>
 ~~~
 
-Um diese in replit anzuzeigen auf den Button Run klicken. Das Preview-Fenster auf der rechten Seite in replit zeigt die Meldung "Not Found", da dort nur eine Datei ```index.html``` angezeigt wird. Durch Klick auf den Button "Open in a new tab" rechts oben im Preview-Fenster lässt sich ein neuer Browser-Tab öffnen. Fügt man dort den Dateinamen ```/hello_0.html``` an die URL an, wird die Seite korrekt angezeigt.
+Um diese in replit anzuzeigen, auf den Button Run klicken. Das Preview-Fenster auf der rechten Seite in replit zeigt die Meldung "Not Found", da dort nur eine Datei ```index.html``` angezeigt wird. Durch Klick auf den Button "Open in a new tab" rechts oben im Preview-Fenster lässt sich ein neuer Browser-Tab öffnen. Fügt man dort den Dateinamen ```/hello_0.html``` an die URL an, wird die Seite korrekt angezeigt.
 
 Die Bestandteile der HTML-Seite im Detail:
 
 * Die erste Zeile ```<!DOCTYPE html>``` legt fest, dass die Datei dem Standard HTML folgt
 * ```<!-- Demonstrates HTML -->``` ist ein Kommentar für Entwickler der Website, der nicht auf der Webseite angezeigt wird.
-*  ```<html>``` und ```</html>``` sind HTML-**Tags**, d.h. Wörter in spitzen Klammern. ```<html>``` ist ein öffnender und ```</html>``` ein schließender Tag. Beide Tags zusammen ergeben ein HTML-**Element**. Die beiden ```html ```Tags markieren den Start und das Ende der HTML-Seite. Tags können auch **Attribute** enthalten, das Attribut ```lang="en"``` legt deutsch als die Sprache für die Webseite fest. Die Festlegung der Sprache hilft dem Browser die Webseite bei Bedarf zu übersetzen. Attribute sind Schlüssel-Wert-Paare.
+*  ```<html>``` und ```</html>``` sind HTML-**Tags**, d. h. Wörter in spitzen Klammern. ```<html>``` ist ein öffnender und ```</html>``` ein schließender Tag. Beide Tags zusammen ergeben ein HTML-**Element**. Die beiden ```html ```Tags markieren den Start und das Ende der HTML-Seite. Tags können auch **Attribute** enthalten, das Attribut ```lang="en"``` legt Englisch als die Sprache für die Webseite fest. Die Festlegung der Sprache hilft dem Browser, die Webseite bei Bedarf zu übersetzen. Attribute sind Schlüssel-Wert-Paare.
 * Innerhalb des ```html```-Elements sind zwei weitere Elemente ```head``` und ```body``` verschachtelt. beide sind Kindelemente des Elternelements ```html```. Innerhalb des Elements ```body``` befindet mit dem Text ```hello body```, ein weiteres Kindelement.
 
 Die Webseite wird im Speicher des Browsers als baumartige Datenstruktur angelegt:
@@ -170,7 +170,7 @@ HTML ermöglicht es die Struktur von Webseiten festzulegen. Im Web lassen zahlre
 
 Mithilfe des W3C Validierers lässt sich überprüfen, ob der HTML-Code valide ist: https://validator.w3.org/#validate_by_input
 
-Die HTML-Datei ```paragraphs_0.html```zeigt, wie sich Textabsätze mit HTML formatieren lassen (Die Texte lassen sich aus eine Website wie https://lipsum.com/ kopieren) :
+Die HTML-Datei ```paragraphs_0.html``` zeigt, wie sich Textabsätze mit HTML formatieren lassen (Die Texte lassen sich aus eine Website wie https://lipsum.com/ kopieren) :
 
 ~~~html
 <!DOCTYPE html>
@@ -285,7 +285,7 @@ Tabellen beginnen mit dem Tag ```<table>```, die Tags ```<tr>```repräsentieren 
 
 
 
-Das Beispiel ```image.html``` zeigt wie sich Bilder in Webseiten einbinden lassen:
+Das Beispiel ```image.html``` zeigt, wie sich Bilder in Webseiten einbinden lassen:
 
 ~~~html
 <!DOCTYPE html>
@@ -382,7 +382,7 @@ Das folgende Beispiel ```search_0.html``` zeigt, wie es mithilfe eines Formulars
 </html>
 ~~~
 
-Das Element ```form``` erlaubt es mehrere Eingaben des Nutzers zu erfassen und an einen Server zu senden. Das Attribut ```action``` legt fest, dass die Such-URL von Google aufgerufen werden soll, wenn das Formular abgeschickt wird. Das Element ```input``` ermöglicht die Eingabe eines Suchbegriffs, das Attribut ```name``` legt den Schlüssel der Variable für die URL fest, die Eingabe des Nutzers ist der Wert. Gibt der Nutzer *robot* ein und klickt auf den Absendebutton (```<input type="submit">```) erzeugt der Browser die URL ```https://www.google.de/search?q=robot``` und versendet damit eine Suchanfrage an Google.
+Das Element ```form``` erlaubt es, mehrere Eingaben des Nutzers zu erfassen und an einen Server zu senden. Das Attribut ```action``` legt fest, dass die Such-URL von Google aufgerufen werden soll, wenn das Formular abgeschickt wird. Das Element ```input``` ermöglicht die Eingabe eines Suchbegriffs, das Attribut ```name``` legt den Schlüssel der Variable für die URL fest, die Eingabe des Nutzers ist der Wert. Gibt der Nutzer *robot* ein und klickt auf den Absendebutton (```<input type="submit">```) erzeugt der Browser die URL ```https://www.google.de/search?q=robot``` und versendet damit eine Suchanfrage an Google.
 
 # CSS
 
@@ -554,7 +554,7 @@ Die obigen Beispiele haben HTML-Elemente direkt über den Namen des Elements sel
 </html>
 ~~~
 
-Eine Klasse lässt sich mit CSS durch ergänzen eines ```.``` vor den Selektor. Der Name des Selektors ist jetzt kein Name eines Elements mehr sondern eine selbstgewählte Bezeichnung. Im obigen Beispiel wurden die Klassen ```.centered```,  ```.large```, ```.medium``` und ```.small``` erstellt.
+Eine Klasse lässt sich mit CSS durch Ergänzen eines ```.``` vor den Selektor festlegen. Der Name des Selektors ist jetzt kein Name eines Elements mehr, sondern eine selbstgewählte Bezeichnung. Im obigen Beispiel wurden die Klassen ```.centered```,  ```.large```, ```.medium``` und ```.small``` erstellt.
 
 Soll ein HTML-Element mit den erstellten Klassen formatiert werden, kann diesem Element das Attribut ```class``` mit den gewünschten Klassen als Werte übergeben werden (Achtung: Klassen durch Leerzeichen, nicht durch Komma trennen).
 
@@ -604,7 +604,7 @@ Das dazugehörige CSS steht in ```home.css```:
 
 Das HTML-Dokument enthält eine neue Zeile ```link...``` zur Einbindung der CSS-Anweisungen aus einer weiteren Datei vom Server. ```home.css``` enthält alle CSS-Anweisungen, die vorher im Element ```style``` im ```head``` der HTML-Datei waren.
 
-Das Auslagern in eine separate CSS-Datei ist ein Grund, warum einb Browser mehrere requests an einen Webserver sendet, bis eine Webseite vollständig auf dem Browser dargestellt werden kann.
+Das Auslagern in eine separate CSS-Datei ist ein Grund, warum ein Browser mehrere requests an einen Webserver sendet, bis eine Webseite vollständig auf dem Browser dargestellt werden kann.
 
 CSS ermöglicht zusätzlich eine Selektion von Elementen über das Attribut ```id```. Die HTML-Elemente erhalten das Attribut ```id```, um die CSS Formatierung mit ```#``` zu erhalten (```paragraphs_1.html```):
 
@@ -636,13 +636,13 @@ CSS ermöglicht zusätzlich eine Selektion von Elementen über das Attribut ```i
 </html>
 ~~~
 
-Im obigen Beispiel erscheint nur der erste Textabsatz in einer größeren Schriftart. Im Gegensatz zu Klassen  dürfen ```ids``` nur einem Element auf der HTML-Seite zugewiesen werden. D.h. ers darf kein zweites  HTML-Element mit dem Attribut ```id="first"``` auf der gleichen Seite geben.
+Im obigen Beispiel erscheint nur der erste Textabsatz in einer größeren Schriftart. Im Gegensatz zu Klassen  dürfen ```ids``` nur einem einzigen Element auf der HTML-Seite zugewiesen werden. D.h. es darf kein zweites HTML-Element mit dem Attribut ```id="first"``` auf der gleichen Seite geben.
 
-In Chrome lassen sich nach Rechtsklick auf den Inhalt der Website und Auswahl von Inspect aus dem Kontextmenü die CSS-Anweisungen im Tab Elements ansehen und manipulieren. Dies ändert nicht den Quellcode der Seite ermöglicht aber ein Experimentieren mit Live-Ansicht.
+In Chrome lassen sich nach Rechtsklick auf den Inhalt der Website und Auswahl von Inspect (Untersuchen) aus dem Kontextmenü die CSS-Anweisungen im Tab Elements ansehen und manipulieren. Dies ändert nicht den Quellcode der Seite ermöglicht aber ein Experimentieren mit Live-Ansicht.
 
-Für CSS gibt es zahlreiche Quellen im Netz auf denen sich CSS-Eigenschaften und mögliche Werte nachlesen lassen. Sie müssen und können diese als Entwickler nicht alle auswendig kennen.
+Für CSS gibt es zahlreiche Quellen im Netz, auf denen sich CSS-Eigenschaften und mögliche Werte nachlesen lassen. Sie müssen und können diese als Entwickler nicht alle auswendig kennen.
 
-Zum Schluss zeigt das Beispiel wie sich die Darstellung einer Webseite interaktiv anpassen lässt am Beispiel eines Link der seine Darstellung anpasst, wenn Nutzer mit der Maus über den Link fahren (```link_3.html```):
+Zum Schluss zeigt das Beispiel, wie sich die Darstellung einer Webseite interaktiv anpassen lässt, am Beispiel eines Links, der seine Darstellung anpasst, wenn Nutzer mit der Maus über den Link fahren (```link_3.html```):
 
 ~~~html
 <!DOCTYPE html>
@@ -791,7 +791,7 @@ Das Beispiel ```table_bootstrap.html``` zeigt den um die Klasse ergänzten Code:
 
 ~~~
 
-Öffnet man diese Seite im Browser wird die Tabelle so formatiert, wie in der Dokumentation von Bootstrap dargestellt.
+Öffnet man diese Seite im Browser, wird die Tabelle so formatiert, wie in der Dokumentation von Bootstrap dargestellt.
 
 Auch die Google-Suchseite lässt sich mit Bootstrap anpassen:
 
@@ -841,11 +841,11 @@ Auch die Google-Suchseite lässt sich mit Bootstrap anpassen:
 
 Die Seite beginnt mit einem ```<div>``` Tag, der die Inhalte einrückt und an die Breite des Bildschirms anpasst. Anschließend folgt eine Liste Elementen und Klassen entsprechend der Bootstrap-Dokumention, um die Links und Buttons im Header anzuzeigen. Abschließend folgt das Bild einer Katze und weitere Klassen für das Suchformular.
 
-Kleinere Anpassungen der Abstände erfolgen mit den CSS-Klassen ```w-25```, ```mt-4``` oder ```m-3```. Sie müssen Bootstrap nicht bis ins Detail beherrschen, aber erkennen, dass Frameworks helfen Entwicklungsarbeit zu beschleunigen und Anpassungen im Detail (wie die Veränderung der Abstände) dann als Finetuning erfolgen kann.
+Kleinere Anpassungen der Abstände erfolgen mit den CSS-Klassen ```w-25```, ```mt-4``` oder ```m-3```. Sie müssen Bootstrap nicht bis ins Detail beherrschen, aber erkennen, dass Frameworks helfen, Entwicklungsarbeit zu beschleunigen und Anpassungen im Detail (wie die Veränderung der Abstände) dann als Finetuning erfolgen kann.
 
 # JavaScript
 
-Bisher haben wir HTML, CSS und Bootstrap kennengelernt. Zusammen helfen Sie die Webseiten ansprechend zu gestalten. Die Webseiten sind aber immer statisch, d.h. Nutzer können auf der Seite zwar auf Links klicken, sie werden dann aber immer zu einer weiteren Seite weitergeleitet. Mithilfe von **JavaScript** lassen sich Webseiten interaktiver gestalten.
+Bisher haben wir HTML, CSS und Bootstrap kennengelernt. Zusammen helfen Sie, die Webseiten ansprechend zu gestalten. Die Webseiten sind aber immer statisch, d. h. Nutzer können auf der Seite zwar auf Links klicken, sie werden dann aber immer zu einer weiteren Seite weitergeleitet. Mithilfe von **JavaScript** lassen sich Webseiten interaktiver gestalten.
 
 Die Syntax ähnelt der Syntax von Python und für alle Scratch Elemente gibt es Entsprechungen in JavaScript:
 
@@ -1000,7 +1000,7 @@ Mit anonymen Funktionen (d.h. Funktionen ohne Namen) lassen sich diese Events au
 </html>
 ~~~
 
-Der Funktion ```addEventListener``` wird als zweiter Parameter eine Funktion ohne Namen ```function(event)``` übergeben. Diese Funktion erhält automatisch, wenn sie aufgerufen wird, einen Parameter ```event```. Dieser kann dann mittels ```event.preventDefault()``` verhindern, dass das Formular Daten an eine andere Webseite übermittelt (vgl. ```return false;```) aus dem obigen Beispiel.
+Der Funktion ```addEventListener``` wird als zweiter Parameter eine Funktion ohne Namen ```function(event)``` übergeben. Diese Funktion erhält automatisch, wenn sie aufgerufen wird, einen Parameter ```event```. Dieser kann dann mittels ```event.preventDefault()``` verhindern, dass das Formular Daten an eine andere Webseite übermittelt (vgl. ```return false;``` aus dem obigen Beispiel).
 
 Mittels JavaScript lässt sich auch das Aussehen der Seite verändern (```hello_js_3.html```):
 
@@ -1038,7 +1038,7 @@ Mittels JavaScript lässt sich auch das Aussehen der Seite verändern (```hello_
 
 Bei jedem, Klick (= event ```click```) auf einen Button wird jeweils eine anonyme Funktion aufgerufen. Diese verändert dann die Farbe des Elements ```body``` der Webseite.
 
-JavaScript kann auch dazu verwendet werden ein HTML-Element blinken zu lassen:
+JavaScript kann auch dazu verwendet werden, ein HTML-Element blinken zu lassen:
 
 ~~~html
 <!DOCTYPE html>
@@ -1112,11 +1112,11 @@ Das folgende Beispiel implementiert ein Formular mit Autocomplete unter Verwendu
 </html>
 ~~~
 
-In ```large.js``` wird ein Array aus Wörtern definiert. Mithilfe des Events ```keyup``` wird jedesmal eine anonyme Funktiopn aufgerufen, wenn die Nutzer eine Eingabe in dem Eingabefeld machen, d.h. eine Taste loslassen. 
+In ```large.js``` wird ein Array aus Wörtern definiert. Mithilfe des Events ```keyup``` wird jedesmal eine anonyme Funktion aufgerufen, wenn die Nutzer eine Eingabe in dem Eingabefeld machen, d. h. eine Taste loslassen. 
 
 Sieht man sich die Seite im Browser an, entsteht während des Tippens eine Liste von Suchbegriffen unter dem Eingabefeld.
 
-Das Beispiel ```geolocation.html```zeigt, wie sich die Koordinaten des Nutzers ermitteln lassen:
+Das Beispiel ```geolocation.html``` zeigt, wie sich die Koordinaten des Nutzers ermitteln lassen:
 
 ~~~html
 <!DOCTYPE html>

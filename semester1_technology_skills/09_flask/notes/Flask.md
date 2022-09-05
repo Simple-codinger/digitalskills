@@ -3,9 +3,9 @@
 
 # Webentwicklung
 
-In dieser Woche werden die bisherigen Technologien (d.h. Python und Datenbanken) dazu verwendet um Applikationen für das Web zu entwickeln.
+In dieser Woche werden die bisherigen Technologien (d. h. Python, SQL und HTML) dazu verwendet, um Applikationen für das Web zu entwickeln.
 
-In der letzten Woche wurde ein in replit integrierter Server verwendet. Dieses Programm lauscht auf eigehende Anfragen (requests) und antwortet mit statischen Inhalten wie HTML-Dateien, Bildern und JavaScript. Aber der dieser Server kann keine anderen Anfragen wie beispielsweise Formulareingaben von den Nutzern verarbeiten. In dieser Challenge geht es um die Entwicklung serverseitiger Webanwendungen.
+In der letzten Woche wurde ein in replit integrierter Server verwendet. Dieses Programm lauscht auf eigehende Anfragen (Requests) und antwortet mit statischen Inhalten wie HTML-Dateien, Bildern und JavaScript. Aber der dieser Server kann keine komplexeren Anfragen, wie beispielsweise Formulareingaben von den Nutzern, verarbeiten. In dieser Challenge geht es um die Entwicklung serverseitiger Webanwendungen.
 
 Eine URL kann wie folgt aussehen:
 
@@ -29,7 +29,7 @@ http://www.example.com/folder/file.html
 
 Den Teil ```/folder/file.html``` nennt man einen **Pfad** oder eine **Route**. 
 
-Eine URL kann auch Parameter aus einem Formular enthalten:
+Eine URL kann auch Parameter enthalten:
 
 ~~~
 http://www.example.com/route?key=value
@@ -43,13 +43,13 @@ HOST: www.google.com
 ...
 ~~~
 
-Für eine solche Anfrage wird ein Webserver benötigt, der solche HTTP-request-header *parsen*, d.h. analysieren kann und in Abhängigkeit der Route und der Parameter unterschiedliche Seiten ausliefern kann.
+Für eine solche Anfrage wird ein Webserver benötigt, der solche HTTP-Request-Header *parsen*, d. h. analysieren, kann und in Abhängigkeit der Route und der Parameter unterschiedliche Seiten ausliefern kann.
 
 # Flask
 
 Wir verwenden Python und die Bibliothek Flask, um einen eigenen Webserver zu erstellen.
 
-Flask ist ein **Framework**, d.h. neben der Code-Bibliothek liefert Flask auch eine Reihe von Konventionen, wie die Bibliothek zu benutzen ist. Beispielsweise enthält Flask Funktionen die verwendet werden können, um HTTP-requests zu parsen. Zusätzlich aber erwartet Flask, dass die Webapplikation wie folgt strukturiert ist: 
+Flask ist ein **Framework**, d. h. neben der Code-Bibliothek liefert Flask auch eine Reihe von Konventionen, wie die Bibliothek zu benutzen ist. Beispielsweise enthält Flask Funktionen, die verwendet werden können, um HTTP-Requests zu parsen. Zusätzlich aber erwartet Flask, dass die Webapplikation wie folgt strukturiert ist: 
 
 ```
 app.py
@@ -57,8 +57,8 @@ static/
 templates/
 ```
 
-* `app.py` enthält den Python Code für den Server
-* `static/` ist ein Verzeichnis statischer Dateien wie Bilder, CSS und JavaScript
+* `app.py` enthält den Python-Code für den Server,
+* `static/` ist ein Verzeichnis statischer Dateien wie Bilder, CSS und JavaScript,
 * `templates/` ist ein Verzeichnis, das HTML-Dateien als Vorlagen für die Seiten des Webservers enthält.
 
 Andere Frameworks für Webserver verwenden andere Konventionen.
@@ -75,9 +75,9 @@ def index():
     return render_template("index.html")
 ~~~
 
-* Zuerst wird ```Flask``` (und ein paar weitere Funktionen) aus der Bibliothek ```flask``` importiert
-* Anschließend wird eine Variable ```app``` erstellt, indem der Funktion ```Flask``` der Name der Python Datei (```__name__``` entspricht ```app.py```) übergeben wird
-* Anschließend erstellen wir eine Funktion ```@app.route```  für die Route ```/```. ```@app.route()``` ist ein **decorator**, d.h. eine eine Funktion die eine andere Funktionen mit zusätzlichen Features austattet (mehr müssen wir erstmal nicht wissen)
+* Zuerst wird ```Flask``` (und ein paar weitere Funktionen) aus der Bibliothek ```flask``` importiert.
+* Anschließend wird eine Variable ```app``` erstellt, indem der Funktion ```Flask``` der Name der Python-Datei (```__name__``` entspricht ```"app.py"```) übergeben wird.
+* Anschließend erstellen wir eine Funktion ```@app.route```  für die Route ```/```. ```@app.route()``` ist ein **decorator**, d.h. eine Anmerkung, die eine andere Funktionen mit zusätzlichen Features austattet (mehr müssen wir erstmal nicht wissen).
 * Die Funktion ```index()``` *rendert* (später) das Template ```index.html``` oder schickt direkt (jetzt) eine HTML-Antwort an den Client zurück
 
 Die Datei ```index.html``` befindet sich im Ordner ```templates/``` und sieht wie folgt aus:
@@ -102,7 +102,7 @@ Das folgende Kommando in der Shell von replit startet den Webserver:
  flask run --host=0.0.0.0
  ```
 
-In replit öffnet sich anschließend eine Browservorschau und zeigt eine Seite wie die folgende an (die URL ist je nach replit-Account unterschiedlich):
+In replit öffnet sich anschließend eine Browservorschau und zeigt eine Seite, wie die folgende, an (die URL ist je nach replit-Account unterschiedlich):
 
 ![Hello Flask](./img/09_hello_flask.png)
 
@@ -114,7 +114,7 @@ Durch Klick auf das Icon
 
 Wenn man jetzt die URL anpasst, indem man ```/?name=Skywalker``` hinzufügt, öffnet sich die Seite weiterhin, aber der Inhalt bleibt gleich.
 
-Um Skywalker persönlich zu begrüßen muss der Code in ```app.py``` wie folgt angepasst werden:
+Um Skywalker persönlich zu begrüßen, muss der Code in ```app.py``` wie folgt angepasst werden:
 
 ~~~python
 from flask import Flask, render_template, request
@@ -155,7 +155,7 @@ Um sicherzustellen, dass das Template neu geladen wird, den Server auf der Komma
 
 # Formulare
 
-Ergänzen von ```index.html```um ein Formular:
+Ergänzen von ```index.html``` um ein Formular:
 
 ~~~html
 <!DOCTYPE html>
@@ -174,7 +174,7 @@ Ergänzen von ```index.html```um ein Formular:
 </html>
 ~~~
 
-Das Formular wird an die Route ```greet``` gesendet und verfügt über eine Eingabemöglichkeit für den Namen (```name```) und einen Button, um das Formular abzusenden (```<input type="submit" value="Send">```).
+Das Formular wird an die Route ```/greet``` gesendet und verfügt über ein Eingabefeld für den Namen (```name```) und einen Button, um das Formular abzusenden (```<input type="submit" value="Send">```).
 
 Nach Neustart des Servers und Klick auf den Button enthält die URL zwar die Daten aus dem Formular (```/greet?name=Skywalker```), aber die Webseite zeigt einen Fehler:
 
@@ -199,7 +199,7 @@ def greet():
 
 Die ```index()``` Funktion gibt jetzt nur noch das Formular an den Client zurück.
 
-Wenn das Formular jetzt abgeschickt wird erhält der Nutzer den folgenden Fehler:
+Wenn das Formular jetzt abgeschickt wird, erhält der Nutzer den folgenden Fehler:
 
 ![09_template_not_found](./img/09_template_not_found.png)
 
@@ -212,9 +212,9 @@ File "/opt/virtualenvs/python3/lib/python3.8/site-packages/flask/templating.py",
 jinja2.exceptions.TemplateNotFound: greet.html
 ~~~
 
-Gemäß der Fehlermeldungen ging der request an die korrekte Route, aber Flask konnte das Template ```greet.html```nicht finden.
+Gemäß der Fehlermeldungen ging der Request an die korrekte Route, aber Flask konnte das Template ```greet.html``` nicht finden.
 
-Um den Fehler zu beheben muss ein neues Template ```greet.html```im Ordner ```templates```angelegt werden, das wie zuvor die Variable ```name```ausliest:
+Um den Fehler zu beheben, muss ein neues Template ```greet.html``` im Ordner ```templates``` angelegt werden, das wie zuvor die Variable ```name``` ausliest:
 
 ~~~html
 <!DOCTYPE html>
@@ -268,7 +268,7 @@ Dazu wird ein neues Template ```layout.html```erstellt:
 
 Mithilfe der Syntax ```{% %}``` lassen sich Platzhalter oder andere Codebestandteile in Templates integrieren. Der Block wird als ```body``` bezeichnet, da dort das HTML für den ```<body>``` der HTML eingefügt werden soll.
 
-Jetzt kann ```index.html``` so angepasst werden, dass das Gerüst aus ```layout.html``` verwendet wird und nur noch die Bestandteile aus ```body```-Blocks ergänzt werden:
+Jetzt kann ```index.html``` so angepasst werden, dass sie das Gerüst aus ```layout.html``` wiederverwendet und nur noch um die Bestandteile des ```body```-Blocks ergänzt:
 
 ~~~html
 {% extends "layout.html" %}
@@ -283,7 +283,7 @@ Jetzt kann ```index.html``` so angepasst werden, dass das Gerüst aus ```layout.
 
 Der Block ```{% extends "layout.html" %}``` teilt Flask mit, dass ```index.html```  ein anderes Template (```layout.html```) benötigt und den Code des Platzhalters ```{block body}``` durch das Formular ersetzt.
 
-Somit wurde enthält die Datei ```index.html```  nur noch das Formular und der *duplicate code* aus entfernt und in das Template ausgelagert.
+Somit enthält die Datei ```index.html```  nur noch das Formular und der *duplicate code* wurde entfernt und in das Template ausgelagert.
 
 Das Template ```greet.html``` kann analog angepasst werden:
 
@@ -297,7 +297,7 @@ Das Template ```greet.html``` kann analog angepasst werden:
 
 Die Sprache zur Erstellung der Templates heißt Jinja und wird von Flask unterstützt. Andere Frameworks arbeiten nach einem ähnlichen Mechanismus, auch wenn sich die Syntax unterscheidet.
 
-Nach Neustart des Server erhält der Client nach einer Anfrage der Startseite des Servers eine vollständige HTML-Datei:
+Nach Neustart des Servers erhält der Client nach einer Anfrage der Startseite des Servers eine vollständige HTML-Datei:
 
 ~~~html
 <!DOCTYPE html>
@@ -322,7 +322,7 @@ Die Einrückung des automatisch generierten Codes passt nicht mehr, das ist aber
 
 # POST
 
-Die obige Form verwendet die http-Methode ```GET```, um die Anfrage an den Server zu senden, d.h. die Formulardaten sind Teil der URL (z.B. ```/?name=Skywalker```). Sollen die Daten nicht in der URL sichtbar sein, sondern als Teil der Anfrage gesendet werden, muss nur die Methode im Formular von ```GET``` auf ```POST``` geändert werden:
+Die obige Form verwendet die http-Methode ```GET```, um die Anfrage an den Server zu senden, d. h. die Formulardaten sind Teil der URL (z.B. ```/greet?name=Skywalker```). Sollen die Daten nicht in der URL sichtbar sein, sondern als Teil der Anfrage gesendet werden, muss nur die Methode im Formular von ```GET``` auf ```POST``` geändert werden:
 
 ~~~~
 <form action="/greet" method="post">
@@ -332,7 +332,7 @@ Schickt man jetzt das Formular ab, erscheint die folgende Fehlermeldung:
 
 ![09_method_not_allowed](./img/09_method_not_allowed.png)
 
-Die Route in Flask muss ebenfalls angepasst werden, über Anfragen über die Methode ```POST``` verarbeiten zu können:
+Die Route in Flask muss ebenfalls angepasst werden, um Anfragen über die Methode ```POST``` verarbeiten zu können:
 
 ~~~python
 @app.route("/greet", methods=["POST"])
@@ -341,13 +341,13 @@ def greet():
   return render_template("greet.html", name=name)
 ~~~
 
-```request.args``` enthält Daten von ```GET``` Anfragen, ```request.form.get``` enthält Daten von ```POST```-Anfragen 
+```request.args``` enthält Parameter-Daten von ```GET``` Anfragen, ```request.form.get``` enthält Daten von ```POST```-Anfragen 
 
 Ruft man jetzt nach einem Neustart des Servers die Startseite auf und schickt das Formular ab, sind die Daten aus dem Formular aus der URL verschwunden und die Nutzer sehen nur die URL ```/greet```.
 
 Lädt man die ```/greet```-Seite neu, merkt sich der Browser die letzte Anfrage und fragt, ob die Daten per ```POST```erneut übermittelt werden sollen.
 
-```GET``` requests sind hilfreich, weil der Browser die Inhalte des Formulars in der Browser-History abspeichern kann und Links inkl. zusätzlichen Informationen übergeben werden können, wie die folgende Google-Suche:
+```GET```-Requests sind hilfreich, weil der Browser die Inhalte des Formulars in der Browser-History abspeichern kann und Links inkl. zusätzlichen Informationen übergeben werden können, wie die folgende Google-Suche:
 
 ~~~
 https://www.google.com/search?q=google+current+time
@@ -355,13 +355,13 @@ https://www.google.com/search?q=google+current+time
 
 # Model View Controller (MVC)
 
-Das Framework Flask implementiert mit **Model-View-Controller** ein bestimmtes *Entwurfsmuster*, bzw. eine bestimmte Programmierphilosophie:
+Das Framework Flask implementiert mit dem **Model-View-Controller**-Konzept ein bestimmtes *Entwurfsmuster*, bzw. eine bestimmte Programmierphilosophie:
 
 ![09_mvc](./img/09_mvc.png)
 
-Der **Controller** enthält die *Business-Logik*, d.h. den Code der den Input der User entgegennimmt und die Applikation steuert. Dieser Code steht in Flask in der Datei ```app.py```. Der **View** enthält die Templates und die  Darstellung des User Interfaces, d.h. den HTML- und CSS-Code. Das **Model** beinhaltet die Daten der Applikation, z.B. in Form einer SQL-Datenbank oder eines CSV-Files (die Beispiele bisher haben noch kein Model).
+Der **Controller** enthält die *Business-Logik*, d. h. den Code, der den Input der User entgegennimmt und die Applikation steuert. Dieser Code steht in Flask in der Datei ```app.py```. Der **View** enthält die Templates und die  Darstellung des User-Interfaces, d. h. den HTML- und CSS-Code. Das **Model** beinhaltet die Daten der Applikation, z. B. in Form einer SQL-Datenbank oder eines CSV-Files (die Beispiele bisher haben noch kein Model).
 
-Das **Model-View-Controller** ist ein allgemeines *Entwurfsmuster*, das von vielen (Web-)Applikationen implementiert wird.
+Das **Model-View-Controller**-Konzept ist ein allgemeines *Entwurfsmuster*, das von vielen (Web-)Applikationen implementiert wird.
 
 # OTH-Sport
 
@@ -384,7 +384,7 @@ Die Datei ```layout.html``` ist ähnlich wie zuvor:
 
 ~~~
 
-In ```app.py``` das Template ```index.html``` bei Anfragen an die Standardroute ```/``` zurückgegeben:
+In ```app.py``` wird bei Anfragen an die Standardroute ```/``` das Template ```index.html``` zurückgegeben:
 
 ~~~~python
 from flask import Flask, render_template, request
@@ -410,7 +410,7 @@ Wird der Server mit ```flask run --host=0.0.0.0``` gestartet, erscheint Todo im 
 
 Damit Studierende sich für eine bestimmte Sportart registrieren können wird ```index.html``` um ein Formular ergänzt:
 
-~~~python
+~~~html
 {% extends "layout.html" %}
 
 {% block body %}
@@ -442,7 +442,7 @@ def register():
     return render_template("success.html")
 ~~~
 
-Die Route ```/register``` erlaubt die Methode POST und prüft, ob der Name und eine korrekte Sportart im request übermittelt wurden. Falls nicht, wird ein Fehlertemplate (```failure.html```) zurückgeben, falls die Angaben korrekt übermittelt wurden, wird das Template ```success.html``` zurückgegeben.
+Die Route ```/register``` erlaubt die Methode POST und prüft, ob der Name und eine korrekte Sportart im Request übermittelt wurden. Falls nicht, wird ein Fehlertemplate (```failure.html```) zurückgeben. Falls die Angaben korrekt übermittelt wurden, wird das Template ```success.html``` zurückgegeben.
 
  ```failure.html``` sieht wie folgt aus:
 
@@ -566,7 +566,7 @@ def register():
 
 Neben der Trennung von **Controller** und **View** hat sich auch die Wartbarkeit der Web-App verbessert: Soll jetzt eine neue Sportart hinzugefügt werden, reicht es diese in der Liste ```SPORTS``` zu ergänzen. Der Rest funktioniert automatisch.
 
-Sollen Sie Studierende auch für mehrere Sportarten anmelden können, kann man das Formular auf *Checkboxen* wie folgt umbauen:
+Sollen sich Studierende auch für mehrere Sportarten anmelden können, kann man das Formular auf *Checkboxen* wie folgt umbauen:
 
 ~~~html
 {% extends "layout.html" %}
@@ -593,7 +593,7 @@ Sollen sich die Studierenden nur für eine Sportart registrieren können, lässt
 
 Damit sich Studierende auch wirklich anmelden können, müssen die Daten auf dem Server gespeichert werden.
 
-Dazu kann in ```app.py``` ein ```dictionary``` ergänzt werden, das die Registrierungen im Arbeitsspeicher des Webservers ablegt (Codebeispiel aus ```oth_sport_6```):
+Dazu kann die ```app.py``` um ein Dictionary ```REGISTRANTS``` ergänzt werden, das die Registrierungen im Arbeitsspeicher des Webservers ablegt (Codebeispiel aus ```oth_sport_6```):
 
 ~~~python
 from flask import Flask, redirect, render_template, request
@@ -642,7 +642,7 @@ def registrants():
 
  Das Dictionary ```REGISTRANTS``` wird angelegt, um dort die Registierungen der Studierenden für die unterschiedlichen Sportarten abzuspeichern.
 
-Zuerst wird in ```register``` überprüft, ob ```name``` und ```sport``` korrekt an den Webserver übermittelt wurde und anschließend eine entsprechende Fehlermeldung mithilfe des Templates ```error.html``` ausgegeben. Anschließend werden ```name``` und ```sport``` in ```REGISTRANTS``` abgespeichert und der Nutzer wird auf eine weitere Route ```/registrants``` weitergeleitet, auf der die Registrierungen angezeigt werden. 
+Zuerst wird in ```register()``` überprüft, ob ```name``` und ```sport``` korrekt an den Webserver übermittelt wurde und anschließend eine entsprechende Fehlermeldung mithilfe des Templates ```error.html``` ausgegeben. Anschließend werden ```name``` und ```sport``` in ```REGISTRANTS``` abgespeichert und der Nutzer wird auf eine weitere Route ```/registrants``` weitergeleitet, auf der die Registrierungen angezeigt werden. 
 
 Das Template ``` error.html``` zeigt die Fehlermeldung aus ```app.py``` und das Bild eines kaputten Computers:
 
@@ -784,7 +784,7 @@ und an ```render_template``` zur Erstellung des Templates übergeben.
 
 Das obige Template enthält zusätzlich ein Formular, um die Studierenden wieder abzumelden. Hierzu wird an die Route ```/deregister``` die ```id``` des Studierenden übergeben.
 
-Auf der SQLite Shell lässt sich überprüfen, ob die Registrierungen in der Datenbank übernommen wurden:
+Auf der SQLite-Shell lässt sich überprüfen, ob die Registrierungen in der Datenbank übernommen wurden:
 
 ~~~shell
 ~/Digital-Skills09Flask/oth_sport_7$ sqlite3 othsports.db 
@@ -797,7 +797,7 @@ sqlite> SELECT * FROM registrants;
 sqlite> 
 ~~~
 
-Die Router ```/deregister``` erwartet im POST-request einen Parameter ```id``` und entfernet den entsprechenden Eintrag aus der Datenbank:
+Die Route ```/deregister``` erwartet im POST-Request einen Parameter ```id``` und entfernet den entsprechenden Eintrag aus der Datenbank:
 
 ~~~python
 @app.route("/deregister", methods=["POST"])
@@ -903,9 +903,9 @@ Wird der Webserver jetzt neu gestartet, können Studierende zusätzlich eine E-M
 
 # Sessions
 
-Mithilfe von **sessions** können sich Webserver Informationen über die Nutzer merken. Somit wird es möglich, dass Nutzer eingeloggt bleiben oder dass Produkte in einem Warenkorb gespeichert werden. Um dies zu ermöglichen, muss ein Webserver **stateful** sein, d.h. er muss sich zu einer Anfrage zusätzliche Informationen **merken**, um diese einem Nutzer zuordnen zu können. HTTP alleine ist **stateless**, d.h. auf jeden request erfolgt eine response und die Kommunikation zwischen Client und Server ist abgeschlossen.
+Mithilfe von **Sessions** können sich Webserver Informationen über die Nutzer merken. Somit wird es möglich, dass Nutzer eingeloggt bleiben können oder dass Produkte in einem Warenkorb gespeichert werden. Um dies zu ermöglichen, muss ein Webserver **stateful** sein, d. h. er muss sich zu einer Anfrage zusätzliche Informationen **merken**, um diese einem Nutzer zuordnen zu können. HTTP alleine ist **stateless**, d. h. auf jeden Request erfolgt eine Response und die Kommunikation zwischen Client und Server ist abgeschlossen.
 
-Um **stateful** zu werden, kann der server eine zusätzliche Information (```Set-Cookie:```) im Header jeder response versenden:
+Um **stateful** zu werden, kann der Server eine zusätzliche Information (```Set-Cookie:```) im Header jeder response versenden:
 
 ~~~http
 HTTP/1.1 200 OK
@@ -914,9 +914,9 @@ Set-Cookie: session=value
 ...
 ~~~
 
-**Cookies** sind Daten die ein Webserver an den Client versendet, und die der Browser des Clients abspeichert. Meist sind dies große Zufallszahlen oder Zeichenketten, die dazu verwendet werden einen Client eindeutig über mehrere requests hinweg zu identifizieren.
+**Cookies** sind Daten, die ein Webserver an den Client versendet, und die der Browser des Clients abspeichert. Meist sind dies große Zufallszahlen oder Zeichenketten, die dazu verwendet werden einen Client eindeutig über mehrere Requests hinweg zu identifizieren.
 
-In der obigen response des Servers bittet der Server den Browser ein Cookie mit dem Namen ```session``` und dem Wert ```value``` abzuspeichern.
+In der obigen Response des Servers bittet der Server den Browser, einen Cookie mit dem Namen ```session``` und dem Wert ```value``` abzuspeichern.
 
 Wenn der Browser danach einen neuen request an den Server schickt, wird dieses selbe Cookie wieder an den selben Server zurückgeschickt. 
 
@@ -975,7 +975,7 @@ pip install flask_session
 
 ![09_flask_session](./img/09_flask_session.png)
 
-Zuerst wird die ```session```-Bibliothek so konfiguriert, dass die Sessions im Dateisystem des Webservers gespeichert werden werden und beispielsweise nicht in einer separaten Datenbank. Die Variable ```session``` wird als Dictionary verwendet, um den Nutzernamen jedes Besuchers abzuspeichern. Die Bibliothek ```flask_session``` kümmert sich darum, das die Variable ```session``` für alle Besucher des Webservers die korrekten Daten enthält. In unserem Fall soll die Variable den Namen von eingeloggten Nutzern enthalten und keinen Namen, falls die Nutzer nicht eingeloggt sind.
+Zuerst wird die ```session```-Bibliothek so konfiguriert, dass die Sessions im Dateisystem des Webservers gespeichert werden und beispielsweise nicht in einer separaten Datenbank. Die Variable ```session``` wird als Dictionary verwendet, um den Nutzernamen jedes Besuchers abzuspeichern. Die Bibliothek ```flask_session``` kümmert sich darum, das die Variable ```session``` für alle Besucher des Webservers die korrekten Daten enthält. In unserem Fall soll die Variable den Namen von eingeloggten Nutzern enthalten und keinen Namen, falls die Nutzer nicht eingeloggt sind.
 
 Beim ersten Besuch der Website werden die Nutzer automatisch auf die Route ```/login``` weitergeleitet, da die Variable ```session``` noch keinen Wert für den Key ```name``` enthält.
 
@@ -1015,7 +1015,7 @@ Da die Weiterleitung per GET erfolgt, zeigt die Route ```/login``` zunächst das
 
 Wenn sich die Nutzer mit Namen einloggen, werden die Daten des Formulars per POST an die selbe Route gesendet, umd der Nutzername aus dem Formular wird unter dem Key ```name``` in der Variable ```session``` für diesen Nutzer gespeichert. Anschließend wird der Nutzer auf die Route ```/``` weitergeleitet. Dort werden diese jetzt mit ihrem Namen als eingeloggte Nutzer begrüßt, weil die Variable ```session``` jetzt den Nutzernamen unter dem Key ```name``` enthält. Lädt man jetzt die Seite neu oder öffnet sie ein einem neuen Tab, wird der Nutzer wieder namentlich begrüßt.
 
-Die Route ```/logout``` löscht den Wert für ```name``` aus der Variable ```session``` indem sie diese auf ```None``` setzt und den Nutzer wieder auf die Indexseite ```/``` weiterleitet:
+Die Route ```/logout``` löscht den Wert für ```name``` aus der Variable ```session```, indem sie diese auf ```None``` setzt und den Nutzer wieder auf die Indexseite ```/``` weiterleitet:
 
 ~~~python
 @app.route("/logout")
@@ -1053,7 +1053,7 @@ Das Template ```books.html``` erzeugt diese Seite:
 
 In einer Schleife wird für jedes Buch eine Überschrift ```<h2>``` erzeugt, sowie ein Formular mit einem Button zum Absenden des Formulars und einem versteckten Eingabefeld mit ```name=id```. Dieses Feld wird den Nutzern nicht angezeigt, aber die ```id``` des jeweiligen Buchs wird an die Route ```/cart``` beim Absenden des Formulars übermittelt.
 
-In ```app.py``` wird auf einen Datenbank zugegriffen, die alle Bücher des Onlineshops enthält:
+In ```app.py``` wird auf eine Datenbank zugegriffen, die alle Bücher des Onlineshops enthält:
 
 ~~~python
 ...
@@ -1107,11 +1107,11 @@ def cart():
     return render_template("cart.html", books=books)
 ~~~
 
-Der Code ```if request.method == "POST":``` überprüft, ob die Route ```/cart``` über eine URL im Browser (GET) oder über das Absenden des Formulars (POST) aufgerufen wurde: Erfolgt der request über POST wird die ```id``` des Buchs aus dem request ausgelesen und dem Einkaufswagen (```/cart```) hinzugefügt. Erfolgt der request über GET werden die Bücher aus dem Einkaufswagen aus der Datenbank ausgelesen und den Nutzern ein persönlicher Einkaufswafen mithilfe des Templates ```cart.html``` angezeigt. 
+Der Code ```if request.method == "POST":``` überprüft, ob die Route ```/cart``` über eine URL im Browser (GET) oder über das Absenden des Formulars (POST) aufgerufen wurde: Erfolgt der request über POST, wird die ```id``` des Buchs aus dem Request ausgelesen und dem Einkaufswagen (```session["cart"]```) hinzugefügt. Erfolgt der Request über GET werden die Bücher aus dem Einkaufswagen aus der Datenbank ausgelesen und den Nutzern ein persönlicher Einkaufswafen mithilfe des Templates ```cart.html``` angezeigt. 
 
 # Suche - ***Advanced*** und Optional
 
-Dieser Abschnitt zeigt wie serverseitige und clientseitiger Code zusammenspielen können, um interaktive Webapplikationen zu entwickeln, die nicht immer eine komplette Seite vom Server neu laden, sondern Teile der Seite dynamisch vom Server nachladen können.
+Dieser Abschnitt zeigt, wie serverseitige und clientseitiger Code zusammenspielen können, um interaktive Webapplikationen zu entwickeln, die nicht immer eine komplette Seite vom Server neu laden, sondern Teile der Seite dynamisch vom Server nachladen können.
 
 Das Beispiel ```shows_1``` zeigt den Nutzern ein Suchformular, mit dem sie nach Titeln von Fernsehsendungen suchen können. Schicken die Nutzer das Formular ab, wird eine URL mit dem Suchbegriff erzeugt:
 
@@ -1141,7 +1141,7 @@ def search():
     return render_template("search.html", shows=shows)
 ~~~
 
-Die Defaultroute ```/``` zeigt ein Suchformular in das die Nutzer Scuhbegriffe tippen können. Das Formular verwendet die Methode GET, um den Suchbegriff als Teil der URL an die Route ```/search``` zu übermitteln. Die Router ```/search``` sucht nach Sendungen, die den gesuchten Begriff im Titel haben.
+Die Defaultroute ```/``` zeigt ein Suchformular in das die Nutzer Suchbegriffe tippen können. Das Formular verwendet die Methode GET, um den Suchbegriff als Teil der URL an die Route ```/search``` zu übermitteln. Die Route ```/search``` sucht nach Sendungen, die den gesuchten Begriff im Titel haben.
 
 Das Template ```search.html``` verwendet eine Schleife, um eine Liste der passenden Sendungen zu erzeugen:
 
@@ -1193,7 +1193,7 @@ Im Code des Templates ```index.html``` befindet sich JavaScript-Code, der den In
 
 ~~~
 
-Der JavaScript Code selektiert zuerst das Eingabeelement ```<input>``` aus der Website. Dann wird bei jeder Änderung im Eingabefeld (d.h. Nutzer tippen) die Funktion ```fetch``` aufgerufen, die weitere Daten vom Webserver nachlädt, ohne die Seite im Browser neu zu laden. 
+Der JavaScript Code selektiert zuerst das Eingabeelement ```<input>``` aus der Website. Dann wird bei jeder Änderung im Eingabefeld (d. h. Nutzer tippen) die Funktion ```fetch``` aufgerufen, die weitere Daten vom Webserver nachlädt, ohne die Seite im Browser neu zu laden. 
 
 Anschließend wird das Ergebnis von ```fetch``` in der Variable ```shows``` gespeichert und dynamisch in die leere Liste ```<ul>``` auf der Website eingefügt.
 
@@ -1221,9 +1221,9 @@ Startet man ```search_3``` und ruft die URL ```/search?q=c``` im Browser auf, si
 [{"id":63881,"title":"Catweazle"},{"id":65269,"title":"Ace of Wands"},{"id":65270,"title":"The Adventures of Don Quick"},{"id":65271,"title":"Albert and Victoria"},{"id":65272,"title":"All My Children"},...
 ~~~
 
-Diese Daten sind in Standard JSON formatiert und können beliebig verwendet werden, nicht nur für die Erstellung von ```<li>```-Items.
+Diese Daten sind in Standard-JSON formatiert und können beliebig verwendet werden, nicht nur für die Erstellung von ```<li>```-Items.
 
-Der JavaScript Code des Templates fügt die Sendungen dynamisch der Website hinzu:
+Der JavaScript-Code des Templates fügt die Sendungen dynamisch der Website hinzu:
 
 ~~~html
 <!DOCTYPE html>

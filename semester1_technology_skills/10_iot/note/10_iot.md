@@ -144,6 +144,18 @@ Sehr wichtig hier verknüpfen wir jetzt auch über "Link Variable", das Widget m
 ### Variablen Werte setzten
 
 Das Shield auf dem Ihr zuvor den Arduino angebracht habt besitzt neben dem Display, Tasten auch verschiedene Sensoren. Diese wollen wir nun nutzen. 
+Dazu müssen wir zunächst das Carrier-Module in das Arduino Projekt einfügen.
+Das machen wir am besten nach der Zeile
+~~~
+#include "thingProperties.h"
+~~~
+Hier ist der einzufügende Code:
+~~~
+#include <Arduino_MKRIoTCarrier.h>  
+MKRIoTCarrier carrier;
+~~~
+
+
 Als Erstes müssen wir das Ganze Initalisieren, dies passiert in der Setup Methode.
 Den folgenden Codeauschnitt könnt Ihr einfach in euren Code übernehmen, auf einzelne Bestandteile wird später genauer eingegangen. (Die generierte setup-Methode muss gelöscht werden.)
 ~~~
@@ -232,7 +244,7 @@ Da für sehr viele Anwendung nicht nur Daten, die selbst im eigenen Netzwerk ges
 Im folgenden wollen wir eine weitere einfache Anwendung erstellen welche Fakten über Katzen abfrägt: catfact.ninja
 
 ~~~
-  ACHTUNG! Hier muss zuerst im Web Editor ein neuer Sketch angelegt werden, da dieses Beispiel in keinem Zusammenhang zu der Raumtemperatur-Anwendung steht.
+  ACHTUNG! Hier muss zuerst ein neues Thing angelegt werden, da dieses Beispiel in keinem Zusammenhang zu der Wetterstation-Anwendung steht.
 ~~~
 
 Die Setup Methode, includes und Variablen enthalten keine besonderen Änderungen und können direkt übernommen werden.
@@ -260,7 +272,6 @@ void setup() {
     delay(500);
   }
   
-  initCarrierAndDisplay();
   Serial.println("init finished");
   carrier.display.fillScreen(ST7735_BLACK);
   carrier.display.setCursor(0, 60);
@@ -294,7 +305,7 @@ void getDataFromAPI(){
 
   if (client.connected()) {
     handleHttpResponse();
-    beepSound();
+    carrier.Buzzer.beep();
   }
 }
 ~~~

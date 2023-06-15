@@ -260,7 +260,6 @@ void setup() {
     delay(500);
   }
   
-  initCarrierAndDisplay();
   Serial.println("init finished");
   carrier.display.fillScreen(ST7735_BLACK);
   carrier.display.setCursor(0, 60);
